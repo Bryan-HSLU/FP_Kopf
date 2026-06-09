@@ -48,6 +48,11 @@ Klare Modulgrenzen mit definierten Datenübergaben (Stilvektor, 3D-Modell,
 Plan-Objekt) – so ist der lokale POC später ohne Totalumbau in eine Cloud-/
 Mobile-Variante überführbar ([[ADR-0001-lokaler-mvp-poc-opensource]]).
 
+**Zerlegung (entschieden):** Hybrid – Pipeline + **Shared Core**
+([[ADR-0004-architektur-zerlegung-hybrid]]). Engines (Stil · Raum · Solver ·
+Visualisierung · Auswertung) arbeiten gegen ein zentrales **Domänenmodell**
+([[Domaenenmodell-v0]]) plus Stammdaten/Katalog- und Projekt-Layer.
+
 ## Lauf-Plattform des POC (entschieden)
 **Web/Desktop-Kern + Phone-AR-Spike** – siehe
 [[ADR-0002-poc-plattform-und-stack]]. Stack: React + Vite + three.js

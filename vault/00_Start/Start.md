@@ -37,6 +37,7 @@ damit nichts verloren geht.
 
 - [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
 - [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
+- [[Domaenenmodell-v0]] – Raummodell + Plan-Objekt (stabiler Kern)
 
 ### ⚖️ Entscheidungen
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
@@ -44,6 +45,7 @@ damit nichts verloren geht.
 - [[ADR-0001-lokaler-mvp-poc-opensource]] – MVP = lokaler End-to-End-POC, OSS-first
 - [[ADR-0002-poc-plattform-und-stack]] – Web/Desktop-Kern + Phone-AR-Spike
 - [[ADR-0003-raumerfassung-ansatz]] – leichter Ansatz statt Dense Reconstruction
+- [[ADR-0004-architektur-zerlegung-hybrid]] – Hybrid: Pipeline + Shared Core
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
