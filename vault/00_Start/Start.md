@@ -73,6 +73,8 @@ damit nichts verloren geht.
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
 - [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
+- [[Scan-Eval-Notebook-Spezifikation]] – Spec des Mess-Notebooks (Code → 2. Repo)
+- [[Auswertung-Bauvorhaben-Detailkonzept]] – Mengen→Kosten→Gewerke→Zeit + Dokument-Menü
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
