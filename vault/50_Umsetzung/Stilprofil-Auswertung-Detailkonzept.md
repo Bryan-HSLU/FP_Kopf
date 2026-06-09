@@ -47,12 +47,32 @@ Ergebnis-Artefakt **Stilprofil** (Erweiterung des Stilvektors):
 abgeleitete Anforderungen boosten passende Katalog-Items, Palette fließt in
 Material-/`finishes`-Wahl. **Immer soft** – harte Regeln bleiben beim Solver.
 
+> **Wichtig:** Thresholds erzeugen nur *explizite, klare* Anforderungen. Wo Likes
+> mehrdeutig sind, übernimmt der **KI-Kurator** ([[Gestaltungs-Engine-Prioritaetsklassen]]):
+> er interpretiert das Profil und schlägt Möbel **und Relationen** vor → pro
+> Person unterschiedliche, stimmige Auswahl. Threshold = Untergrenze, Kurator =
+> Interpretation darüber.
+
 ## ⚠️ Einordnung „Marke"
 **Marken-Erkennung aus Bildern: nicht empfohlen** – unzuverlässig (Logo selten
 sichtbar) und rechtlich heikel (Marken-/Urheberrecht in der Empfehlung).
 Stattdessen **Merkmals-Ebene** (Material, Form, Farbe) – die trägt dieselbe
 Information („so etwas wie…"). Marken kommen später sauber über
 **Partner-Kataloge** (B2B, Marke = Metadatum, [[Vision-Oekosystem]]).
+
+## Stil-Achsen vs. Stil-Archetypen (erweiterbar, nicht fix)
+Zwei Ebenen, bewusst getrennt:
+- **Achsen (Kriterien):** kontinuierliche Gegensatzpaare → ergeben den Stilvektor.
+  Kandidaten: warm↔kühl · schlicht↔opulent · natürlich↔synthetisch · hell↔dunkel
+  · klassisch↔modern · weich↔kantig · monochrom↔farbig · offen↔geborgen.
+- **Archetypen (benannte Stile):** UX-Ebene, je als Position im Achsen-Raum
+  definiert. Kandidaten: Skandinavisch · Japandi · Minimalistisch · Industrial/
+  Loft · Mid-Century · Boho · Landhaus/Rustikal · Modern/Contemporary · Klassisch/
+  Elegant · Mediterran · Maximalismus · Smart/High-Tech.
+- **Empfehlung: Hybrid** – Swipes ergeben Achsen-Vektor **und** „nächster
+  Archetyp". Neue Stile = nur neue Tag-Konfiguration → beliebig erweiterbar.
+- **Offene Entscheidung:** reines Achsen-Modell vs. Archetypen vs. Hybrid; finaler
+  Satz an Achsen/Archetypen.
 
 ## Ausbaustufen
 - **MVP:** kuratierter Bild-Katalog, alle drei Ebenen vorab getaggt (JSON),

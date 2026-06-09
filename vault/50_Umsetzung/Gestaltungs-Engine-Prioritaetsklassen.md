@@ -34,9 +34,10 @@ Stauraum; P3: Dekor) und Möblierung (P1: Bett/Sofa/Tisch; P2: Beistell/Licht;
 P3: Dekor) → trägt alle drei Anwendungsfälle aus [[ADR-0005-mvp-scope]].
 
 ## Ablauf (gestufter Solve – Standardmuster der Layout-Optimierung)
-1. **Auswahl:** Stilprofil + Raumtyp + Budgetrahmen → KI/Scoring wählt
+1. **Auswahl (Kurator-Agent):** Stilprofil + Raumtyp + Budgetrahmen → KI wählt
    Katalog-Items je Klasse (P1 nach Funktion Pflicht, P2/P3 nach Stil-Match
-   und abgeleiteten Anforderungen, z.B. „Glastisch", Farbwelt).
+   und abgeleiteten Anforderungen, z.B. „Glastisch", Farbwelt) **und liefert
+   relationale Absichten** als weiche Constraints für Pass 2/3.
 2. **Pass 1 – P1:** Platzierung an Fixpunkten unter harten Constraints
    (Optimierung mit Kostenfunktion, z.B. Simulated Annealing –
    [[Tech-Bausteine-Open-Source]] Modul 03).
@@ -47,11 +48,20 @@ P3: Dekor) → trägt alle drei Anwendungsfälle aus [[ADR-0005-mvp-scope]].
 Vorteil der Stufung: kleinerer Suchraum pro Pass (schnell, nachvollziehbar),
 und Nutzer-Edits können klassenweise „gelockt" werden.
 
-## Was „KI" hier konkret heisst (MVP → später)
-- **MVP:** kein schweres ML – Auswahl = Scoring über Stilvektor-Distanz +
-  abgeleitete Anforderungen + Regeln („pro Bad genau 1 WC", Budget).
-- **Später:** LLM/VLM als Kurator obendrauf (Begründungen, Varianten,
-  „Geschmacks-Feintuning") – aber weiterhin nur auf der **Auswahl**-Seite.
+## Was „KI" hier konkret heisst — der **Kurator-Agent**
+Auf der **Auswahl**-Seite sitzt ein **KI-Kurator** (VLM/LLM als „Interior-
+Designer"): er nimmt Stilprofil + Palette + gelikte Bilder + Raum(typ/Masse/
+Fixpunkte) + Budget und erzeugt **(a)** ein stimmiges **Möbel-Set** und **(b)**
+**relationale Absichten** („Teppich unter Couchtisch", „Pflanze in Fensterecke").
+- **Geerdet am Katalog:** der Agent wählt **nur reale Katalog-Items** (Retrieval/
+  Embedding-Match) → keine erfundenen Möbel; „Glastisch" → nächstes echtes Item.
+- **Personalisierung:** der generative Schritt liefert **pro Person Variation**,
+  auch aus mehrdeutigen Likes (löst die Dünne der reinen Threshold-Logik).
+- **Norm-sicher:** der Agent berührt nur *Auswahl* + *weiche* Relationen; harte
+  Regeln bleiben beim Solver → KI kann keine Norm verletzen.
+- **Ausbaustufen:** MVP-Baseline = deterministisches Scoring (offline, gratis);
+  Kurator-Agent obendrauf. **Offene Entscheidung:** wo der Agent läuft (Cloud-VLM
+  vs. lokales Modell) – Trade-off zu [[ADR-0001-lokaler-mvp-poc-opensource]].
 
 ## Konsequenz fürs Domänenmodell
 Katalog-Item bekommt: `priorityClass`, `relationalRules` (z.B.
