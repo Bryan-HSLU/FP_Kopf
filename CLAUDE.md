@@ -53,6 +53,14 @@ ausführender Befehlsempfänger. Konkret bedeutet das:
    im Brain als verlinkbare Notiz festgehalten.
 5. **Trennung respektieren** (siehe Abschnitt 5).
 6. **Klein und reversibel.** Bevorzuge kleine, überprüfbare Änderungen.
+7. **Alles ist Hypothese – nichts ist fix.** Alle von Bryan und aus den
+   Pitchdecks übernommenen Inhalte – insbesondere die **4-Module-Struktur**, die
+   **Anforderungen** und **jeder technische Umsetzungs-/Architekturvorschlag** –
+   gelten als **hinterfragbare Hypothesen**, nicht als Vorgaben. Prüfe aktiv, ob
+   es besser/optimaler geht (mehr/weniger Module, anderer Schnitt, andere Tech),
+   lege Optionen mit Trade-offs vor und gib eine begründete Empfehlung. Im
+   Zweifel zurückfragen statt übernehmen. Offene Grundsatzfragen werden im Brain
+   gesammelt: `vault/40_Produktkonzepte/Offene-Grundsatzfragen.md`.
 
 ---
 
@@ -153,6 +161,9 @@ Bis Bryan etwas anderes sagt, gilt:
   sein – also keine Tools/Plugins voraussetzen, die das Vault unbrauchbar machen,
   wenn sie fehlen.
 - Entscheidungen werden **dokumentiert, nicht nur getroffen**.
+- Inhalte aus den Pitchdecks (Module, Tech, Architektur) sind **Ausgangs-
+  Hypothesen**, keine fixen Vorgaben – sie dürfen und sollen optimiert werden
+  (siehe §3.7).
 - Im Zweifel: **fragen** statt annehmen.
 
 ---

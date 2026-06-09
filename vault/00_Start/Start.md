@@ -42,6 +42,7 @@ damit nichts verloren geht.
 
 - [[ADR-0001-lokaler-mvp-poc-opensource]] – MVP = lokaler End-to-End-POC, OSS-first
 - [[ADR-0002-poc-plattform-und-stack]] – Web/Desktop-Kern + Phone-AR-Spike
+- [[ADR-0003-raumerfassung-ansatz]] – leichter Ansatz statt Dense Reconstruction
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -53,6 +54,7 @@ damit nichts verloren geht.
 - [[Geschaeftsmodell-und-Markt]] – Problem/Lösung, Markt, GTM, Zahlen
 - [[Vision-Oekosystem]] – Langfrist-Vision (B2B, CDE/IFC, FM)
 - [[Team-und-Stakeholder]] – Gründer, Advisors, Zeitachse
+- [[Offene-Grundsatzfragen]] – ⚠️ zu hinterfragende Annahmen (Module, Anforderungen, Tech)
 
 ### 🔧 Umsetzung
 > Umsetzungswege, How-tos, technische Details. → `vault/50_Umsetzung/`
