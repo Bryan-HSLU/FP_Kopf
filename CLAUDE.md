@@ -116,12 +116,29 @@ Fragst du dich „*Wie* arbeiten wir hier?" → Repo (CLAUDE.md / `.claude/`).
 
 ## 7. Skill-Nutzung
 
-- Verfügbare Skills und die Konvention zum Anlegen neuer Skills:
-  siehe [`.claude/skills/README.md`](.claude/skills/README.md).
-- **Wenn Bryan einen Skill nennt:** nutze ihn entsprechend und **dokumentiere
-  die Nutzung** – kurz im Chat und, falls fachlich relevant, als Spur im Brain.
-- **Wenn ein wiederkehrender Arbeitsschritt auftaucht**, schlage einen neuen
-  Skill vor, statt das Vorgehen jedes Mal neu zu erklären.
+Übersicht & Konvention: [`.claude/skills/README.md`](.claude/skills/README.md).
+
+### Standard-Skill-Set – immer aktiv
+In **jeder** Session gilt das vendored **`kepano/obsidian-skills`**-Set als
+fester Werkzeugkasten. Diese Skills werden **standardmäßig genutzt**, sobald die
+Situation zutrifft – nicht nur „bei Bedarf":
+
+- **`obsidian-markdown`** – immer beim Erstellen/Ändern von Vault-`.md`
+  (Wikilinks, Callouts, Properties/Frontmatter, Embeds, Tags).
+- **`obsidian-bases`** – bei `.base`-Dateien (Views, Filter, Formeln).
+- **`json-canvas`** – bei `.canvas`-Dateien (visuelle Canvases, Mindmaps).
+- **`obsidian-cli`** – für Vault-Operationen per CLI.
+- **`defuddle`** – statt WebFetch zum Lesen von Web-URLs (Ausnahme: `.md`-URLs).
+
+### Projekt-Skills
+`brain-eintrag`, `entscheidung-dokumentieren`, `architektur-skizze` – für die
+strukturierte Brain-Pflege. Sie bauen auf dem Standard-Set auf.
+
+### Regeln
+- **Wenn Bryan einen Skill nennt:** nutze ihn und **dokumentiere die Nutzung** –
+  kurz im Chat und, falls fachlich relevant, als Spur im Brain.
+- **Wiederkehrender Arbeitsschritt** → neuen Skill vorschlagen statt jedes Mal
+  neu erklären.
 
 ---
 
@@ -152,10 +169,13 @@ Eine neue Claude-Session versteht das Projekt so:
 
 ---
 
-## 10. Git & Branches
+## 10. Git, Branches & Sicherung
 
-- Entwickelt wird auf dem zugewiesenen Feature-Branch
-  (`claude/practical-hypatia-b3wd06`).
+- **Ziel-Branch: `main`.** Inhalte werden auf Anweisung von Bryan direkt nach
+  `main` committet und gepusht.
+- **Früh und oft sichern – bevor der Kontext/die Tokens auslaufen.** Lieber
+  einen Zwischenstand committen und pushen als einen fertigen, aber verlorenen.
+  Faustregel: nach jedem in sich abgeschlossenen Schritt `git commit` + `git
+  push`. Plane das Sichern aktiv ein, statt es ans Ende zu schieben.
 - Commits: klar und beschreibend, auf Deutsch.
 - **Keine** Pull Requests ohne ausdrücklichen Auftrag von Bryan.
-- Push auf einen anderen Branch nur mit ausdrücklicher Erlaubnis.
