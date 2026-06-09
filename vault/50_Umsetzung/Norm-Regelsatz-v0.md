@@ -155,6 +155,9 @@ später. → für den POC ausgeklammert.
 ## Offene Fragen
 - Werte je Regel final gegen **SIA 500 / DIN 18022/68935 / Herstellerangaben**
   verifizieren (v0 = plausible Richtwerte).
+- **Scan-Messunsicherheit** in harten Regeln berücksichtigen (Sicherheitsmarge
+  über `estimatedError_cm` bzw. Konfidenz-Ampel „erfüllt/knapp/verletzt" im
+  `constraintReport`) → [[Umsetzungs-Review-Schwierigkeiten]] Befund 1.
 - Wie streng im MVP: harte Verletzung blockt vs. warnt? (`severity` erlaubt beides.)
 - Wand-/Möbeldicken & reale Objektmasse → aus Katalog ([[Domaenenmodell-v0]]).
 

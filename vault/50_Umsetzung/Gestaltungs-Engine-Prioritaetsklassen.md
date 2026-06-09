@@ -74,6 +74,9 @@ Katalog-Item bekommt: `priorityClass`, `relationalRules` (z.B.
 
 ## Offene Fragen
 - Genaue Klassengrenzen (ist ein Spiegel P2 oder P3?) → pro Raumtyp kuratieren.
+- **Küche als Zeilen-/Korpus-System** (60-cm-Raster, Arbeitsplatte, L/U/Galley):
+  freie Einzelplatzierung reicht nicht – braucht ein Konzept „lineare Baugruppe"
+  (Zeile mit Slots) → [[Umsetzungs-Review-Schwierigkeiten]] Befund 2.
 - Wie viele Varianten schlägt der Solver vor (1 vs. Top-3)?
 - Budget als harte oder weiche Grenze?
 

@@ -60,7 +60,7 @@ erstellt: 2026-06-09
 | P2 | Metrische Tiefe | **Depth Anything V2 Metric** | Tiefenkarten |
 | P3 | Objekte erkennen/trennen | **YOLOv11-seg**, **SAM2**, **Grounding DINO** | gelabelte Instanzen |
 | P4 | Spiegel/Glas/Fenster | Detektion + Maskieren + Prior | Phantomgeometrie? |
-| P5 | Laufzeit/Performance | Zeitmessung der Kette | min/Sek |
+| P5 | Laufzeit/Performance + **Datenvolumen** | Zeitmessung der Kette; Grösse Video vs. Keyframes (wie viele Frames braucht die Kette wirklich?) | min/Sek · MB |
 | P6 | (Kür) Gaussian Splatting | nerfstudio / gsplat | Fotorealismus |
 
 **Nullbudget-Hinweis:** Die ML-Schritte laufen kostenlos in **Google Colab

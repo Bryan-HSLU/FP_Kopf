@@ -78,6 +78,7 @@ damit nichts verloren geht.
 - [[Auswertung-Bauvorhaben-Detailkonzept]] – Mengen→Kosten→Gewerke→Zeit + Dokument-Menü
 - [[Daten-und-Referenzgrundlagen-Auswertung]] – welche DBs/Kennwerte + Referenzierung
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
+- [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: 9 Befunde + Gegenmassnahmen
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
