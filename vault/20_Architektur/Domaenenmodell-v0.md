@@ -88,8 +88,10 @@ erstellt: 2026-06-09
 ## 3) Stammdaten/Katalog (referenziert, nicht Teil der Instanz)
 - **Möbel-Item:** id, name, kategorie, gewerk, masse(w/d/h), gltf, **tags
   (8 Stilachsen)**, preis, **platzierungsregeln** (Mindestabstände, an-Wand?,
-  benötigte Anschlüsse).
-- **Bild-Katalog:** id, bild, 8-Achsen-Tags.
+  benötigte Anschlüsse), **`priorityClass` (P1–P3) + `relationalRules`**
+  (siehe [[Gestaltungs-Engine-Prioritaetsklassen]]).
+- **Bild-Katalog:** id, bild, 8-Achsen-Tags, **Attribut-Tags + Farbpalette**
+  ([[Stilprofil-Auswertung-Detailkonzept]]).
 - **Preistabelle:** BKP-Code → Einheitspreis (je Gewerk).
 - **Regeln/Normen:** harte Constraints (Abstände, Kollision, Anschluss-Pflichten),
   parametrierbar – Teilmenge SIA (Umfang offen, siehe [[Offene-Grundsatzfragen]]).

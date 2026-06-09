@@ -64,6 +64,9 @@ damit nichts verloren geht.
 > Umsetzungswege, How-tos, technische Details. → `vault/50_Umsetzung/`
 
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
+- [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
+- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
+- [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
