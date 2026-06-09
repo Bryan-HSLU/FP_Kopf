@@ -35,12 +35,12 @@ damit nichts verloren geht.
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
-_Noch keine Einträge – entsteht beim neuen technischen Konzept._
+- [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
 
 ### ⚖️ Entscheidungen
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
 
-_Noch keine Einträge._
+- [[ADR-0001-lokaler-mvp-poc-opensource]] – MVP = lokaler End-to-End-POC, OSS-first
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -56,7 +56,7 @@ _Noch keine Einträge._
 ### 🔧 Umsetzung
 > Umsetzungswege, How-tos, technische Details. → `vault/50_Umsetzung/`
 
-_Noch keine Einträge._
+- [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
