@@ -36,6 +36,7 @@ damit nichts verloren geht.
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
 - [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
+- [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
 
 ### ⚖️ Entscheidungen
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
