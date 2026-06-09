@@ -48,17 +48,11 @@ Klare Modulgrenzen mit definierten Datenübergaben (Stilvektor, 3D-Modell,
 Plan-Objekt) – so ist der lokale POC später ohne Totalumbau in eine Cloud-/
 Mobile-Variante überführbar ([[ADR-0001-lokaler-mvp-poc-opensource]]).
 
-## Offene Entscheidung: Lauf-Plattform des POC
-- **Variante 1 – Web/Desktop + lokaler Python-Dienst:** UI im Browser
-  (three.js), CV/ML in Python; Raum per Video aufnehmen → lokal verarbeiten.
-  + schnellster Weg zu „alle Funktionen", riesiges OSS-Ökosystem.
-  − Scan ist „aufnehmen-dann-rechnen", nicht live auf dem Phone.
-- **Variante 2 – Phone-nativ (React Native/Expo o. Flutter):** echte
-  ARKit/ARCore-Live-Erfassung im POC.
-  + beweist die riskante Echtzeit-Scan-UX.
-  − mehr Setup, On-Device-ML schwerer, langsamer zu allen 4 Modulen.
-- **Empfehlung:** Variante 1 als Kern-POC (alle Funktionen schnell) **plus**
-  ein **kleiner Phone-AR-Spike** separat, um den Scan gezielt zu validieren.
+## Lauf-Plattform des POC (entschieden)
+**Web/Desktop-Kern + Phone-AR-Spike** – siehe
+[[ADR-0002-poc-plattform-und-stack]]. Stack: React + Vite + three.js
+(react-three-fiber) im Frontend, lokaler **Python/FastAPI**-Dienst für die
+Engines, lokale JSON-Daten; separater Expo/WebXR-Spike für den Live-Scan.
 
 ## Offene Fragen / Risiken
 - Genauigkeit der Raumvermessung ohne LiDAR (Spike nötig).

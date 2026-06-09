@@ -41,6 +41,7 @@ damit nichts verloren geht.
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
 
 - [[ADR-0001-lokaler-mvp-poc-opensource]] – MVP = lokaler End-to-End-POC, OSS-first
+- [[ADR-0002-poc-plattform-und-stack]] – Web/Desktop-Kern + Phone-AR-Spike
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
