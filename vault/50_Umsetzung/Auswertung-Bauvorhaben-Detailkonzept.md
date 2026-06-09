@@ -68,6 +68,44 @@ Bodenleger · **Schreiner/Küchenbauer** · Metallbau/Glas · Endreinigung.
 - **„Welche Handwerker aufbieten":** Gewerke-Checkliste + pro Gewerk ein
   Ausschreibungs-Paket. → Brücke zur [[Vision-Oekosystem|Handwerker-Vermittlung]].
 
+## 6) Pläne aus dem 3D-Modell (deterministisch)
+Weil Raummodell/Plan-Objekt **parametrisch** sind (Wände als Segmente, Öffnungen,
+Platzierungen mit Pose), lassen sich **2D-Pläne automatisch projizieren** – für
+die **Offerte/Ausschreibung** und die Baustelle:
+- **Grundriss** (bemaßt, mit Möblierung & Fixpunkten).
+- **Ansichten / Wandabwicklungen** (für Platten-/Sanitärarbeiten).
+- **Installationsplan** (Anschlüsse/Fixpunkte – Sanitär/Elektro).
+- **Möblierungs-/Belegungsplan** + **Demontage-/Abbruchplan** (Bestand raus).
+- **Schnitte** (optional).
+
+Export **PDF/DXF/DWG** (A13). Diese Pläne sind fester Teil des **Offert-Pakets**,
+das an die Handwerker geht.
+
+## 7) Next-Steps & Abklärungen (Nutzer-Leitfaden)
+Gerade für **Laien (B2C)** wertvoll: ein **regelbasiert erzeugter Leitfaden**,
+welche **Abklärungen & Aufgaben** vor dem Bauen offen sind – **aus dem Plan
+abgeleitet** (Eingriffe, Raumtyp, Eigentum):
+- **Zustimmungen:** Vermieter (Miete) / STWEG-Beschluss (Stockwerkeigentum).
+- **Bewilligung & Statik:** tragende Wand entfernen → Statiker + evtl.
+  Baubewilligung; Fenster-/Fassadenänderung → Bewilligung.
+- **Vor-Ort prüfen:** **tatsächliche Anschluss-Lage bestätigen** (schliesst
+  unsere Scan-Annahme, [[Anschluesse-Standort-und-Vorwand]]) · Elektro-Absicherung
+  · Wasserdruck.
+- **Altbau:** Schadstoff-/**Asbest**-Check vor Abbruch.
+- **Lüftung/Brandschutz:** innenliegendes Bad → Lüftungspflicht.
+- **Organisation:** Budget/Finanzierung bestätigen · Provisorien (Ersatz-WC) ·
+  Termin-/Handwerker-Koordination.
+
+Mechanik: jeder **Plan-Auslöser → Checklisten-Eintrag** (wie der
+[[Norm-Regelsatz-v0|Regelsatz]], nur für Prozessschritte). **MVP-tauglich** –
+Template + Ableitung, kein ML. Hoher Nutzwert, geringe Kosten.
+
+## Service (post-POC): KI-Berater-Chatbot
+Begleitender **KI-Agent**, der Rückfragen der Nutzer beantwortet – **nicht im
+POC**. **Gleiches Architektur-Muster** wie der [[Gestaltungs-Engine-Prioritaetsklassen|Kurator]]
+(Open-Weights, **geerdet**, ADR-0007), nur geerdet auf **Projektdaten +
+Wissensbasis**. Details: [[KI-Berater-Chatbot]].
+
 ## Dokument-Menü (was wir dem Nutzer anbieten)
 | Dokument | Inhalt | Phase | Format |
 |---|---|---|---|
@@ -75,8 +113,9 @@ Bodenleger · **Schreiner/Küchenbauer** · Metallbau/Glas · Endreinigung.
 | **Mengen-/Massenauszug** | alle Mengen (Stk, m², lfm) | **MVP** | PDF/CSV |
 | **Gewerke-Übersicht** | welche Gewerke, Umfang, Checkliste | **MVP** | PDF |
 | **Material-/Einkaufsliste** | Items + Mengen + Preise (B2C selbst kaufen) | **MVP** | PDF/CSV |
-| **Grundriss** | bemaßter Plan | **MVP** | PDF/DXF/DWG |
+| **Pläne (2D)** | Grundriss · Ansichten · Installations-/Abbruchplan | **MVP** | PDF/DXF/DWG |
 | **3D-Export / Visualisierung** | Modell + Vorher/Nachher | **MVP** | glTF/Bilder |
+| **Next-Steps & Abklärungen** | Leitfaden: Bewilligung, Statik, Vor-Ort-Checks, Organisation | **MVP** | PDF |
 | **Bauzeitenplan** | Ablauf + Dauer (Gantt) | später | PDF |
 | **Leistungsverzeichnis (LV)** | je Gewerk, für Ausschreibung | später | PDF/strukturiert |
 | **Offertanfrage-Paket** | LV + Plan + Bilder gebündelt je Handwerker | später | PDF/Link |
@@ -84,6 +123,7 @@ Bodenleger · **Schreiner/Küchenbauer** · Metallbau/Glas · Endreinigung.
 | **Datenexport** | für Profis/CDE | später | JSON, **IFC** |
 | **Förderungen/Energie** (optional) | Sanierungs-Beiträge, Energiehinweise | später | PDF |
 | **CO₂/Nachhaltigkeit** (optional) | Material-Fussabdruck | Vision | PDF |
+| **KI-Berater (Chatbot)** | beantwortet Rückfragen, geerdet auf Projekt+Wissen | Vision | Service |
 
 ## Ehrlichkeit & Grenzen
 - **Verlässlich:** Mengen & Gewerke (Geometrie). **Unsicher:** Kosten & Zeit

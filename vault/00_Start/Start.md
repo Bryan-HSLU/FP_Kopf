@@ -61,6 +61,7 @@ damit nichts verloren geht.
 - [[Anwendungsfelder]] – 3 Anwendungsfelder & Zielgruppen
 - [[Geschaeftsmodell-und-Markt]] – Problem/Lösung, Markt, GTM, Zahlen
 - [[Vision-Oekosystem]] – Langfrist-Vision (B2B, CDE/IFC, FM)
+- [[KI-Berater-Chatbot]] – KI-Beratung für Nutzer (post-POC)
 - [[Team-und-Stakeholder]] – Gründer, Advisors, Zeitachse
 - [[Offene-Grundsatzfragen]] – ⚠️ zu hinterfragende Annahmen (Module, Anforderungen, Tech)
 
