@@ -36,6 +36,7 @@ damit nichts verloren geht.
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
 - [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
+- [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] – 🗺️ ganze Pipeline visuell (Canvas)
 - [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
 - [[Domaenenmodell-v0]] – Raummodell + Plan-Objekt (stabiler Kern)
 
