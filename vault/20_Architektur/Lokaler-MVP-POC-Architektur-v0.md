@@ -64,5 +64,6 @@ Engines, lokale JSON-Daten; separater Expo/WebXR-Spike für den Live-Scan.
 - Performance der ML-Bausteine lokal (Modellgrössen wählen).
 
 ## Verknüpfungen
+- [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] – visuelle Gesamtsicht (Canvas)
 - [[ADR-0001-lokaler-mvp-poc-opensource]] · [[Tech-Bausteine-Open-Source]]
 - [[Anforderungen-Software]] · [[Modulablauf-v1]]
