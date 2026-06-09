@@ -10,17 +10,19 @@
 
 ## 1. Projektkontext
 
-- **Projektname:** FP_Kopf
-- **Projekttyp:** Software-/Produktentwicklung
-- **Idee in einem Satz:** _<auszufüllen – Bryan ergänzt das konkrete Produkt,
-  sobald wir mit den Produktinhalten starten>_
-- **Aktuelle Phase:** Fundament/Setup – die eigentlichen Produktinhalte folgen.
+- **Projektname:** FP_Kopf – das digitale „Brain" zum Startup **Future Planning**.
+- **Projekttyp:** Software-/Produktentwicklung.
+- **Idee in einem Satz:** Eine Smartphone-App, die Bauherrschaften und Bewohner
+  ihre zukünftigen Räume zeigt, bevor sie Realität werden – vom Stil-Swipe über
+  Raum-Scan und normkonforme 3D-Planung bis zu Kosten, Gewerken und Handwerkern,
+  ohne Zusatzhardware. Claim: **„Meet. Match. Build."**
+- **Aktuelle Phase:** Das **technische Konzept wird neu erarbeitet** – der
+  technische Teil des bisherigen Pitchdecks gilt als überholt.
 - **Sprache aller Inhalte:** Deutsch (Code-Bezeichner und Tooling dürfen
   englisch bleiben, wo das üblich ist).
 
-> 🛈 **Hinweis an die nächste Session:** Sobald das Produkt definiert ist, wird
-> dieser Abschnitt konkretisiert und die ersten Notizen unter
-> `vault/40_Produktkonzepte/` angelegt.
+> 🛈 **Fachlicher Einstieg:** Produktüberblick und Stand liegen im Brain unter
+> `vault/40_Produktkonzepte/` bzw. `vault/00_Start/Start.md`.
 
 ---
 

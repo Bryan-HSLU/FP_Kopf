@@ -17,21 +17,25 @@ damit nichts verloren geht.
 
 ## Aktueller Stand
 
-- **Phase:** Fundament/Setup. Das konkrete Produkt ist noch nicht definiert.
-- **Nächster Schritt:** Produktidee festhalten unter
-  [10. Produktkonzepte](#produktkonzepte).
+- **Produkt:** **Future Planning** – Smartphone-App vom Raum-Scan über
+  normkonforme Planung bis zu Kosten & Handwerkern. Überblick:
+  [[Future-Planning-Vision]].
+- **Phase:** Das **technische Konzept wird neu erarbeitet** (der technische Teil
+  des Pitchdecks ist überholt: [[Technisches-Konzept-Pitch-v1]]).
+- **Nächster Schritt:** technisches Konzept strukturieren – v.a. die
+  Raumerfassung ([[Anforderungen-Software]] A3–A6).
 
 ## Bereiche
 
 ### 🔬 Learnings
 > Erkenntnisse, Aha-Momente, Erfahrungswerte. → `vault/10_Learnings/`
 
-_Noch keine Einträge._
+- [[Glossar-Bau-und-Stil]]
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
-_Noch keine Einträge._
+_Noch keine Einträge – entsteht beim neuen technischen Konzept._
 
 ### ⚖️ Entscheidungen
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
@@ -41,7 +45,13 @@ _Noch keine Einträge._
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
 
-_Noch keine Einträge._
+- [[Future-Planning-Vision]] – Produktüberblick
+- [[Modulablauf-v1]] – die (vorerst) 4 Module
+- [[Anforderungen-Software]] – verbindliche Rahmenbedingungen
+- [[Anwendungsfelder]] – 3 Anwendungsfelder & Zielgruppen
+- [[Geschaeftsmodell-und-Markt]] – Problem/Lösung, Markt, GTM, Zahlen
+- [[Vision-Oekosystem]] – Langfrist-Vision (B2B, CDE/IFC, FM)
+- [[Team-und-Stakeholder]] – Gründer, Advisors, Zeitachse
 
 ### 🔧 Umsetzung
 > Umsetzungswege, How-tos, technische Details. → `vault/50_Umsetzung/`
@@ -51,7 +61,13 @@ _Noch keine Einträge._
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
 
-_Noch keine Einträge._
+- [[Pitchdeck-Technik-2026-04-29]] – technisches Pitchdeck
+- [[Pitchdeck-FamilyFriends-2026-05-06]] – Business-/F&F-Pitchdeck
+
+### 🗄️ Archiv
+> Abgelöste fachliche Notizen. → `vault/99_Archiv/`
+
+- [[Technisches-Konzept-Pitch-v1]] – überholter Tech-Entwurf aus dem Pitch
 
 ---
 
