@@ -131,8 +131,14 @@ Wissensbasis**. Details: [[KI-Berater-Chatbot]].
 - Genauigkeit steht & fällt mit der **Preis-DB** und realen **Objektmassen**
   (Katalog) → diese Datenpflege ist der eigentliche Aufwand, nicht die Logik.
 
+## Datengrundlage
+Welche Datenbanken/Kennwerte (CRB · BKP/eBKP/NPK · SIA · Preis-/Aufwandswerte ·
+Produktkatalog) man beschaffen und **wie referenzieren** muss, damit das hier
+rechnet → eigene Notiz: [[Daten-und-Referenzgrundlagen-Auswertung]].
+
 ## Offene Fragen
-- **Preis-DB-Quelle** entscheiden (CRB/NPK lizenziert vs. eigene Mittelwerte).
+- **Preis-DB-Quelle** entscheiden (CRB/NPK lizenziert vs. eigene Mittelwerte) →
+  [[Daten-und-Referenzgrundlagen-Auswertung]].
 - MVP-Schnitt: reicht **Kostenbandbreite + Mengen + Gewerke-Liste** zuerst?
 - Regionale Preise (CH-Kantone) – ein Faktor oder mehrere Sätze?
 

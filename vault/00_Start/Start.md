@@ -76,6 +76,7 @@ damit nichts verloren geht.
 - [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
 - [[Scan-Eval-Notebook-Spezifikation]] – Spec des Mess-Notebooks (Code → 2. Repo)
 - [[Auswertung-Bauvorhaben-Detailkonzept]] – Mengen→Kosten→Gewerke→Zeit + Dokument-Menü
+- [[Daten-und-Referenzgrundlagen-Auswertung]] – welche DBs/Kennwerte + Referenzierung
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
