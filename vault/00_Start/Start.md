@@ -71,6 +71,7 @@ damit nichts verloren geht.
 - [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
+- [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
