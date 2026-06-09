@@ -146,6 +146,13 @@ Kühlschrank→Elektro · Dunstabzug→Lüftung/Elektro.
 
 ---
 
+## Normprofile CH / EU (Overlay-Mechanik)
+Wie das Barrierefrei-Overlay, nur für **Normsysteme**: ein `normProfile`
+(**CH** = SIA-Praxis · **EU/DIN** = DIN 18022/68935) lädt **profilabhängige
+Werte** über die Basis ([[ADR-0008-poc-alle-raumtypen-kueche]]). Gleiche `type`s,
+andere Parameter. POC bewusst auf **1–2 Profile** begrenzt; konkrete Werte je
+Profil noch zu hinterlegen.
+
 ## Barrierefrei (Overlay-Profil – **nicht POC**)
 Zu Beginn **anklickbar**; dann werden **strengere Werte on-top** geladen (gleiche
 `type`s, grössere Parameter, z.B. Wendekreis ≥ 1.50 m, Bewegungsflächen breiter –

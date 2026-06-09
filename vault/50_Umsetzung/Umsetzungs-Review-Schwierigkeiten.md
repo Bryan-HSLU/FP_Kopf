@@ -14,7 +14,7 @@ erstellt: 2026-06-09
 > trägt** – aber 9 Stellen brauchen Aufmerksamkeit. Sortiert nach Schwere;
 > die ersten zwei waren bisher **blinde Flecken**.
 
-## Befund 1 ⚠️ Messunsicherheit vs. harte Normregeln (blinder Fleck)
+## Befund 1 ✅ Messunsicherheit vs. harte Normregeln (Lösung akzeptiert)
 - **Problem:** Der Scan hat ~5–8.5 cm Fehler ([[ADR-0003-raumerfassung-ansatz]]),
   die harten Regeln arbeiten aber mit 20–60-cm-Schwellen ([[Norm-Regelsatz-v0]]).
   Ein Raum, der real 62 cm vor dem WC hat, kann im Modell 58 cm haben → der
@@ -29,18 +29,18 @@ erstellt: 2026-06-09
   gilt Geometrie als „bestätigt" → Marge entfällt. „Knapp"-Fälle wandern in den
   Next-Steps-Leitfaden ([[Auswertung-Bauvorhaben-Detailkonzept]] §7).
 
-## Befund 2 ⚠️ Küche passt nicht ins „freie Möbel"-Modell (blinder Fleck)
+## Befund 2 ✅ Küche passt nicht ins „freie Möbel"-Modell — **gelöst & im POC**
 - **Problem:** Bad & Wohnen = freistehende Einzelobjekte → `placements[]` passt.
   Eine **Küche ist ein Zeilen-/Korpus-System**: 60-cm-Raster, durchgehende
-  Arbeitsplatte, Hängeschrank-Reihen, Form (L/U/Galley/Insel). Einzeln
-  platzierte Items bilden keine Küchenzeile; der Solver müsste erst die
-  **Zeilenform** wählen und dann **Korpusse in Slots** füllen.
-- **Betroffen:** Anwendungsfall Küche ([[ADR-0005-mvp-scope]]),
-  [[Domaenenmodell-v0]], [[Gestaltungs-Engine-Prioritaetsklassen]].
-- **Gegenmassnahme:** Konzept **„lineare Baugruppe"** (Zeile als Assembly mit
-  Slots) als Erweiterung des Domänenmodells; Küchen-Solve zweistufig
-  (1. Zeilen-Layout, 2. Slot-Belegung). **Empfehlung: erster Durchstich nicht
-  Küche** – Bad oder Wohnen zuerst; Küche bekommt ein eigenes Detailkonzept.
+  Arbeitsplatte, Hängeschrank-Reihen, Form (L/U/Galley/Insel).
+- **Entscheid (Bryan, [[ADR-0008-poc-alle-raumtypen-kueche]]):** Küche **bleibt
+  im POC** – alle drei Raumtypen sind Scope. Meine frühere „Küche später"-
+  Empfehlung ist damit **überholt**.
+- **Lösung ([[Kuechen-Detailkonzept]]):** zweistufig — **(1) der Solver bestimmt
+  die Form** aus Stilprofil + Raumverhältnissen (Anschlusswand, Wandzüge),
+  **(2) lineare Baugruppe** (`assembly`) füllt Korpus-Slots im Raster. Normrisiko
+  über **begrenzte Profile** (CH + EU/DIN) eingegrenzt. Domänenmodell erweitert
+  (`assemblies`, [[Domaenenmodell-v0]]).
 
 ## Befund 3 – „wenige Minuten" & Kosten pro Scan auf dem Produktpfad
 - **Problem:** Der POC läuft lokal und **maskiert** das: In der echten App muss
@@ -118,7 +118,33 @@ erstellt: 2026-06-09
   austauschen (aus Liste), Variante neu würfeln** – kein freies Zeichnen,
   keine Wandbearbeitung im Viewer.
 
+## Befund 10 ✅ Grossraum / kein ganzer Raum-Scan — **gelöst** (Zonen)
+- **Problem (Bryan):** Küche+Wohnen+Essen in **einem Grossraum**; oft wird **nur
+  die Küchenecke** gescannt, und zwischen den Bereichen gibt es **keine Wand**.
+- **Lösung ([[Kuechen-Detailkonzept]] Teil 3):** **Zonen** (`zones[]`,
+  Funktionsbereiche mit eigenem `roomType` in *einer* Hülle → Regeln **pro Zone**)
+  + **offene Kanten** (`wall.kind:virtuell` → nichts montiert daran, Weg bleibt
+  offen). **Teilraum-Scan** genügt: nur die Küchenecke + offene Seite markieren;
+  Backstop ist die Fallback-Treppe (Befund 8). Insel → **Bodenanschluss**
+  (`fixpoint.mount:boden`). Verankert in [[Domaenenmodell-v0]].
+
 ---
+
+## Status der Befunde (ehrlich, nicht alles „weg")
+| # | Thema | Status |
+|---|---|---|
+| 1 | Messunsicherheit vs. Normregeln | ✅ Lösung akzeptiert (Konfidenz-Ampel/Marge) – Bau offen |
+| 2 | Küche = Baugruppe | ✅ gelöst & im POC ([[ADR-0008-poc-alle-raumtypen-kueche]]) |
+| 3 | Kosten/Tempo pro Scan | 🟡 Richtung klar (Keyframes), **Spike misst** – Arbeitspaket |
+| 4 | Regel-Interpreter im Client (TS) | 🟡 de-risked (shared Regel-JSON + Golden Tests) – Arbeitspaket |
+| 5 | Content-Pipeline (Assets/Rechte) | 🟡 Königsweg klar (eigene Renderings) – echter Aufwand |
+| 6 | Pläne / DWG | ✅ Scope-Entscheid: MVP = PDF+DXF, DWG später |
+| 7 | Kurator-Qualität **+ Privacy** | 🟡 Eval geplant · ⚠️ **Privacy/DSG echt offen** |
+| 8 | Gerätestreuung / Plan-Import | ✅ Prinzip: Fallback-Treppe |
+| 9 | 3D-Editor-Aufwand | ✅ Scope-Entscheid: minimal im POC |
+| 10 | Grossraum / Teilraum-Scan | ✅ gelöst (Zonen & offene Kanten) |
+> 🟡 = Richtung steht, bleibt aber **Arbeitspaket beim Bauen** (kein erledigter
+> Haken). ⚠️ = **echt offen**: Privacy-Konzept (Raumdaten serverseitig).
 
 ## Was bereits gut abgesichert ist ✅
 - **„KI wählt, Solver platziert"** schliesst Norm-Halluzination konstruktiv aus

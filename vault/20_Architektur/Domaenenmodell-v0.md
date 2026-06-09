@@ -31,7 +31,7 @@ erstellt: 2026-06-09
   "shell": {
     "walls": [
       { "id":"uuid", "start":[x,z], "end":[x,z], "height":2.5,
-        "thickness":0.12, "openings":["uuid"] }
+        "thickness":0.12, "kind":"massiv|offen|virtuell", "openings":["uuid"] }
     ],
     "floor": { "polygon":[[x,z],...], "area":7.8 },
     "ceiling": { "height":2.5 }
@@ -40,9 +40,14 @@ erstellt: 2026-06-09
     { "id":"uuid", "type":"door|window", "hostWall":"uuid",
       "offset":0.9, "width":0.9, "height":2.0, "sill":0.0 }
   ],
+  "zones": [
+    { "id":"uuid", "name":"Kochzeile", "roomType":"kueche",
+      "polygon":[[x,z],...] }
+  ],
   "fixpoints": [
     { "id":"uuid", "type":"wasser|abwasser|elektro|lueftung|heizung",
       "wall":"uuid", "offset":1.2, "heightFromFloor":0.3,
+      "mount":"wand|boden",
       "origin":"bestand|vorwand|manuell", "zone":null }
   ],
   "objects": [
@@ -56,8 +61,14 @@ erstellt: 2026-06-09
 - **Fixpunkte/Anschlüsse** sind die Brücke zu den **harten Regeln** der Planung.
   **Standort genügt** ([[Anschluesse-Standort-und-Vorwand]]): `origin:bestand` =
   am erkannten Bestandsobjekt; `origin:vorwand` = frei in einer **Zone** (durch
-  `intervention` `vorwand-neu`); `manuell` = Nutzerangabe.
+  `intervention` `vorwand-neu`); `manuell` = Nutzerangabe. `mount:boden` deckt die
+  **Küchen-Insel** im Grossraum ab (Bodenanschluss statt Wand).
 - **objects** = erkannte Bestandsmöbel (für Umbau ggf. zu entfernen/behalten).
+- **zones** = **Funktionsbereiche innerhalb einer Hülle** (Grossraum
+  Küche/Wohnen/Essen). **Regeln gelten pro Zone** (Küchen-Regelsatz nur in der
+  Küchenzone). `wall.kind:virtuell` markiert eine **Zonengrenze ohne physische
+  Wand** → nichts montiert daran, Verkehrsweg bleibt offen. Trägt den
+  **Teilraum-Scan** ([[Kuechen-Detailkonzept]]).
 
 ## 2) Plan-Objekt (Output Solver → editiert in Visualisierung → Input Auswertung)
 ```jsonc
@@ -69,7 +80,12 @@ erstellt: 2026-06-09
   "status": "vorschlag|bearbeitet|final",
   "placements": [
     { "id":"uuid", "catalogItemId":"uuid", "pose":{"pos":[..],"rot":[..]},
-      "gewerk":"sanitaer|...", "locked":false, "source":"solver|user" }
+      "gewerk":"sanitaer|...", "locked":false, "source":"solver|user",
+      "assembly":null }
+  ],
+  "assemblies": [
+    { "id":"uuid", "type":"kuechenzeile", "form":"i|l|u|galley|insel",
+      "anchorWall":"uuid", "grid":0.6 }
   ],
   "interventions": [
     { "id":"uuid", "kind":"wand-entfernen|oeffnung-aendern|belag|vorwand-neu",
@@ -87,6 +103,10 @@ erstellt: 2026-06-09
 ```
 - **placements** = platzierte Katalog-Möbel; **interventions** = bauliche
   Massnahmen (für Umbau, treiben Gewerke/Mengen); **finishes** = Oberflächen.
+- **assemblies** = **lineare Baugruppen** (v.a. **Küchenzeile**): der Solver wählt
+  zuerst die **Form** (aus Stil + Geometrie), dann füllt er die **Korpus-Slots**
+  im Raster; `placement.assembly` bindet Korpusse/Geräte an die Zeile
+  ([[Kuechen-Detailkonzept]]).
 - **constraintReport** macht „normkonform" überprüfbar statt behauptet.
 
 ## 3) Stammdaten/Katalog (referenziert, nicht Teil der Instanz)

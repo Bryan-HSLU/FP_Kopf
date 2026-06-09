@@ -51,6 +51,7 @@ damit nichts verloren geht.
 - [[ADR-0005-mvp-scope]] – 3 Anwendungsfälle abdecken, phasiert bauen
 - [[ADR-0006-stilmodell-achsen]] – reine Stilachsen statt benannter Stile
 - [[ADR-0007-ki-kurator-open-weights]] – Kurator: Open-Weights, serverseitig
+- [[ADR-0008-poc-alle-raumtypen-kueche]] – alle 3 Raumtypen im POC, Küchenform vom Solver
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -71,6 +72,7 @@ damit nichts verloren geht.
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
 - [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
 - [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
+- [[Kuechen-Detailkonzept]] – Küchenform vom Solver, lineare Baugruppe, Grossraum/Zonen
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
 - [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
