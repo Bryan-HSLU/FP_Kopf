@@ -85,8 +85,10 @@ filterbar, einzeln verifizierbar:
 
 **Anschluss-Bindung** (`connection`, hard): WC→Abwasser (DN90/100)+Wasser ·
 Lavabo→Wasser+Abwasser · Dusche/Wanne→Wasser+Bodenablauf ·
-Handtuchheizung→Heizung/Elektro. *Kein passender Fixpunkt in Reichweite →
-bauliche `intervention` nötig.*
+Handtuchheizung→Heizung/Elektro. **Erfüllt, wenn der Anschlusstyp aus einem
+Bestands-Fixpunkt ODER einer Vorwand-Zone erreichbar ist**
+([[Anschluesse-Standort-und-Vorwand]]). *Sonst bauliche `intervention`
+(z.B. `vorwand-neu`) nötig.*
 > Gäste-WC = Teilmenge (nur WC + Lavabo).
 
 ---

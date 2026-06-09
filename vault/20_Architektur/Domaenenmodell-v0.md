@@ -42,7 +42,8 @@ erstellt: 2026-06-09
   ],
   "fixpoints": [
     { "id":"uuid", "type":"wasser|abwasser|elektro|lueftung|heizung",
-      "wall":"uuid", "offset":1.2, "heightFromFloor":0.3 }
+      "wall":"uuid", "offset":1.2, "heightFromFloor":0.3,
+      "origin":"bestand|vorwand|manuell", "zone":null }
   ],
   "objects": [
     { "id":"uuid", "label":"wc|lavabo|...", "bbox":{"min":[..],"max":[..]},
@@ -53,6 +54,9 @@ erstellt: 2026-06-09
 }
 ```
 - **Fixpunkte/Anschlüsse** sind die Brücke zu den **harten Regeln** der Planung.
+  **Standort genügt** ([[Anschluesse-Standort-und-Vorwand]]): `origin:bestand` =
+  am erkannten Bestandsobjekt; `origin:vorwand` = frei in einer **Zone** (durch
+  `intervention` `vorwand-neu`); `manuell` = Nutzerangabe.
 - **objects** = erkannte Bestandsmöbel (für Umbau ggf. zu entfernen/behalten).
 
 ## 2) Plan-Objekt (Output Solver → editiert in Visualisierung → Input Auswertung)
@@ -68,7 +72,7 @@ erstellt: 2026-06-09
       "gewerk":"sanitaer|...", "locked":false, "source":"solver|user" }
   ],
   "interventions": [
-    { "id":"uuid", "kind":"wand-entfernen|oeffnung-aendern|belag",
+    { "id":"uuid", "kind":"wand-entfernen|oeffnung-aendern|belag|vorwand-neu",
       "target":"uuid", "params":{} }
   ],
   "finishes": [

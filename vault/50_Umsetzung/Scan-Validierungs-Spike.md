@@ -76,8 +76,10 @@ erstellt: 2026-06-09
   **Bestandsplan-Import** (A12) bzw. stärker geführte Aufnahme verschieben.
 
 ## Confounder / Risiken im Test
-- **Anschlüsse/Fixpunkte sind oft verdeckt** (hinter WC/Möbeln) → evtl. gar nicht
-  scanbar; dann **Nutzereingabe** statt Erkennung einplanen (separat bewerten).
+- **Anschlüsse/Fixpunkte:** ✅ **entschärft** ([[Anschluesse-Standort-und-Vorwand]])
+  – nicht die Leitung scannen, sondern Standort = **Bestandsobjekt** oder
+  **Vorwand-Zone**. Im Spike daher nur prüfen: wird das **Bestandsobjekt korrekt
+  lokalisiert** (P3)? Verdeckte Leitungen sind **kein** Scan-Kriterium mehr.
 - Beleuchtung/Reflexionen tagesabhängig → mehrere Durchläufe.
 - Mono-Tiefe driftet über grosse Distanzen → mit AR-Massstab verankern.
 
@@ -86,10 +88,11 @@ erstellt: 2026-06-09
   (Tabelle ausgefüllt) + Empfehlung (Go/Anpassen/Pivot) → fließt als
   Learning ins Brain (`10_Learnings/`) und ggf. als ADR.
 
-## Offene Fragen
-- Wer nimmt die Testräume auf (Zugang R1–R3)?
-- Eval-Harness selbst bauen (Python-Notebook: Video + Ground Truth → Metriken)
-  oder zuerst mit fertigen Apps triagieren?
+## Status offener Punkte
+- **Testräume:** Bryan nimmt R1–R3 auf, **sobald wir so weit sind** (Eval-Werkzeug
+  steht, Vorgehen klar). ✅
+- **Eval-Harness:** Spezifikation im Brain → [[Scan-Eval-Notebook-Spezifikation]];
+  der **Code** entsteht später im **separaten Code-Repo** (Brain bleibt Brain).
 
 ## Verknüpfungen
 - [[ADR-0003-raumerfassung-ansatz]] · [[Raumerfassung-Detailkonzept]]

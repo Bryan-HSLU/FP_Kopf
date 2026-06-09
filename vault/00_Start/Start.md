@@ -31,6 +31,7 @@ damit nichts verloren geht.
 > Erkenntnisse, Aha-Momente, Erfahrungswerte. → `vault/10_Learnings/`
 
 - [[Glossar-Bau-und-Stil]]
+- [[Anschluesse-Standort-und-Vorwand]] – Anschluss-Standort genügt (Bestand/Vorwand)
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
