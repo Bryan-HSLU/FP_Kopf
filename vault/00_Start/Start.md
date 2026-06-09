@@ -46,6 +46,9 @@ damit nichts verloren geht.
 - [[ADR-0002-poc-plattform-und-stack]] – Web/Desktop-Kern + Phone-AR-Spike
 - [[ADR-0003-raumerfassung-ansatz]] – leichter Ansatz statt Dense Reconstruction
 - [[ADR-0004-architektur-zerlegung-hybrid]] – Hybrid: Pipeline + Shared Core
+- [[ADR-0005-mvp-scope]] – 3 Anwendungsfälle abdecken, phasiert bauen
+- [[ADR-0006-stilmodell-achsen]] – reine Stilachsen statt benannter Stile
+- [[ADR-0007-ki-kurator-open-weights]] – Kurator: Open-Weights, serverseitig
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -63,6 +66,10 @@ damit nichts verloren geht.
 > Umsetzungswege, How-tos, technische Details. → `vault/50_Umsetzung/`
 
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
+- [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
+- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
+- [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
+- [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
