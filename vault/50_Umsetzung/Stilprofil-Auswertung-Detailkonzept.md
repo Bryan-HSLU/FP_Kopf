@@ -60,19 +60,14 @@ Stattdessen **Merkmals-Ebene** (Material, Form, Farbe) – die trägt dieselbe
 Information („so etwas wie…"). Marken kommen später sauber über
 **Partner-Kataloge** (B2B, Marke = Metadatum, [[Vision-Oekosystem]]).
 
-## Stil-Achsen vs. Stil-Archetypen (erweiterbar, nicht fix)
-Zwei Ebenen, bewusst getrennt:
-- **Achsen (Kriterien):** kontinuierliche Gegensatzpaare → ergeben den Stilvektor.
-  Kandidaten: warm↔kühl · schlicht↔opulent · natürlich↔synthetisch · hell↔dunkel
-  · klassisch↔modern · weich↔kantig · monochrom↔farbig · offen↔geborgen.
-- **Archetypen (benannte Stile):** UX-Ebene, je als Position im Achsen-Raum
-  definiert. Kandidaten: Skandinavisch · Japandi · Minimalistisch · Industrial/
-  Loft · Mid-Century · Boho · Landhaus/Rustikal · Modern/Contemporary · Klassisch/
-  Elegant · Mediterran · Maximalismus · Smart/High-Tech.
-- **Empfehlung: Hybrid** – Swipes ergeben Achsen-Vektor **und** „nächster
-  Archetyp". Neue Stile = nur neue Tag-Konfiguration → beliebig erweiterbar.
-- **Offene Entscheidung:** reines Achsen-Modell vs. Archetypen vs. Hybrid; finaler
-  Satz an Achsen/Archetypen.
+## Stil-Achsen (reines Achsen-Modell) → [[ADR-0006-stilmodell-achsen]]
+**Keine benannten Stile** (Schubladen). Das Profil ist ein **Achsen-Vektor**;
+die persönliche „Stilrichtung" entsteht als **individuelle Interpretation** des
+Vektors durch den [[Gestaltungs-Engine-Prioritaetsklassen|Kurator]] → jede:r
+bildet den eigenen „Archetyp".
+- **Achsen (Gegensatzpaare, Satz im POC zu kalibrieren):** warm↔kühl ·
+  schlicht↔opulent · natürlich↔synthetisch · hell↔dunkel · klassisch↔modern ·
+  weich↔kantig · monochrom↔farbig · offen↔geborgen.
 
 ## Ausbaustufen
 - **MVP:** kuratierter Bild-Katalog, alle drei Ebenen vorab getaggt (JSON),

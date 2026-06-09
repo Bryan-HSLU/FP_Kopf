@@ -60,8 +60,12 @@ Fixpunkte) + Budget und erzeugt **(a)** ein stimmiges **Möbel-Set** und **(b)**
 - **Norm-sicher:** der Agent berührt nur *Auswahl* + *weiche* Relationen; harte
   Regeln bleiben beim Solver → KI kann keine Norm verletzen.
 - **Ausbaustufen:** MVP-Baseline = deterministisches Scoring (offline, gratis);
-  Kurator-Agent obendrauf. **Offene Entscheidung:** wo der Agent läuft (Cloud-VLM
-  vs. lokales Modell) – Trade-off zu [[ADR-0001-lokaler-mvp-poc-opensource]].
+  Kurator-Agent obendrauf.
+- **Laufzeit ([[ADR-0007-ki-kurator-open-weights]]):** **Open-Weights-Modell,
+  serverseitig**, hinter austauschbarer Schnittstelle (App bleibt klein);
+  on-device später. Agent-Kontext = Rollen-/Regel-Prompt + dynamisch gefütterter
+  Katalog + Raumfakten; Ausgabe **auf Katalog-IDs beschränkt** (geerdet → keine
+  erfundenen Möbel).
 
 ## Konsequenz fürs Domänenmodell
 Katalog-Item bekommt: `priorityClass`, `relationalRules` (z.B.

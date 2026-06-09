@@ -47,6 +47,8 @@ damit nichts verloren geht.
 - [[ADR-0003-raumerfassung-ansatz]] – leichter Ansatz statt Dense Reconstruction
 - [[ADR-0004-architektur-zerlegung-hybrid]] – Hybrid: Pipeline + Shared Core
 - [[ADR-0005-mvp-scope]] – 3 Anwendungsfälle abdecken, phasiert bauen
+- [[ADR-0006-stilmodell-achsen]] – reine Stilachsen statt benannter Stile
+- [[ADR-0007-ki-kurator-open-weights]] – Kurator: Open-Weights, serverseitig
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
