@@ -46,6 +46,7 @@ damit nichts verloren geht.
 - [[ADR-0002-poc-plattform-und-stack]] – Web/Desktop-Kern + Phone-AR-Spike
 - [[ADR-0003-raumerfassung-ansatz]] – leichter Ansatz statt Dense Reconstruction
 - [[ADR-0004-architektur-zerlegung-hybrid]] – Hybrid: Pipeline + Shared Core
+- [[ADR-0005-mvp-scope]] – 3 Anwendungsfälle abdecken, phasiert bauen
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`

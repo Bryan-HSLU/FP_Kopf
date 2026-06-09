@@ -30,9 +30,10 @@ erstellt: 2026-06-09
   (ARCore/ARKit). Reichweite ↔ Genauigkeit abwägen.
 - „**Echtzeitnah / wenige Minuten**" – welche konkrete Toleranz? Wäre eine kurze
   lokale Nachberechnung akzeptabel?
-- „**Normkonform per Definition**" – SIA ist riesig; was heisst „normkonform"
-  realistisch im MVP (welche Teilmenge an Regeln)?
-- **Scan-first vs. Plan-Import-first** je nach Zielgruppe ([[Anwendungsfelder]])?
+- „**Normkonform per Definition**" – ✅ geklärt: **definierte Teilmenge** harter
+  Regeln ([[ADR-0005-mvp-scope]]); konkreter Regelsatz noch offen.
+- **Scan-first vs. Plan-Import-first** – ✅ geklärt: **Scan priorisiert**, aber
+  entkoppelt (Sample/Import als Fallback) ([[ADR-0005-mvp-scope]]).
 - „Ohne Zusatzhardware" – als USP vermutlich fix, aber explizit bestätigen.
 
 ## C) Architektur & Tech (jede Wahl ist Hypothese)
@@ -42,9 +43,11 @@ erstellt: 2026-06-09
 - Bestehende ADRs (0001–0003) sind **revidierbar** (Status → `abgelöst`), wenn
   sich Besseres zeigt.
 
-## D) Produkt-Scope
-- Alle **drei Anwendungsfelder** gleichzeitig oder eines zuerst (Fokus-MVP)?
-- **B2C** oder **B2B** (GU/Planer) als erster Beweis?
+## D) Produkt-Scope ✅ geklärt → [[ADR-0005-mvp-scope]]
+- **Abdeckung:** Bad-Reno, Küche-Reno/Umbau, Innenraum-Möblierung; B2C + B2B
+  (Letzteres als design-in). Neubau-Konfiguration später.
+- **Bau:** phasiert; erster vertikaler Durchstich wird **später** gewählt.
+- **Folge-offen:** konkreter Norm-Regelsatz; Wahl des ersten Durchstichs.
 
 ## Vorgehen
 Diese Fragen arbeiten wir gezielt ab (Optionen + Trade-offs + Empfehlung →
