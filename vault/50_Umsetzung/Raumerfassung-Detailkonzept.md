@@ -56,6 +56,37 @@ Wie in [[ADR-0003-raumerfassung-ansatz]] / [[Tech-Bausteine-Open-Source]]:
 zuschaltbar** (gleiches Video als Input, gleiche Posen wiederverwendbar). So
 bleibt Bryans Zielbild erreichbar, ohne den POC daran aufzuhängen.
 
+## Öffnungen (Türen/Fenster) & schwierige Oberflächen
+Türen, Fenster, **Spiegel und Glas** sind doppelt relevant: sie beeinflussen die
+Gestaltung **und** die harten Regeln ([[Norm-Regelsatz-v0]]: `door-swing`,
+`keep-clear`) – und sie sind genau die **scan-kritischen** Fälle.
+
+**Türen & Fenster** sind im [[Domaenenmodell-v0]] **first-class** (`openings[]`):
+- **Erkennung:** als **Lücken in den Wand-Ebenen** (AR/Layout) + Objektdetektion
+  („door"/„window"). Ergebnis: Position, Breite, Höhe, Brüstung am Host-Wall.
+- **Wirkung:** Türschwenk-Bereich freihalten, Fenster nicht durch hohe Möbel
+  verstellen, kein Wandobjekt über Fenster → fließt als Constraint in den Solver.
+
+**Spiegel & Glas (das eigentliche Scan-Problem) – ehrlich:**
+- Spiegel erzeugen **Phantom-Geometrie** (SLAM/Tiefe sieht „durch" den Spiegel in
+  einen Scheinraum). Glas (Fenster, Duschwand) ist **transparent** → Tiefe
+  unzuverlässig oder kein Rücksignal. Weisse texturlose Flächen → keine Features.
+- **Umgang (mehrstufig):**
+  1. **Detektion-gestütztes Maskieren:** Detektor erkennt „mirror/window/glass" →
+     diese Regionen werden für die Tiefe **misstraut/maskiert**; die Fläche wird
+     stattdessen aus der **umgebenden Wand-Ebene** parametrisch abgeleitet
+     (Spiegel = flach auf Wand, in erkannter BBox-Grösse).
+  2. **Semantische Priors:** Spiegel = wandgebunden (`host-binding`), Fenster =
+     Öffnung in Wand, Duschglas = dünne vertikale Ebene → **parametrisch
+     modellieren statt aus Rohtiefe rekonstruieren.**
+  3. **Confidence-Flag + `needsReview`:** unsichere Objekte/Flächen werden markiert.
+  4. **Nutzergeführte Bestätigung:** „Hier ist ein Spiegel/Fenster" antippen –
+     der **nicht verhandelbare Fallback** (deshalb ist Human-in-the-Loop aus
+     [[ADR-0003-raumerfassung-ansatz]] Pflicht, nicht Kür).
+- **Fazit:** Perfekte Auto-Erkennung ist unrealistisch; **Detektion + Priors +
+  kurze Nutzerbestätigung** liefern aber **korrekte Constraints**, auch wenn die
+  Rohtiefe an diesen Stellen versagt. → zentraler Prüfpunkt im Spike.
+
 ## Validierungs-Spike (zuerst!)
 1 Testraum, 1 Video: Spur-1-Kette durchstechen → Masshaltigkeit (cm-Fehler),
 Erkennungsqualität (welche Objekte, welche Confidence), Laufzeit. Danach
