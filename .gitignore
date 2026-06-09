@@ -1,0 +1,13 @@
+# Obsidian: nur Kern-Konfig versionieren, flüchtige/lokale Dateien ignorieren
+vault/.obsidian/workspace.json
+vault/.obsidian/workspace-mobile.json
+vault/.obsidian/cache
+vault/.obsidian/graph.json
+vault/.trash/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
