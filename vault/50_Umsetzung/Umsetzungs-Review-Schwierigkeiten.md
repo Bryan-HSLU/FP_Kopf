@@ -95,10 +95,11 @@ erstellt: 2026-06-09
   braucht ein Privacy-Konzept (offen seit [[ADR-0007-ki-kurator-open-weights]]).
 - **Gegenmassnahme:** **Mini-Eval für Kurations-Qualität** (Testprofile →
   Bewertung der Sets) vor Modellfestlegung; deterministische Baseline bleibt
-  Fallback (schon entschieden ✅). Privacy: **Datenminimierung** – möglichst nur
-  **abgeleitete Geometrie** statt Rohvideo hochladen, CH-Hosting prüfen.
-  Hinweis: Das motiviert on-device-Vorverarbeitung **doppelt** (zusammen mit
-  Befund 3).
+  Fallback (schon entschieden ✅).
+- **Privacy ✅ entschieden ([[ADR-0009-privacy-raumdaten]]):** Datenminimierung
+  (nur abgeleitete Geometrie/Keyframes), **CH-Hosting**, self-hosted Kurator;
+  Detail-Compliance = Pre-Launch. Details: [[Privacy-Datenschutz-Konzept]].
+  Motiviert on-device-Vorverarbeitung **doppelt** (mit Befund 3).
 
 ## Befund 8 – Gerätestreuung & die ehrliche Fallback-Treppe
 - **Problem:** „Alle gängigen Smartphones" (A1) heisst faktisch „alle
@@ -139,12 +140,13 @@ erstellt: 2026-06-09
 | 4 | Regel-Interpreter im Client (TS) | 🟡 de-risked (shared Regel-JSON + Golden Tests) – Arbeitspaket |
 | 5 | Content-Pipeline (Assets/Rechte) | 🟡 Königsweg klar (eigene Renderings) – echter Aufwand |
 | 6 | Pläne / DWG | ✅ Scope-Entscheid: MVP = PDF+DXF, DWG später |
-| 7 | Kurator-Qualität **+ Privacy** | 🟡 Eval geplant · ⚠️ **Privacy/DSG echt offen** |
+| 7 | Kurator-Qualität **+ Privacy** | 🟡 Eval geplant · ✅ Privacy entschieden ([[ADR-0009-privacy-raumdaten]]) |
 | 8 | Gerätestreuung / Plan-Import | ✅ Prinzip: Fallback-Treppe |
 | 9 | 3D-Editor-Aufwand | ✅ Scope-Entscheid: minimal im POC |
 | 10 | Grossraum / Teilraum-Scan | ✅ gelöst (Zonen & offene Kanten) |
 > 🟡 = Richtung steht, bleibt aber **Arbeitspaket beim Bauen** (kein erledigter
-> Haken). ⚠️ = **echt offen**: Privacy-Konzept (Raumdaten serverseitig).
+> Haken). Alle ehemals offenen Grundsatzfragen sind nun entschieden; offen sind
+> nur noch **Bau-Arbeitspakete** (3/4/5) und die Kurator-**Qualitäts**-Eval.
 
 ## Was bereits gut abgesichert ist ✅
 - **„KI wählt, Solver platziert"** schliesst Norm-Halluzination konstruktiv aus

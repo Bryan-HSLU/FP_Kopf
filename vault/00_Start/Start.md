@@ -52,6 +52,7 @@ damit nichts verloren geht.
 - [[ADR-0006-stilmodell-achsen]] – reine Stilachsen statt benannter Stile
 - [[ADR-0007-ki-kurator-open-weights]] – Kurator: Open-Weights, serverseitig
 - [[ADR-0008-poc-alle-raumtypen-kueche]] – alle 3 Raumtypen im POC, Küchenform vom Solver
+- [[ADR-0009-privacy-raumdaten]] – Datenminimierung + CH-Hosting für Raumdaten
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -79,6 +80,7 @@ damit nichts verloren geht.
 - [[Scan-Eval-Notebook-Spezifikation]] – Spec des Mess-Notebooks (Code → 2. Repo)
 - [[Auswertung-Bauvorhaben-Detailkonzept]] – Mengen→Kosten→Gewerke→Zeit + Dokument-Menü
 - [[Daten-und-Referenzgrundlagen-Auswertung]] – welche DBs/Kennwerte + Referenzierung
+- [[Privacy-Datenschutz-Konzept]] – Datenschutz für Raumdaten (revDSG/DSGVO, CH-Hosting)
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
 - [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: 9 Befunde + Gegenmassnahmen
 

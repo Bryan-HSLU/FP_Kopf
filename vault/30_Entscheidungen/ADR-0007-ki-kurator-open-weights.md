@@ -53,8 +53,8 @@ Zwiespalt „gratis" vs. „nicht im App-Download").
 - Es braucht einen **kleinen Backend-Dienst** für den Kurator (auch im POC, wenn
   kein API genutzt wird) → leichte Abweichung vom reinen Local-first, bewusst.
 - Schnittstellen-Vertrag (Input/Output) wird Teil von [[Domaenenmodell-v0]].
-- **Offen:** konkretes Modell, Hosting-Form, Privacy-Konzept (DSG/DSGVO bei
-  Cloud-Verarbeitung von Raum-/Nutzerdaten).
+- **Offen:** konkretes Modell, Hosting-Form. **Privacy ✅ geklärt** →
+  [[ADR-0009-privacy-raumdaten]] (Datenminimierung + CH-Hosting, self-hosted).
 
 ## Verknüpfungen
 - [[Gestaltungs-Engine-Prioritaetsklassen]] · [[Stilprofil-Auswertung-Detailkonzept]]

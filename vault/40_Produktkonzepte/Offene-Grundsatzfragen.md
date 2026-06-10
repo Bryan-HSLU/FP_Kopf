@@ -36,6 +36,10 @@ erstellt: 2026-06-09
   entkoppelt (Sample/Import als Fallback) ([[ADR-0005-mvp-scope]]).
 - „Ohne Zusatzhardware" – als USP vermutlich fix, aber explizit bestätigen.
 
+## E) Datenschutz ✅ geklärt → [[ADR-0009-privacy-raumdaten]]
+- Raumdaten = Personendaten: **Datenminimierung + CH-Hosting + self-hosted
+  Kurator**; Detail-Compliance (Datenschutzerklärung/AVV/TOMs) = Pre-Launch.
+
 ## C) Architektur & Tech (jede Wahl ist Hypothese)
 - Lokal-first ([[ADR-0001-lokaler-mvp-poc-opensource]]) ok – aber Engine-Schnitt,
   Sprachen, Schnittstellen sind revidierbar.
