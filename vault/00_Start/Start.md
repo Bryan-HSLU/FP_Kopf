@@ -84,6 +84,7 @@ damit nichts verloren geht.
 - [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
 - [[Scan-Eval-Notebook-Spezifikation]] – Spec des Mess-Notebooks (Code → 2. Repo)
 - [[Auswertung-Bauvorhaben-Detailkonzept]] – Mengen→Kosten→Gewerke→Zeit + Dokument-Menü
+- [[LV-Bauzeit-Detailkonzept]] – 📃 LV-Positions-Ableitung, Bauzeit-DAG, Offert-Paket
 - [[Daten-und-Referenzgrundlagen-Auswertung]] – welche DBs/Kennwerte + Referenzierung
 - [[Privacy-Datenschutz-Konzept]] – Datenschutz für Raumdaten (revDSG/DSGVO, CH-Hosting)
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)

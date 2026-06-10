@@ -130,7 +130,8 @@ Wissensbasis**. Details: [[KI-Berater-Chatbot]].
 > **LV nutzt im POC vereinfachte, eigene Positionen** (kein lizenziertes
 > NPK/CRB), aber **mapping-fähig** designt ([[Daten-und-Referenzgrundlagen-Auswertung]]).
 > Bauzeit = Gewerk-Dauern + kritischer Pfad (§4), Offert-Paket = Bündelung von
-> LV + Plänen + Bildern je Gewerk.
+> LV + Plänen + Bildern je Gewerk. **Detailliert ausgearbeitet** (Positions-
+> Ableitung, Trocknungszeiten, Paket-Inhalt): [[LV-Bauzeit-Detailkonzept]].
 
 ## Ehrlichkeit & Grenzen
 - **Verlässlich:** Mengen & Gewerke (Geometrie). **Unsicher:** Kosten & Zeit
