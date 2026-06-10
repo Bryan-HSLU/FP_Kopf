@@ -113,7 +113,9 @@ erstellt: 2026-06-09
 - **Möbel-Item:** id, name, kategorie, gewerk, masse(w/d/h), gltf, **tags
   (8 Stilachsen)**, preis, **platzierungsregeln** (Mindestabstände, an-Wand?,
   benötigte Anschlüsse), **`priorityClass` (P1–P3) + `relationalRules`**
-  (siehe [[Gestaltungs-Engine-Prioritaetsklassen]]).
+  (siehe [[Gestaltungs-Engine-Prioritaetsklassen]]). Einbaugeräte/Korpusse tragen
+  zusätzlich eine **`normProfile`-Variante** (CH-SMS 55er vs. EU 60er Breite,
+  [[Kuechen-Detailkonzept]]).
 - **Bild-Katalog:** id, bild, 8-Achsen-Tags, **Attribut-Tags + Farbpalette**
   ([[Stilprofil-Auswertung-Detailkonzept]]).
 - **Preistabelle:** BKP-Code → Einheitspreis (je Gewerk).
