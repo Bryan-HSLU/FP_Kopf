@@ -51,8 +51,8 @@ Risiko: zu breiter erster Wurf = Überscope (Mit-Ursache des überholten Konzept
 - Engines werden gegen ein Domänenmodell gebaut, das alle drei Fälle abdeckt →
   keine Sackgasse, aber etwas mehr Modellierungs-Sorgfalt.
 - Phasierung hält das Risiko klein; jede Phase ist eine eigene Entscheidung.
-- **Offen (Folge):** konkreter Norm-Regelsatz; Wahl des ersten Durchstichs; ob/
-  wann Neubau-Konfiguration.
+- **Offen (Folge):** ob/wann Neubau-Konfiguration. (Norm-Regelsatz ✅
+  [[Norm-Regelsatz-v0]]; Durchstich-Reihenfolge ✅ [[ADR-0010-durchstich-reihenfolge]].)
 
 ## Verknüpfungen
 - [[Offene-Grundsatzfragen]] · [[Anwendungsfelder]] · [[Domaenenmodell-v0]]

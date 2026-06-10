@@ -116,14 +116,21 @@ Wissensbasis**. Details: [[KI-Berater-Chatbot]].
 | **Pläne (2D)** | Grundriss · Ansichten · Installations-/Abbruchplan | **MVP** | PDF/DXF/DWG |
 | **3D-Export / Visualisierung** | Modell + Vorher/Nachher | **MVP** | glTF/Bilder |
 | **Next-Steps & Abklärungen** | Leitfaden: Bewilligung, Statik, Vor-Ort-Checks, Organisation | **MVP** | PDF |
-| **Bauzeitenplan** | Ablauf + Dauer (Gantt) | später | PDF |
-| **Leistungsverzeichnis (LV)** | je Gewerk, für Ausschreibung | später | PDF/strukturiert |
-| **Offertanfrage-Paket** | LV + Plan + Bilder gebündelt je Handwerker | später | PDF/Link |
+| **Bauzeitenplan** | Ablauf + Dauer (Gantt) | **MVP** | PDF |
+| **Leistungsverzeichnis (LV)** | je Gewerk (POC: **vereinfachte Positionen**, CRB/NPK-mapping-fähig) | **MVP** | PDF/strukturiert |
+| **Offertanfrage-Paket** | LV + Plan + Bilder gebündelt je Handwerker | **MVP** | PDF/Link |
 | **Projekt-Exposé / Zusammenfassung** | One-Pager (Bauherr/Bank) | später | PDF |
 | **Datenexport** | für Profis/CDE | später | JSON, **IFC** |
 | **Förderungen/Energie** (optional) | Sanierungs-Beiträge, Energiehinweise | später | PDF |
 | **CO₂/Nachhaltigkeit** (optional) | Material-Fussabdruck | Vision | PDF |
 | **KI-Berater (Chatbot)** | beantwortet Rückfragen, geerdet auf Projekt+Wissen | Vision | Service |
+
+> **Scope-Update (Bryan, 2026-06-10):** **Bauzeitenplan, LV und Offert­anfrage-
+> Paket sind jetzt im POC** (vorher „später"). Realistische Einschränkung: das
+> **LV nutzt im POC vereinfachte, eigene Positionen** (kein lizenziertes
+> NPK/CRB), aber **mapping-fähig** designt ([[Daten-und-Referenzgrundlagen-Auswertung]]).
+> Bauzeit = Gewerk-Dauern + kritischer Pfad (§4), Offert-Paket = Bündelung von
+> LV + Plänen + Bildern je Gewerk.
 
 ## Ehrlichkeit & Grenzen
 - **Verlässlich:** Mengen & Gewerke (Geometrie). **Unsicher:** Kosten & Zeit

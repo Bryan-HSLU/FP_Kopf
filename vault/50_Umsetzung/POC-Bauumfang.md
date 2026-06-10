@@ -9,8 +9,8 @@ erstellt: 2026-06-10
 # POC-Bauumfang (konsolidiert)
 
 > **Eine Quelle der Wahrheit** für den Bau: fasst alle Entscheidungen
-> (ADR-0001–0009) und Detailkonzepte zu einer Scope-Liste zusammen.
-> Kontroll-Stand: 2026-06-10, nach [[Umsetzungs-Review-Schwierigkeiten]].
+> (ADR-0001–0010) und Detailkonzepte zu einer Scope-Liste zusammen.
+> Stand: 2026-06-10.
 
 ## Rahmen
 - **Plattform ([[ADR-0002-poc-plattform-und-stack]]):** lokale **Web-App**
@@ -19,17 +19,19 @@ erstellt: 2026-06-10
 - **Repo ([[Tech-Setup-Blueprint]]):** Monorepo `fp_app` (getrennt vom Brain),
   JSON-Schemas als Verträge → TS-Typen + pydantic.
 - **Raumtypen ([[ADR-0008-poc-alle-raumtypen-kueche]]):** **alle drei** – Bad,
-  Küche, Innenraum/Wohnen; inkl. **Grossraum/Zonen** & Teilraum-Scan. Gebaut
-  wird **phasiert** – erster vertikaler Durchstich noch zu wählen.
+  Wohnen, Küche; inkl. **Grossraum/Zonen** & Teilraum-Scan.
+- **Bau-Reihenfolge ([[ADR-0010-durchstich-reihenfolge]]):**
+  **1. Bad → 2. Wohnen → 3. Küche** (steigende Komplexität; jeder Durchstich
+  Ende-zu-Ende lauffähig).
 - **CI ([[Corporate-Identity]]):** UI-Theme + PDF-Look nach CD (Dunkelgrün/
   Orange/Off-White, Logo).
 
 ## Modul 1 – Stilprofil ✅ POC
 - Kuratierter, **vorab getaggter** Bild-Katalog (3 Ebenen: 8 Stilachsen,
   Attribut-Tags, Farbpalette) – [[Stilprofil-Auswertung-Detailkonzept]].
-- **Zwei Wege:** **A** Swipen (zum Umbau-Raum) · **B** **Preset per Bild-Klick**
-  (kuratierter Achsen-Vektor, verfeinerbar). Reine Achsen, keine benannten
-  Stile ([[ADR-0006-stilmodell-achsen]]).
+- **Zwei Wege:** **A** Swipen · **B** **Preset per Bild-Klick** (verfeinerbar).
+  **Bilder immer raumtyp-gebunden** (Bad-Projekt → Bad-Bilder, keine Fremdräume).
+  Reine Achsen, keine benannten Stile ([[ADR-0006-stilmodell-achsen]]).
 - **Darstellung: „Smart Spider"** (Radar über 8 Achsen) + abgeleitete
   Anforderungen + Palette. (Interaktives Ziehen der Achsen = Ausbau.)
 
@@ -60,13 +62,17 @@ erstellt: 2026-06-10
   Variante würfeln** – kein freies Zeichnen.
 - **Live-Regel-Feedback im Client:** TS-Interpreter liest dasselbe Regel-JSON
   (goldene Testfälle gegen Python-Solver).
+- **AR-Vorschau (Stretch, zu bestätigen):** AR-**Einzelobjekt**-Vorschau via
+  `<model-viewer>` (WebXR/Quick Look), nutzt denselben glTF-Katalog →
+  [[AR-Vorschau-Konzept]].
 
 ## Modul 5 – Auswertung & Dokumente ✅ POC
 - Gestuft ([[Auswertung-Bauvorhaben-Detailkonzept]]): **Mengen → Gewerke →
-  Kosten (Bandbreite ±, nie Offerte) → (Zeit: später)**.
+  Kosten (Bandbreite ±, nie Offerte) → Bauzeit (Gantt)**.
 - **MVP-Dokumente:** Kostenschätzung/KV · Mengenauszug · Gewerke-Übersicht ·
   Material-/Einkaufsliste · **2D-Pläne (PDF + DXF)** · 3D-Export ·
-  **Next-Steps-Leitfaden** (inkl. „Anschluss-Lage & Küchen-Norm vor Ort prüfen").
+  **Next-Steps-Leitfaden** · **Bauzeitenplan** · **LV** (vereinfachte Positionen,
+  CRB/NPK-mapping-fähig) · **Offertanfrage-Paket** *(neu im POC, Bryan 2026-06-10)*.
 - **Daten:** POC-Fallback ([[Daten-und-Referenzgrundlagen-Auswertung]]) –
   kuratierter Katalog **30–50 Items/Raumtyp**, grobe Mittelpreise (als Schätzung
   markiert), stabile IDs **CRB-mapping-fähig**.
@@ -75,22 +81,26 @@ erstellt: 2026-06-10
 | Was | Wohin verschoben |
 |---|---|
 | Gaussian-Splatting-Fotorealismus | Kür/Spike P6 |
+| **Volle Szenen-AR** (ganzer Raum begehbar) | später (POC nur Einzelobjekt-Vorschau) |
 | Barrierefrei-**Werte** | post-POC (Mechanik steht) |
 | DWG-Export | später (ODA-Konverter); POC = PDF+DXF |
-| Bauzeitenplan · LV/NPK · Offertanfrage-Paket | später |
+| LV mit **lizenziertem NPK/CRB** | später (POC: eigene Positionen, mapping-fähig) |
+| Projekt-Exposé · IFC/CDE-Export | später |
 | [[KI-Berater-Chatbot]] | post-POC |
-| Kollaboration (A14) · AR-Darstellung (A15) | design-in, später |
+| Kollaboration (A14) | design-in, später |
 | On-device-Kurator | später ([[ADR-0007-ki-kurator-open-weights]]) |
 | Neubau-Konfiguration | später ([[ADR-0005-mvp-scope]]) |
 | Privacy-Detail-Compliance (DSE/AVV/TOMs) | Pre-Launch ([[ADR-0009-privacy-raumdaten]]) |
 | Marken-Erkennung aus Bildern | nicht empfohlen → Partner-Kataloge |
 
-## Offen vor Baustart (lösen das Bauen aus)
-1. **Erster vertikaler Durchstich** (welcher Raumtyp zuerst Ende-zu-Ende).
-2. Lizenz Code-Repo · erster Katalog-„Hersteller"/Quelle · Region (CH-Mittel).
-3. Spike-Testräume R1–R3 aufnehmen (Bryan, sobald Eval-Werkzeug steht).
+## Offen vor Baustart
+1. ✅ **Durchstich-Reihenfolge** entschieden (Bad→Wohnen→Küche,
+   [[ADR-0010-durchstich-reihenfolge]]).
+2. **AR-Vorschau** als Stretch bestätigen ([[AR-Vorschau-Konzept]]).
+3. Lizenz Code-Repo · erste Katalog-Quelle · Region (CH-Mittel).
+4. Spike-Testräume R1–R3 aufnehmen (Bryan, sobald Eval-Werkzeug steht).
 
 ## Verknüpfungen
-- [[ADR-0005-mvp-scope]] · [[ADR-0008-poc-alle-raumtypen-kueche]] · [[Tech-Setup-Blueprint]]
-- [[Umsetzungs-Review-Schwierigkeiten]] · [[Lokaler-MVP-POC-Architektur-v0]]
-- [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]]
+- [[ADR-0005-mvp-scope]] · [[ADR-0008-poc-alle-raumtypen-kueche]] · [[ADR-0010-durchstich-reihenfolge]]
+- [[Tech-Setup-Blueprint]] · [[Umsetzungs-Review-Schwierigkeiten]] · [[Lokaler-MVP-POC-Architektur-v0]]
+- [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] · [[AR-Vorschau-Konzept]] · [[Corporate-Identity]]

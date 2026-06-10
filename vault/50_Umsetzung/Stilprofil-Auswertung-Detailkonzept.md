@@ -24,6 +24,10 @@ Pipeline dahinter bleibt identisch:
 2. **Weg B – Fertiges Set wählen (Schnellstart):** Nutzer klickt auf **ein
    vorbereitetes Bild** („ich will genau das") → dahinter liegt ein **kuratiertes
    Preset-Profil** (vordefinierter Achsen-Vektor + Attribute + Palette).
+- **Raumtyp-gebunden (Bryan, 2026-06-10):** In **beiden** Wegen zeigt der Katalog
+  **nur Bilder des Raumtyps, den man umbaut** (Bad-Projekt → Bad-Bilder), **nicht**
+  andere Räume. Auch die Presets (Weg B) sind raumtyp-spezifisch. So ist das
+  Profil direkt auf den **Zielraum** gemünzt, nicht auf abstrakten „Wohngeschmack".
 - **Konsistenz mit [[ADR-0006-stilmodell-achsen]]:** Presets sind **keine
   benannten Stile**, sondern **Bild-repräsentierte Achsen-Vektoren** – der
   Einstieg ist nur abgekürzt. Ein Preset ist danach **verfeinerbar** (weiter

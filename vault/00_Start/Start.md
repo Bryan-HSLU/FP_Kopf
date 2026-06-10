@@ -53,6 +53,7 @@ damit nichts verloren geht.
 - [[ADR-0007-ki-kurator-open-weights]] – Kurator: Open-Weights, serverseitig
 - [[ADR-0008-poc-alle-raumtypen-kueche]] – alle 3 Raumtypen im POC, Küchenform vom Solver
 - [[ADR-0009-privacy-raumdaten]] – Datenminimierung + CH-Hosting für Raumdaten
+- [[ADR-0010-durchstich-reihenfolge]] – Bau-Reihenfolge: Bad → Wohnen → Küche
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -85,6 +86,7 @@ damit nichts verloren geht.
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
 - [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: Befunde + Gegenmassnahmen
 - [[POC-Bauumfang]] – 📋 konsolidierter Bau-Scope (was rein kommt, was nicht)
+- [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
