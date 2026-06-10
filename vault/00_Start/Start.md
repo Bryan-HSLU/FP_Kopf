@@ -58,6 +58,7 @@ damit nichts verloren geht.
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
 
 - [[Future-Planning-Vision]] – Produktüberblick
+- [[Corporate-Identity]] – 🎨 Logo, Farben, Typografie (CD-Grundlagen)
 - [[Modulablauf-v1]] – die (vorerst) 4 Module
 - [[Anforderungen-Software]] – verbindliche Rahmenbedingungen
 - [[Anwendungsfelder]] – 3 Anwendungsfelder & Zielgruppen
@@ -82,7 +83,8 @@ damit nichts verloren geht.
 - [[Daten-und-Referenzgrundlagen-Auswertung]] – welche DBs/Kennwerte + Referenzierung
 - [[Privacy-Datenschutz-Konzept]] – Datenschutz für Raumdaten (revDSG/DSGVO, CH-Hosting)
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
-- [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: 9 Befunde + Gegenmassnahmen
+- [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: Befunde + Gegenmassnahmen
+- [[POC-Bauumfang]] – 📋 konsolidierter Bau-Scope (was rein kommt, was nicht)
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`

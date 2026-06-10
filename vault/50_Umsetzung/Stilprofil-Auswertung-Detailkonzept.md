@@ -14,7 +14,24 @@ erstellt: 2026-06-09
 > aggregierten Werte einen **Threshold**, wird daraus eine konkrete Anforderung
 > („der Raum sollte einen Glastisch haben"). → Gut umsetzbar, hier das Wie.
 
-## Auswertungslinien (pro Bild, vorab getaggt)
+## Zwei Wege zum Stilprofil (Bryan, 2026-06-10)
+Beide Wege erzeugen **dasselbe Artefakt** (Stilprofil mit Achsen-Vektor) – die
+Pipeline dahinter bleibt identisch:
+1. **Weg A – Swipen (individuell):** Bilder **zum Raum, den man umbauen will**
+   swipen → Profil entsteht aus den Likes (wie unten beschrieben).
+   **Darstellung als „Smart Spider"** (Radar-/Netzdiagramm über die 8 Achsen)
+   plus weitere Auswertungs-Sichten (abgeleitete Anforderungen, Farbpalette).
+2. **Weg B – Fertiges Set wählen (Schnellstart):** Nutzer klickt auf **ein
+   vorbereitetes Bild** („ich will genau das") → dahinter liegt ein **kuratiertes
+   Preset-Profil** (vordefinierter Achsen-Vektor + Attribute + Palette).
+- **Konsistenz mit [[ADR-0006-stilmodell-achsen]]:** Presets sind **keine
+  benannten Stile**, sondern **Bild-repräsentierte Achsen-Vektoren** – der
+  Einstieg ist nur abgekürzt. Ein Preset ist danach **verfeinerbar** (weiter
+  swipen passt den Vektor an) und wird im selben Smart Spider angezeigt.
+- **UI-Hinweis:** Smart Spider idealerweise **interaktiv** (Achse ziehen =
+  Profil feinjustieren) – POC: erst Anzeige, Interaktion als Ausbau.
+
+
 Jedes Katalog-Bild trägt **drei Tag-Ebenen** (MVP: kuratiert/vorab getaggt –
 kein Live-ML nötig, vgl. [[Tech-Bausteine-Open-Source]] Modul 01):
 
