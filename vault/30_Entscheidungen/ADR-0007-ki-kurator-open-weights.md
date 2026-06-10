@@ -56,6 +56,10 @@ Zwiespalt „gratis" vs. „nicht im App-Download").
 - **Offen:** konkretes Modell, Hosting-Form. **Privacy ✅ geklärt** →
   [[ADR-0009-privacy-raumdaten]] (Datenminimierung + CH-Hosting, self-hosted).
 
+> **Mechanik ausgearbeitet** (Vorfilter, Prompt, Constrained Decoding,
+> Validierung, Baseline-Fallback, Mini-Eval): [[Kurator-Mechanik-Detailkonzept]].
+
 ## Verknüpfungen
 - [[Gestaltungs-Engine-Prioritaetsklassen]] · [[Stilprofil-Auswertung-Detailkonzept]]
 - [[ADR-0001-lokaler-mvp-poc-opensource]] · [[ADR-0006-stilmodell-achsen]]
+- [[Kurator-Mechanik-Detailkonzept]]
