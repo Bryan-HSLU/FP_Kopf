@@ -58,10 +58,14 @@ erstellt: 2026-06-10
 - **Barrierefrei-Overlay: Mechanik vorgesehen, Werte NICHT im POC.**
 
 ## Modul 4 – Viewer/Editor ✅ POC (bewusst minimal)
-- 3D drehen/zoomen (A8), Editieren: **verschieben · rotieren · austauschen ·
-  Variante würfeln** – kein freies Zeichnen.
-- **Live-Regel-Feedback im Client:** TS-Interpreter liest dasselbe Regel-JSON
-  (goldene Testfälle gegen Python-Solver).
+- 3D drehen/zoomen (A8) + 2D-Grundriss; Editieren: **verschieben · rotieren ·
+  austauschen · sperren · Variante würfeln** – kein freies Zeichnen. Details:
+  [[Viewer-Editor-UX-Detailkonzept]].
+- **Live-Regel-Feedback im Client** (Ampel ✅/⚠️/❌, Sperrzonen-Overlays):
+  TS-Interpreter liest dasselbe Regel-JSON (goldene Testfälle gegen Python-Solver).
+- **Geometrie-Darstellung:** Bestandsobjekte als **vereinfachtes Mesh/Voxel**
+  (nicht nur Box); Katalog ohne 3D-Modell = **Box-Platzhalter mit Auto-Upgrade**
+  ([[Domaenenmodell-Schema-Spezifikation]]).
 - **AR-Vorschau (Stretch, zu bestätigen):** AR-**Einzelobjekt**-Vorschau via
   `<model-viewer>` (WebXR/Quick Look), nutzt denselben glTF-Katalog →
   [[AR-Vorschau-Konzept]].

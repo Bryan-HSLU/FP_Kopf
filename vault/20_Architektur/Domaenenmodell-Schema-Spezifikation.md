@@ -23,7 +23,7 @@ erstellt: 2026-06-10
 | y-up vs. z-up | **y-up, rechtshändig, Meter** | deckungsgleich mit glTF 2.0/three.js → keine Konvertierung im Viewer; Grundriss liegt in der **x/z-Ebene**; DXF-Export mappt (x,z)→(x,y) |
 | Wände: Segmente vs. Polygon | **Segmente** + Validator „Hülle geschlossen" | nur Segmente können `kind: massiv/offen/virtuell` je Kante tragen (Grossraum!); `floor.polygon` wird **abgeleitet/validiert**, nicht doppelt gepflegt |
 | Rotation | **Yaw in Grad** (um y) im POC | Solver arbeitet 2D-Top-Down (x,z,θ); Schema erweiterbar auf Quaternion |
-| bbox vs. Mesh (Bestandsobjekte) | **bbox reicht im POC** + optionales `meshRef` | Solver braucht Footprint; Meshes erst für Spur-2/Fotorealismus |
+| bbox vs. Mesh (Bestandsobjekte) | **mehrstufig**: bbox · **vereinfachtes Mesh** · Voxel (s.u.) | Solver braucht nur Footprint; für den Viewer ist die **erkennbare Form** wertvoll |
 | Regeln deklarativ vs. Code | ✅ **deklarativ** (längst entschieden) | [[Norm-Regelsatz-v0]] |
 | Versionierung/Kollaboration | `version`-Zähler + `contributors[]` jetzt; echtes Multi-User später | A14 = design-in ([[ADR-0005-mvp-scope]]) |
 
@@ -39,7 +39,9 @@ Wie [[Domaenenmodell-v0]] §1, präzisiert:
 - `walls[]`: Segmente mit `kind`, Dicke, Höhe; **Validator: Hülle geschlossen**
   (virtuelle Kanten zählen zum Umriss).
 - `zones[]`, `openings[]`, `fixpoints[]` (mit `mount`, `origin`), `objects[]`
-  (mit `confidence`, `needsReview`) – wie v0/[[Kuechen-Detailkonzept]].
+  (mit `confidence`, `needsReview`) – wie v0/[[Kuechen-Detailkonzept]]; `objects[]`
+  zusätzlich mit `geometry { repr: "bbox|mesh-simpl|voxel", bbox, meshRef? }`
+  (s. Abschnitt **Geometrie-Repräsentation**).
 - `meta`: `captureMethod`, `coverageScore`, **`estimatedError_cm`**,
   **`geometryConfirmed: bool`** *(neu – Nutzer hat Masse bestätigt → Solver setzt
   die Unsicherheits-Marge auf 0, [[Solver-Algorithmus-Detailkonzept]])*,
@@ -75,8 +77,11 @@ Wie v0 §2, präzisiert:
   `sampleSufficient: bool` (Mindest-Stichprobe erreicht?).
 
 ### 4) Katalog-Item *(Stammdaten)*
-v0 §3 präzisiert: `masse{w,d,h}`, `gltfRef`, **`usdzRef?`** *(AR-Vorschau,
-[[AR-Vorschau-Konzept]])*, `priorityClass`, `funktionsTyp`, `relationalRules[]`,
+v0 §3 präzisiert: `masse{w,d,h}`, **`gltfRef?`** + **`assetStatus: "placeholder|modeled"`**
+*(ohne 3D-Modell rendert der Viewer eine **Box aus `masse`**; sobald `gltfRef`
+ergänzt wird → automatischer Upgrade, s. **Geometrie-Repräsentation**)*,
+**`usdzRef?`** *(AR-Vorschau, [[AR-Vorschau-Konzept]])*, `priorityClass`,
+`funktionsTyp`, `relationalRules[]`,
 `anschluesse[]`, `achsenTags` (−1…+1 je Achse), `attributTags[]`,
 **`normProfileVariante? (ch55 | eu60)`** (Einbaugeräte/Korpusse),
 `gewerk`, `bkpCode?`, `ebkpCode?`, `npkRef?`,
@@ -102,6 +107,32 @@ Pflichtfelder: `id, roomType, appliesTo, type, severity, quelle, status`.
 - **Validierung (hart):** Response-IDs ⊆ Katalogauszug; unbekannte IDs →
   Request abgelehnt, Retry/Fallback deterministische Baseline. *(Erdung als
   Schema-Regel, nicht nur Prompt.)*
+
+## Geometrie-Repräsentation & Asset-Upgrade (Bryan, 2026-06-10)
+**Prinzip:** Geometrie ist von der **Platzierungs-Logik entkoppelt** – der Solver
+rechnet immer mit Masse/Footprint, die **Darstellung** ist eine **austauschbare
+Stufe**. So wächst die Qualität mit der Bibliothek, **ohne** dass Modell oder
+Solver sich ändern.
+
+**a) Bestandsobjekte (gescannt)** – statt nur einer Box eine **erkennbare Form**:
+| `repr` | Was | Wann |
+|---|---|---|
+| `bbox` | Quader aus Detektion | Fallback / unsichere Erkennung |
+| `mesh-simpl` | **vereinfachtes/dezimiertes Mesh** (Form erkennbar, wenig Polygone) | Standard, wenn Tiefe/Segmentierung brauchbar |
+| `voxel` | grobe Voxelisierung | Alternative für „klumpige" Objekte |
+> Dezimierung/Voxelisierung passiert in der **Raum-Engine** (z.B. open3d/
+> trimesh-Vereinfachung der Tiefen-/Segment-Punkte). Schema trägt nur `meshRef`
+> + `repr`; **`bbox` bleibt immer gesetzt** (der Solver nutzt nur die bbox).
+
+**b) Geplante Katalog-Objekte – Box-Platzhalter mit Auto-Upgrade:**
+- Hat ein Item **kein** `gltfRef` (`assetStatus:"placeholder"`) → Viewer zeigt eine
+  **maßstäbliche Box aus `masse`** (mit Label/Icon/CI-Farbe, damit erkennbar).
+- Wird später ein `gltfRef` ergänzt (`"modeled"`) → **dasselbe `catalogItemId`
+  rendert automatisch das echte 3D-Modell**, ohne dass Pläne/Placements migriert
+  werden müssen. Die Platzierung referenziert **nur die ID**, nie die Geometrie.
+- **Folge für die Content-Pipeline** ([[Umsetzungs-Review-Schwierigkeiten]] Befund 5):
+  Der Katalog ist **von Tag 1 nutzbar** (alles Boxen) und wird **inkrementell
+  „eingekleidet"** – Modellieren wird zum laufenden, nicht blockierenden Prozess.
 
 ## Projekt-Hülle & Privacy
 Übergeordnetes **Projekt**-Artefakt bündelt: `raumRef(s)`, `stilprofilRef`,

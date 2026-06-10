@@ -77,6 +77,7 @@ damit nichts verloren geht.
 - [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
 - [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
+- [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[Kuechen-Detailkonzept]] – Küchenform vom Solver, lineare Baugruppe, Grossraum/Zonen
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
