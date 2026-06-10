@@ -79,6 +79,9 @@ damit nichts verloren geht.
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[Kurator-Mechanik-Detailkonzept]] – 🤖 Retrieval, Prompt, Grounding, Fallback, Eval
+- [[Engineering-Grundlagen-POC]] – 🛠️ API, Zustände, Teststrategie, CI, Budgets
+- [[Asset-Content-Pipeline]] – 🎨 Renderings, glTF-Pipeline, Tagging, Aufwand
+- [[Bauplan-Meilensteine]] – 🚀 M0–M7 mit Definition of Done
 - [[Kuechen-Detailkonzept]] – Küchenform vom Solver, lineare Baugruppe, Grossraum/Zonen
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)

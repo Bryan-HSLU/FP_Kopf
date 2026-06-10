@@ -99,7 +99,7 @@ erstellt: 2026-06-10
 
 ## Offen vor Baustart
 1. ✅ **Durchstich-Reihenfolge** entschieden (Bad→Wohnen→Küche,
-   [[ADR-0010-durchstich-reihenfolge]]).
+   [[ADR-0010-durchstich-reihenfolge]]); **Bau-Fahrplan:** [[Bauplan-Meilensteine]].
 2. **AR-Vorschau** als Stretch bestätigen ([[AR-Vorschau-Konzept]]).
 3. Lizenz Code-Repo · erste Katalog-Quelle · Region (CH-Mittel).
 4. Spike-Testräume R1–R3 aufnehmen (Bryan, sobald Eval-Werkzeug steht).
