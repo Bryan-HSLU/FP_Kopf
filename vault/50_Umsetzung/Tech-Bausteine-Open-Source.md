@@ -63,6 +63,9 @@ Statt Dense Reconstruction ein **mehrschichtiger, leichter Ansatz**:
 - **Alternativen:** genetische Algorithmen, Monte-Carlo-Sampling auf
   Dichtefunktion; später ggf. generativ (CGAN) / RL. Für den POC reicht der
   deterministische Optimierer.
+- **Vertieft:** Der Algorithmus ist **Feasibility-first** (harte Regeln als
+  Filter, nicht als Strafterm) – SA sitzt nur auf der **Soft-Ebene**. Details:
+  [[Solver-Algorithmus-Detailkonzept]].
 
 ## Modul 04 – Berechnungen
 - **Reine, deterministische Logik:** Gewerke/Positionen aus dem Plan-Objekt

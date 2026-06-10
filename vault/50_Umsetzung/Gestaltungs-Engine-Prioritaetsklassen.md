@@ -72,11 +72,18 @@ Katalog-Item bekommt: `priorityClass`, `relationalRules` (z.B.
 `near:lavabo`, `wall-mounted`, `minDistance:wc=0.6`), `funktionsTyp`
 (für „Pflicht-P1 je Raumtyp"). → als Ergänzung in [[Domaenenmodell-v0]] §3.
 
+> **Algorithmus-Vertiefung:** Wie der Solver platziert (Feasibility-first,
+> Backtracking/Beam für P1, greedy/SA für P2/P3, Konfidenz-Ampel) →
+> eigenes [[Solver-Algorithmus-Detailkonzept]].
+
 ## Offene Fragen
 - Genaue Klassengrenzen (ist ein Spiegel P2 oder P3?) → pro Raumtyp kuratieren.
-- **Küche als Zeilen-/Korpus-System** (60-cm-Raster, Arbeitsplatte, L/U/Galley):
-  freie Einzelplatzierung reicht nicht – braucht ein Konzept „lineare Baugruppe"
-  (Zeile mit Slots) → [[Umsetzungs-Review-Schwierigkeiten]] Befund 2.
+- ✅ **Varianten:** Top-k zulässige P1-Layouts + Seeds → **Top-3 / „würfeln"**
+  ([[Solver-Algorithmus-Detailkonzept]]).
+- ✅ **Budget:** primär **soft** (Score), optional harte Obergrenze in der Auswahl
+  ([[Solver-Algorithmus-Detailkonzept]]).
+- **Küche als Zeilen-/Korpus-System** → gelöst via [[Kuechen-Detailkonzept]]
+  (Befund 2, [[Umsetzungs-Review-Schwierigkeiten]]).
 - Wie viele Varianten schlägt der Solver vor (1 vs. Top-3)?
 - Budget als harte oder weiche Grenze?
 
