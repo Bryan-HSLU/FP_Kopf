@@ -123,11 +123,13 @@ erstellt: 2026-06-09
   parametrierbar – Teilmenge SIA (Umfang offen, siehe [[Offene-Grundsatzfragen]]).
 
 ## Offene Fragen (zu hinterfragen)
-- Koordinatensystem y-up vs. z-up; Wände als Segmente vs. geschlossenes Polygon.
+> ✅ **Formalisiert:** Die offenen Punkte sind in der
+> [[Domaenenmodell-Schema-Spezifikation]] entschieden (y-up ✅ · Wände als
+> **Segmente** mit Hüllen-Validator ✅ · **bbox reicht im POC** ✅ · Regeln
+> **deklarativ** ✅ · Versionierung: Zähler jetzt, Multi-User später ✅). Dort
+> stehen auch die seit v0 dazugekommenen Felder (Konfidenz-Ampel je Regel, Seed,
+> Normprofil, Privacy-Fristen, Kurator-Vertrag).
 - Wie viel **bauliche Massnahmen** (interventions) braucht der MVP wirklich?
-- Reicht **bbox** für Bestandsobjekte oder braucht es Meshes?
-- Wie werden **Regeln/Normen** formal kodiert (deklarativ vs. Code im Solver)?
-- Versionierung/Kollaboration: ab wann nötig?
 
 ## Verknüpfungen
 - [[ADR-0004-architektur-zerlegung-hybrid]] · [[Lokaler-MVP-POC-Architektur-v0]]

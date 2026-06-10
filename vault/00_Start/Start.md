@@ -40,6 +40,7 @@ damit nichts verloren geht.
 - [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] – 🗺️ ganze Pipeline visuell (Canvas)
 - [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
 - [[Domaenenmodell-v0]] – Raummodell + Plan-Objekt (stabiler Kern)
+- [[Domaenenmodell-Schema-Spezifikation]] – 📐 schema-reife Verträge (7 Artefakte)
 
 ### ⚖️ Entscheidungen
 > Entscheidungs-Records (ADR-Stil). → `vault/30_Entscheidungen/`
