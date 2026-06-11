@@ -38,6 +38,12 @@ Zwiespalt „gratis" vs. „nicht im App-Download").
 - **POC:** gegen das Einfachste entwickeln (lokales Dev-Modell oder vorüber-
   gehend ein API) – entscheidend ist die saubere Schnittstelle, **kein**
   Hard-Coupling. Konkrete Modellwahl (Größe/VLM) = späterer Benchmark.
+  > **Empfehlung POC (Bryan-Frage 2026-06-10):** **gehostetes API** hinter dem
+  > `KuratorPort` ist für den POC **pragmatisch und ok** – kein lokaler GPU-/
+  > RAM-Bedarf, bessere Qualität, von jedem Gerät erreichbar (auch Handy-Demo).
+  > **Zulässig, weil im POC nur Sample-/Nicht-Personendaten** verarbeitet werden.
+  > Sobald **echte Raumdaten** ins Spiel kommen → Wechsel auf **self-hosted /
+  > CH** ([[ADR-0009-privacy-raumdaten]]). Der Port macht das zum Konfigwechsel.
 - Production-Laufort bleibt **revidierbar**; der **Ansatz** (offene Gewichte +
   Abstraktion) ist fix.
 

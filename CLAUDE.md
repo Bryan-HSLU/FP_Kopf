@@ -192,3 +192,33 @@ Eine neue Claude-Session versteht das Projekt so:
   push`. Plane das Sichern aktiv ein, statt es ans Ende zu schieben.
 - Commits: klar und beschreibend, auf Deutsch.
 - **Keine** Pull Requests ohne ausdrücklichen Auftrag von Bryan.
+
+---
+
+## 11. Zusammenspiel mit dem Code-Repo `fp_app`
+
+Sobald gebaut wird, gibt es **zwei Repos** mit klarer Rollenteilung:
+
+| Repo | Rolle |
+|---|---|
+| **FP_Kopf** (dieses, Brain) | **Wissen**: Konzepte, Entscheidungen, Learnings. Die Detailkonzepte im Brain sind die **fachliche Vorgabe (Source of Truth)** für den Bau. |
+| **fp_app** (Code) | **Umsetzung**: der lauffähige POC. Hat eine **eigene `CLAUDE.md`** mit Coding-Regeln. |
+
+**Verbindlicher Learning-Loop (Code → Brain).** Die KI, die an `fp_app`
+arbeitet, hält Wissen **nicht nur im Code**, sondern speist es zurück ins Brain –
+damit der 1. POC die Grundlage für künftige POCs/Versionen bleibt:
+- **Was funktioniert / was nicht**, **Abweichungen vom Konzept + Grund**, neue
+  technische Erkenntnisse → als Notiz nach `vault/10_Learnings/` (bzw. ADR in
+  `vault/30_Entscheidungen/`, wenn es eine Entscheidung revidiert).
+- **Wann:** nach jedem Meilenstein ([[Bauplan-Meilensteine]]) und bei jeder
+  relevanten Abweichung – nicht erst am Ende.
+- **Trennung bleibt (§5):** ins Brain kommen **Erkenntnisse**, kein Code-Dump –
+  höchstens kurze, erklärende Schlüssel-Snippets.
+
+**Code-Doku (in `fp_app`):** das *Warum* sofort dokumentieren (Docstrings für
+öffentliche Funktionen, Kommentare an nicht-offensichtlichen Stellen, README je
+Package); triviale Beschreibung weglassen. Erschöpfende Prosa darf nachgezogen
+werden – der Learning-Loop ins Brain hat Vorrang.
+
+**Kickoff:** Der Start-Prompt zum Anlegen/Einrichten von `fp_app` liegt im
+Repo-Root unter [`KICKOFF-PROMPT-fp_app.md`](KICKOFF-PROMPT-fp_app.md).

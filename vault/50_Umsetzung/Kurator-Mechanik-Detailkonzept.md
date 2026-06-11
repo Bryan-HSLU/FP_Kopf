@@ -78,9 +78,12 @@ Response-Schema = Kurator-Vertrag (`auswahl[]`, `relationaleAbsichten[]`,
   Deutsch · ~**7–30B** (Serverklasse, [[ADR-0007-ki-kurator-open-weights]]).
 - **Kandidaten** (Benchmark statt Vorfestlegung, Stand 2026 prüfen): Qwen-,
   Llama-, Gemma-, Mistral-Familien in Instruct-Varianten.
-- **Serving POC:** lokal via **Ollama/llama.cpp** (Dev-Maschine) **oder**
-  übergangsweise ein API – beides hinter dem **KuratorPort** (Implementierungen:
-  `baseline` · `llm-local` · `llm-api`; ADR-0007-Abstraktion).
+- **Serving POC:** drei Port-Implementierungen, frei wählbar – `baseline`
+  (kein LLM, immer da) · `llm-local` (Ollama/llama.cpp) · **`llm-api`
+  (gehostet)**. **Empfehlung POC = `llm-api`** (kein lokaler GPU-/RAM-Bedarf,
+  von jedem Gerät/Handy erreichbar, beste Qualität); zulässig, weil POC nur
+  Sample-Daten nutzt → bei echten Raumdaten Wechsel auf self-hosted/CH
+  ([[ADR-0007-ki-kurator-open-weights]], [[ADR-0009-privacy-raumdaten]]).
 - **Latenzbudget:** Auswahl ist **einmalig pro Plan** (nicht interaktiv) →
   2–10 s sind ok; UI zeigt Fortschritt.
 

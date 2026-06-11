@@ -17,10 +17,12 @@ erstellt: 2026-06-10
   **keine Cloud** ([[ADR-0001-lokaler-mvp-poc-opensource]]). Am Handy nutzbar
   über den **Browser im lokalen Netz**; der Live-Scan-Spike läuft via **Expo Go**
   auf dem eigenen Phone (ohne Store).
-- **Alle Berechnungen laufen lokal/gratis:** Solver & Auswertung = leichte
-  CPU-Logik (jeder Laptop) · Kurator-LLM = quantisiert via Ollama **oder**
-  Baseline ohne LLM · GPU-lastiges (Scan-Modelle, Splatting) = **Google Colab
-  Free**. Bezugsquellen & Lizenzen: [[Modell-und-Tool-Quellen]].
+- **Berechnungen ohne eigene Cloud:** Solver & Auswertung = leichte CPU-Logik
+  (jeder Laptop) · **Kurator = gehostetes API empfohlen** (kein lokaler GPU-/
+  RAM-Bedarf, von jedem Gerät erreichbar; Alternativen: Ollama lokal / Baseline
+  ohne LLM – [[Kurator-Mechanik-Detailkonzept]], [[ADR-0007-ki-kurator-open-weights]]) ·
+  GPU-lastiges (Scan-Modelle, Splatting) = **Google Colab Free**.
+  Bezugsquellen & Lizenzen: [[Modell-und-Tool-Quellen]].
 - Die **echte Handy-App + CH-Server** ([[ADR-0009-privacy-raumdaten]]) ist die
   **Produktphase nach dem POC** – die Modulgrenzen sind dafür gebaut
   ([[ADR-0002-poc-plattform-und-stack]]).
@@ -40,8 +42,10 @@ erstellt: 2026-06-10
   Orange/Off-White, Logo).
 
 ## Modul 1 – Stilprofil ✅ POC
-- Kuratierter, **vorab getaggter** Bild-Katalog (3 Ebenen: 8 Stilachsen,
+- Kuratierter, **vorab getaggter** Bild-Katalog (3 Ebenen: Stilachsen,
   Attribut-Tags, Farbpalette) – [[Stilprofil-Auswertung-Detailkonzept]].
+  **Bryan taggt selbst; bis dahin Sample-Bilder** ([[Asset-Content-Pipeline]] §0).
+  Achsen/Attribute **erweiterbar als Daten** (Taxonomie, z.B. `kuechentyp:insel`).
 - **Zwei Wege:** **A** Swipen · **B** **Preset per Bild-Klick** (verfeinerbar).
   **Bilder immer raumtyp-gebunden** (Bad-Projekt → Bad-Bilder, keine Fremdräume).
   Reine Achsen, keine benannten Stile ([[ADR-0006-stilmodell-achsen]]).

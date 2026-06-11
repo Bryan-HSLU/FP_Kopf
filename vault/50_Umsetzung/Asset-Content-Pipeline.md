@@ -13,6 +13,14 @@ erstellt: 2026-06-10
 > [[Domaenenmodell-Schema-Spezifikation]]: **Platzhalter-first mit Auto-Upgrade**
 > – Content blockiert den Bau **nie**.
 
+## 0) Zuständigkeit & POC-Start (Bryan, 2026-06-10)
+- **Bryan taggt die Bilder selbst** (kuratiert die Achsen-/Attribut-Werte) –
+  inhaltliche Hoheit beim Gründer.
+- **Bis dahin: Sample-Bilder** (Platzhalter mit Beispiel-Tags) → das
+  Stil-Modul ist **sofort lauffähig**, ohne auf den fertigen Katalog zu warten
+  (gleiche „Platzhalter-first"-Logik wie bei den 3D-Assets). Reales Tagging
+  ersetzt die Samples schrittweise.
+
 ## 1) Swipe-Bild-Katalog: **eigene Renderings als Königsweg**
 Statt Fremdfotos (Rechte! Tagging-Drift!) rendern wir die Bilder **selbst in
 Blender** – mit einem entscheidenden Nebeneffekt:
