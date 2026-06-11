@@ -32,6 +32,7 @@ damit nichts verloren geht.
 
 - [[Glossar-Bau-und-Stil]]
 - [[Anschluesse-Standort-und-Vorwand]] – Anschluss-Standort genügt (Bestand/Vorwand)
+- [[Learning-M0-M1-Repo-und-Regelkern]] – 🔨 erste Bau-Learnings: Verträge zuerst, Paritäts-Gesetz, v0-Näherungen
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
