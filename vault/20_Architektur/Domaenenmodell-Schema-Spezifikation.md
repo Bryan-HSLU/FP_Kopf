@@ -69,8 +69,10 @@ Wie v0 §2, präzisiert:
   `createdAt`, `contributors[]`.
 
 ### 3) Stilprofil *(Stil-Engine → Kurator/Solver)*
-- `styleVector`: 8 Achsen ([[ADR-0006-stilmodell-achsen]]) als **−1…+1**
-  (Gegensatzpaare: −1 = linker Pol, +1 = rechter Pol; 0 = neutral/unbestimmt).
+- `styleVector`: Achsenwerte **−1…+1** (Gegensatzpaare; 0 = neutral). **Achsen-Set
+  ist datengetrieben** – Schlüssel = Achsen-IDs aus der **Taxonomie**
+  (`data/taxonomy/`, Start-Satz = die 8 aus [[ADR-0006-stilmodell-achsen]];
+  erweiterbar ohne Schema-Änderung). Profil trägt **`taxonomyVersion`**.
 - `derivedRequirements[]`, `palette[]` – wie gehabt.
 - `meta` **neu**: **`method: swipe | preset`**, `presetId?`,
   **`roomType`** *(Profil ist raumtyp-gebunden!)*, `likes`, `dislikes`,
@@ -90,7 +92,9 @@ ergänzt wird → automatischer Upgrade, s. **Geometrie-Repräsentation**)*,
 
 ### 5) Bild-Katalog-Item *(Stammdaten, Swipe & Presets)*
 `bildRef`, **`roomType`** (Bilder nur zum Zielraum!), `achsenTags`,
-`attributTags[]`, `palette[]`, **`lizenz { quelle, rechte }`** *(Content-Pipeline,
+`attributTags[]` *(offenes `kategorie:wert`-Vokabular aus der Taxonomie – z.B.
+`marke:…`, `pflanzen:…`, `kuechentyp:insel` – erweiterbar ohne Schema-Änderung)*,
+`palette[]`, **`lizenz { quelle, rechte }`** *(Content-Pipeline,
 Befund 5)*, **`istPreset: bool`** + `presetProfile?` (kuratierter Achsen-Vektor
 hinter dem Preset-Bild).
 

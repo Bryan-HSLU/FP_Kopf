@@ -74,7 +74,29 @@ Material-/`finishes`-Wahl. **Immer soft** – harte Regeln bleiben beim Solver.
 > Person unterschiedliche, stimmige Auswahl. Threshold = Untergrenze, Kurator =
 > Interpretation darüber.
 
-## ⚠️ Einordnung „Marke"
+## Erweiterbare Tag-Taxonomie (Bryan, 2026-06-10)
+Achsen **und** Attribute sind **Daten, kein Code** (`data/taxonomy/`) – neue
+Auswertungslinien dazuzunehmen oder anzupassen ist ein **Datei-Edit, kein Umbau**:
+- **Achsen-Set erweiterbar:** die 8 Achsen sind der Start-Satz
+  ([[ADR-0006-stilmodell-achsen]]), die Liste selbst liegt als Taxonomie-Datei
+  vor (`id`, Polbeschriftungen, Beschreibung). Neue/angepasste Achse = neuer
+  Eintrag; Stilvektor & Smart Spider rendern **datengetrieben** (keine
+  hartkodierte „8").
+- **Attribut-Vokabular offen** (`kategorie:wert`):
+  `marke:<hersteller>` (als **Metadatum** – nicht Bild-Erkennung, vgl. ⚠️ unten) ·
+  `moebelart:freistehend|eingebaut` · `pflanzen:viele|wenige|keine` ·
+  `kuechentyp:insel|l|u|galley|zeile` · `material:…` · `armatur:…` – beliebig
+  ergänzbar.
+- **Wirkung automatisch:** jedes getaggte Attribut nimmt am Threshold-/
+  Kurator-Mechanismus teil (abgeleitete Anforderungen), ohne Code-Anpassung.
+  Beispiel Küche: viele Likes mit `kuechentyp:insel` → boostet die **Insel-Form**
+  in der Formwahl ([[Kuechen-Detailkonzept]] Teil 1).
+- **Grenze:** neue Achsen brauchen **nachgetaggte Bilder** (bei eigenen
+  Renderings billig: Tags fallen aus Szenen-Parametern,
+  [[Asset-Content-Pipeline]]) – deshalb Taxonomie-Änderungen **versionieren**
+  (`taxonomyVersion` im Profil, alte Profile bleiben lesbar).
+
+
 **Marken-Erkennung aus Bildern: nicht empfohlen** – unzuverlässig (Logo selten
 sichtbar) und rechtlich heikel (Marken-/Urheberrecht in der Empfehlung).
 Stattdessen **Merkmals-Ebene** (Material, Form, Farbe) – die trägt dieselbe

@@ -12,6 +12,19 @@ erstellt: 2026-06-10
 > (ADR-0001–0010) und Detailkonzepte zu einer Scope-Liste zusammen.
 > Stand: 2026-06-10.
 
+## Was der POC **ist** (Form & Erwartung)
+- **Lokale Web-App auf dem eigenen Rechner** – **keine App-Store-App** und
+  **keine Cloud** ([[ADR-0001-lokaler-mvp-poc-opensource]]). Am Handy nutzbar
+  über den **Browser im lokalen Netz**; der Live-Scan-Spike läuft via **Expo Go**
+  auf dem eigenen Phone (ohne Store).
+- **Alle Berechnungen laufen lokal/gratis:** Solver & Auswertung = leichte
+  CPU-Logik (jeder Laptop) · Kurator-LLM = quantisiert via Ollama **oder**
+  Baseline ohne LLM · GPU-lastiges (Scan-Modelle, Splatting) = **Google Colab
+  Free**. Bezugsquellen & Lizenzen: [[Modell-und-Tool-Quellen]].
+- Die **echte Handy-App + CH-Server** ([[ADR-0009-privacy-raumdaten]]) ist die
+  **Produktphase nach dem POC** – die Modulgrenzen sind dafür gebaut
+  ([[ADR-0002-poc-plattform-und-stack]]).
+
 ## Rahmen
 - **Plattform ([[ADR-0002-poc-plattform-und-stack]]):** lokale **Web-App**
   (React + Vite + three.js/r3f) + lokaler **Python/FastAPI**-Dienst; Daten als

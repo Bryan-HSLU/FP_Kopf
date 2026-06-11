@@ -101,6 +101,7 @@ damit nichts verloren geht.
 
 - [[Pitchdeck-Technik-2026-04-29]] – technisches Pitchdeck
 - [[Pitchdeck-FamilyFriends-2026-05-06]] – Business-/F&F-Pitchdeck
+- [[Modell-und-Tool-Quellen]] – 📦 Downloads, Bezugsorte, Lizenzen (inkl. ⚠️-Flags)
 
 ### 🗄️ Archiv
 > Abgelöste fachliche Notizen. → `vault/99_Archiv/`
