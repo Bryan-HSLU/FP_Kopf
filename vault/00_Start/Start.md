@@ -34,6 +34,7 @@ damit nichts verloren geht.
 - [[Anschluesse-Standort-und-Vorwand]] – Anschluss-Standort genügt (Bestand/Vorwand)
 - [[Learning-M0-M1-Repo-und-Regelkern]] – 🔨 erste Bau-Learnings: Verträge zuerst, Paritäts-Gesetz, v0-Näherungen
 - [[Learning-Spike-R1-Erste-Testaufnahmen]] – 📹 Aufnahme-Qualität ist der erste Engpass; Weitwinkel besser; Guideline v1
+- [[Learning-M3-Durchstich-Bad]] – ⭐ Feasibility-first bewährt: Invariante per Konstruktion, R1 ehrlich gelöst, Höhe im Kollisionscheck
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
