@@ -44,8 +44,11 @@ besser** und ist der bessere Standard für den Scan.
 - R1 wird nach Guideline **wiederholt**; alter + neuer Lauf werden im Colab-
   Notebook verglichen → zeigt den Hebel der Führung (analog «mit/ohne
   Ecken-Antippen» getrennt messen, [[Scan-Validierungs-Spike]]).
-- Ground Truth R1 (Laser/Massband) steht noch aus – ohne sie keine
-  Fehler-Metriken.
+- Ground Truth R1 **liegt vor** (Bryan, 2026-06-11): **L-förmiges WC**,
+  1.8 × 1.0 m mit 0.3 m Versatz → Nische 0.7 × 0.8 m, Fläche 1.56 m².
+  Damit ist R1 ein bewusst extremer Testfall (6 Wände, engste Stelle 0.7 m) –
+  gut, um die Grenzen von Layout-Fit und Norm-Regeln zu finden. Noch offen:
+  Raumhöhe, Türbreite, Objektmasse.
 
 ## Verknüpfungen
 - [[Scan-Validierungs-Spike]] · [[Scan-Eval-Notebook-Spezifikation]]
