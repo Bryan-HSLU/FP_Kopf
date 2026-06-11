@@ -13,8 +13,9 @@ quellen: Code-Repo FP_APP (M4)
 M4 gemäss [[Bauplan-Meilensteine]]: LV + Bauzeitenplan + Offert-Paket + DXF
 ([[LV-Bauzeit-Detailkonzept]]), Kurator hinter austauschbarem Port + Mini-Eval
 ([[Kurator-Mechanik-Detailkonzept]]), Stil-UI mit Swipe/Preset + Smart Spider
-([[Stilprofil-Auswertung-Detailkonzept]]). Stand: weitgehend umgesetzt;
-Restpunkte in STATUS.md des Code-Repos.
+([[Stilprofil-Auswertung-Detailkonzept]]). **Stand: DoD erfüllt** – alle
+MVP-Dokumente generierbar (inkl. 2D-Plan-PDF, glTF-3D-Export,
+Gewerke-Übersicht, Einkaufsliste); Eval-Gate entschieden: Baseline aktiv.
 
 ## Erkenntnis
 **«Regeln/Positionen als Daten» trägt durch das ganze System.** Der dritte
@@ -49,8 +50,11 @@ Fallback liessen sich mit gemocktem LLM vollständig beweisen.
 ## Konsequenzen
 - Katalog-Ausbau (30–50 Items/Raumtyp) ist jetzt der grösste Hebel für
   Kurator-Diversität UND Solver-Varianten – vor M5 angehen.
-- M4-Rest: 2D-Plan-PDF, 3D-Export, Gewerke-Übersicht/Einkaufsliste als
-  eigene Dokumente; Mini-Eval mit echtem LLM + Mensch-Rating (Bryan).
+- M4-Rest erledigt (2026-06-11): 2D-Plan-PDF, **glTF-3D-Export ohne
+  Zusatz-Dependency** (Einheitswürfel + Nodes – die Box-Platzhalter-Idee
+  macht auch den 3D-Export trivial), Gewerke-Übersicht, Einkaufsliste;
+  alles im Viewer als Dokumente-Menü. Bei Bryan: Mini-Eval mit echtem LLM
+  + Mensch-Rating, echte Bad-Fotos taggen.
 - Offene Konzeptfrage bestätigt offen: Schätzpreise im Offert-Paket
   weggelassen (konservativ, wie [[LV-Bauzeit-Detailkonzept]] §4 empfiehlt) –
   Bryan bestätigen.
