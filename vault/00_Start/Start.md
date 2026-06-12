@@ -36,6 +36,7 @@ damit nichts verloren geht.
 - [[Learning-Spike-R1-Erste-Testaufnahmen]] – 📹 Aufnahme-Qualität ist der erste Engpass; Weitwinkel besser; Guideline v1
 - [[Learning-M3-Durchstich-Bad]] – ⭐ Feasibility-first bewährt: Invariante per Konstruktion, R1 ehrlich gelöst, Höhe im Kollisionscheck
 - [[Learning-M4-Auswertung-Kurator-Stil]] – 📄 «Daten statt Code» trägt (LV/Sequenz); Kurator-Erdung ohne LLM testbar; Katalog-Ausbau = grösster Hebel
+- [[Learning-M5-Durchstich-Wohnen]] – 🛋️ zweiter Raumtyp ≈ Datenpflege + 1 Solver-Feature; Mess-Semantik-Falle bei Relationen; erste Ausdrucksgrenze des Regelmodells
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
