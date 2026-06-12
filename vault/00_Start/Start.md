@@ -37,6 +37,7 @@ damit nichts verloren geht.
 - [[Learning-M3-Durchstich-Bad]] – ⭐ Feasibility-first bewährt: Invariante per Konstruktion, R1 ehrlich gelöst, Höhe im Kollisionscheck
 - [[Learning-M4-Auswertung-Kurator-Stil]] – 📄 «Daten statt Code» trägt (LV/Sequenz); Kurator-Erdung ohne LLM testbar; Katalog-Ausbau = grösster Hebel
 - [[Learning-M5-Durchstich-Wohnen]] – 🛋️ zweiter Raumtyp ≈ Datenpflege + 1 Solver-Feature; Mess-Semantik-Falle bei Relationen; erste Ausdrucksgrenze des Regelmodells
+- [[Learning-M6-Durchstich-Kueche]] – 🍳 M1-Verträge trugen M6 ohne Schema-Änderung; Grossraum = pure Function (zone_room); Invariante ≠ Vollständigkeit; Vorfilter nie strenger als Urteil
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
