@@ -55,6 +55,28 @@ führen). **Erst die Metrik robust machen, dann hart schalten.**
   sind gefährlich – sie driften subtil (Anker-Push, In-Raum-Test) und liefern
   falsche Schlüsse. **Immer den produktiven Evaluator vermessen.**
 
+## Nachtrag / Auflösung (2026-06-14) – der Fix war minimal
+**Es war NICHT die Metrik insgesamt, sondern allein die Anker-Position.** Der
+Tür-Anker lag 1.5 Zellen am **Türmund**; dadurch war faktisch die **fixe
+Türbreite** der Engpass – kein durch Möbel lösbares Problem. **Fix: Anker
+~minWidth/2 HINTER die Tür schieben** (ins Korridor-Innere, Seitenbestimmung
+weiterhin per Polygon-Test), 1:1 in TS & Python.
+
+**Wirkung (echter Evaluator):** wohnen −70 → **ok +10**, kueche −70 → **knapp 0**,
+bad bleibt **ok +60**, flur (echte Trennwand-Sperre) bleibt **verletzt −30**.
+Der grosse Refactor (Chamfer/Euklid, Wände-als-Hindernis, echte Footprints) war
+**nicht nötig** – eine Zeile Anker-Logik hat die «Fragilität» aufgelöst.
+
+**Meta-Learning verschärft:** Bevor man einen grossen Refactor plant, die
+**kleinste plausible Ursache** isolieren und mit dem echten Evaluator testen.
+Hier hätte die Hypothese «Anker zu nah an der Tür» (statt «Metrik grundsätzlich
+kaputt») viel früher zum Ziel geführt. Diagnose-Disziplin > Refactor-Reflex.
+
+**Folge für hard:** Die Metrik ist jetzt vertrauenswürdig; Solverpläne sind
+circulation ok/knapp (kein verletzt). Die einzige verbleibende Hürde für die
+Hochstufung auf `hard` ist die **Hot-Path-Performance** (circulation ist teuer),
+nicht mehr die Metrik-Qualität.
+
 ## Verknüpfungen
 - [[Learning-Circulation-Freiraumanalyse]] · [[Norm-Regelsatz-v0]] · [[Bauplan-Meilensteine]]
 - [[Gestaltungs-Engine-Prioritaetsklassen]] · [[Learning-M6-Durchstich-Kueche]]

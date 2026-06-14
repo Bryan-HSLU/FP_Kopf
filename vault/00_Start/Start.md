@@ -39,7 +39,7 @@ damit nichts verloren geht.
 - [[Learning-M5-Durchstich-Wohnen]] – 🛋️ zweiter Raumtyp ≈ Datenpflege + 1 Solver-Feature; Mess-Semantik-Falle bei Relationen; erste Ausdrucksgrenze des Regelmodells
 - [[Learning-M6-Durchstich-Kueche]] – 🍳 M1-Verträge trugen M6 ohne Schema-Änderung; Grossraum = pure Function (zone_room); Invariante ≠ Vollständigkeit; Vorfilter nie strenger als Urteil
 - [[Learning-Circulation-Freiraumanalyse]] – 🚶 Grid-Regel bit-identisch über 2 Sprachen (alles ganzzahlig); soft v0 statt hard; Feasibility hängt nur an harten Regeln (Hot-Path spart die teure Analyse)
-- [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️ v0-Metrik zu fragil für hard (bbox+Manhattan-Artefakte); Tür-Korridor-Filter behebt Bad; Metrik-Refactor VOR hard; immer den echten Evaluator vermessen
+- [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️→✅ vermeintliche Metrik-Fragilität war nur der Tür-Anker am Türmund; Fix = Anker ~minWidth/2 ins Korridor-Innere → wohnen/kueche sinnvoll. Kleinste Ursache zuerst isolieren, echten Evaluator messen
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
