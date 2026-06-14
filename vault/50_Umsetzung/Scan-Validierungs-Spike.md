@@ -93,6 +93,9 @@ erstellt: 2026-06-09
   steht, Vorgehen klar). ✅
 - **Eval-Harness:** Spezifikation im Brain → [[Scan-Eval-Notebook-Spezifikation]];
   der **Code** entsteht später im **separaten Code-Repo** (Brain bleibt Brain).
+- **Konkreter Fahrplan (M2→M7):** [[M2-M7-Scan-Pipeline-Fahrplan]] – was zuerst,
+  was noch zu tun, kritischer Pfad (Aufnahmen) vs. parallel machbar (Notebook
+  run-ready + Scan→Raummodell-Vertrag).
 
 ## Verknüpfungen
 - [[ADR-0003-raumerfassung-ansatz]] · [[Raumerfassung-Detailkonzept]]

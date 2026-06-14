@@ -104,6 +104,8 @@ damit nichts verloren geht.
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
 - [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: Befunde + Gegenmassnahmen
 - [[POC-Bauumfang]] – 📋 konsolidierter Bau-Scope (was rein kommt, was nicht)
+- [[Offene-Punkte-und-Prioritaeten]] – 🧭 offene Arbeiten nach M6, sortiert nach Wichtigkeit für die POC-Funktion
+- [[M2-M7-Scan-Pipeline-Fahrplan]] – 🛰️ konkreter Plan Scan→Raummodell→Solver: was zuerst, was noch zu tun (M2 vor M7)
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
 
 ### 📚 Quellen
