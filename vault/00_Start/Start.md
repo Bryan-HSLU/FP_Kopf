@@ -41,6 +41,7 @@ damit nichts verloren geht.
 - [[Learning-Circulation-Freiraumanalyse]] – 🚶 Grid-Regel bit-identisch über 2 Sprachen (alles ganzzahlig); soft v0 statt hard; Feasibility hängt nur an harten Regeln (Hot-Path spart die teure Analyse)
 - [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️→✅ vermeintliche Metrik-Fragilität war nur der Tür-Anker am Türmund; Fix = Anker ~minWidth/2 ins Korridor-Innere → wohnen/kueche sinnvoll. Kleinste Ursache zuerst isolieren, echten Evaluator messen
 - [[Learning-Arbeitsdreieck-Ergonomie-Score]] – 📐 Arbeitsdreieck als echter, gemessener Score NACH der Platzierung (Formwahl kann nur proxen); füllt das bestehende `softScore.ergonomie` aus dem Domänen-Solver – ohne Interpreter/Schema/Goldens (Paritäts-Gesetz unberührt)
+- [[Learning-Scan-Eval-Metrik-Kern-GPU-frei]] – 🛰️ M2: Mess-Kern von der GPU-Pipeline trennen → `eval_metrics.py` abhängigkeitsfrei + getestet gegen R1-GT; Ecken-Antippen ist der GPU-freie Hauptpfad. GPU-Schritte = Colab
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
