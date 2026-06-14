@@ -40,6 +40,7 @@ damit nichts verloren geht.
 - [[Learning-M6-Durchstich-Kueche]] – 🍳 M1-Verträge trugen M6 ohne Schema-Änderung; Grossraum = pure Function (zone_room); Invariante ≠ Vollständigkeit; Vorfilter nie strenger als Urteil
 - [[Learning-Circulation-Freiraumanalyse]] – 🚶 Grid-Regel bit-identisch über 2 Sprachen (alles ganzzahlig); soft v0 statt hard; Feasibility hängt nur an harten Regeln (Hot-Path spart die teure Analyse)
 - [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️→✅ vermeintliche Metrik-Fragilität war nur der Tür-Anker am Türmund; Fix = Anker ~minWidth/2 ins Korridor-Innere → wohnen/kueche sinnvoll. Kleinste Ursache zuerst isolieren, echten Evaluator messen
+- [[Learning-Arbeitsdreieck-Ergonomie-Score]] – 📐 Arbeitsdreieck als echter, gemessener Score NACH der Platzierung (Formwahl kann nur proxen); füllt das bestehende `softScore.ergonomie` aus dem Domänen-Solver – ohne Interpreter/Schema/Goldens (Paritäts-Gesetz unberührt)
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
