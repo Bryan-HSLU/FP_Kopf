@@ -73,6 +73,19 @@ Rekonstruktion.** Drei Realisierungen:
   Objekte in einem und spart viel Integrationsarbeit; Genauigkeit gegen die
   R1-Ground-Truth messen (`eval_metrics`).
 
+- **TUN3D** (`col14m/TUN3D`, 2025): **unposed Bilder/Video → Wände (parametrisch)
+  + 3D-Objekt-Boxen in EINEM Modell** (3D-Sparse-Conv-Backbone über Voxelgitter +
+  Layout-Head & Detektions-Head). Trifft unseren Bedarf am direktesten; SOTA auf
+  3 Benchmarks. Forschungs-Code (neu, Sept 2025), **kein fertiges HF-Space** →
+  selbst hosten; Lizenz prüfen.
+
+**Konkretisierung (2026-06-15):** VGGT/Omega (getestet) liefert nur **rohe
+Geometrie** (Punktwolke) = unstrukturiert/zu ungenau für uns → **Backbone, nicht
+Lösung**. Die zwei **strukturierten** Kandidaten **TUN3D** (Bilder→Wände+Objekte,
+1 Modell, unposed) und **SpatialLM** (Video→MASt3R-SLAM-Punktwolke→struktur.
+Szene, HF, ⚠️ NC-Encoder) **beide im Spike gegen R1 messen**. Der **Adapter**
+(struktur. Output → `raummodell.json` + `objects[]`) ist für beide **gleich**.
+
 ## Bild-Tagging (2D, permissive)
 **Grounding DINO** (Apache) · **Florence-2** (MIT) · **SAM 2** (Apache) ·
 **RAM++/Recognize Anything** (Bild-Tagging) · **RF-DETR/NanoDet/MediaPipe**
