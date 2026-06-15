@@ -109,6 +109,28 @@ Drei Wege, HF die GPU-Last tragen zu lassen und nur **per API** zuzugreifen:
    ([[ADR-0009-privacy-raumdaten]]). Verfügbare Demos: `facebook/vggt` &
    `facebook/vggt-omega` (Video/Bilder → Punktwolke), SpatialLM (Modell-Repo).
 
+## F) Offene Kombi-Pipeline: Video → getaggter 3D-Raum (empfohlen)
+Statt **einem** End-to-End-Modell: kombinierbare, **permissive** Bausteine, je
+einzeln auf HF testbar. Die zwei „Berechnungen": **(1) Geometrie/Wände** und
+**(2) Erkennung/Tagging + Lift ins 3D**.
+
+| Stufe | Offenes Modell | Lizenz | läuft |
+|---|---|---|---|
+| 1. Frames aus Video | OpenCV | ✅ BSD | Engines |
+| 2. Geometrie (Posen+Tiefe+Punkte) | **VGGT-1B-Commercial** (o. Depth Anything V2 Small) | ✅ commercial / Apache | HF-Space |
+| 3. Erkennung+Segmentierung+Tracking | **Grounded-SAM-2** (Grounding DINO + SAM 2) | ✅ Apache | HF/Serverless |
+| 4. Lift 2D→3D (Masken × Tiefe × Pose → 3D-Instanzen) | **unser Code** *oder* OpenMask3D/SAI3D | unser / Forschung | Engines / HF |
+| 5. Wände (Punktwolke → Polygon) | **unser Plane-Fit** (RANSAC/Manhattan) *oder* RoomFormer | unser / prüfen | Engines |
+| 6. Adapter → `raummodell.json` + `objects[]` | unser Code | proprietär | Engines |
+| (opt.) Tags | RAM++ | ✅ | HF |
+
+→ Ergebnis: **getaggter 3D-Raum** (Wände + gelabelte Objekt-Boxen), direkt weiter
+nutzbar in Solver/Viewer. **Vorteil ggü. TUN3D/SpatialLM:** alles offen/permissiv,
+**je Stufe einzeln test- & austauschbar**, HF trägt die GPU-Last. **Preis:** die
+**Fusions-Glue (Lift/Fit/Adapter) bauen wir selbst** (= wiederverwendbares IP).
+Qualität hängt v. a. an Stufe 2 (Tiefe/Pose) → **Spike misst gegen R1**. (Genau
+das tun TUN3D/SpatialLM intern auch – wir bauen es nur aus offenen Teilen.)
+
 ## Empfehlung
 - **Trennen:** Hülle (AR-Layout / Layout-Modell / Ecken-Antippen) **+** Objekte
   (2D-Erkennung→Lift, als Proxy in den Raum). Dichtes fotoreales 3D = optional.
