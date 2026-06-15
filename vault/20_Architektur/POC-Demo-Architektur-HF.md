@@ -76,6 +76,26 @@ Geht einfach – ein Gradio-Space bietet UI **und** API:
   (weniger eigener Adapter), braucht aber ein **eigenes Space** und hat einen
   **NC-Encoder** (POC ok, Produkt nicht).
 
+## Deployment (Cloud-Hosting, gratis – nichts lokal)
+Ziel: **geteilter Web-Link**. Zwei Deploys aus dem Monorepo:
+
+| Teil | Dienst (gratis) | Konfig |
+|---|---|---|
+| **Frontend** (`apps/web`) | **Vercel** / Cloudflare Pages | Root `apps/web`, Build `pnpm build` → `dist`; Env `VITE_API_URL`=Engines-URL; Auto-Deploy bei Push |
+| **Engines** (`services/engines`) | **Render** (Free Web Service) | Start `uvicorn fp_engines.api:app --host 0.0.0.0 --port $PORT` (Dockerfile mit uv ODER Render-Python); Secrets `HF_TOKEN`, `FP_KURATOR_URL/_MODEL/_API_KEY`; **CORS** für die Vercel-Domain |
+| **ML** | **HF Spaces (ZeroGPU)** | Engines callt per `gradio_client` (HF_TOKEN) |
+| **LLM** | Groq/Gemini via `FP_KURATOR_URL` | optional |
+
+**Kleine Code-Anpassungen:** CORS-Middleware in FastAPI · Frontend-API-Basis
+konfigurierbar (`VITE_API_URL` statt fixem Dev-Proxy) · `render.yaml`-Blueprint ·
+`/health` als Healthcheck (existiert). **Scan ist langlaufend** → Job/Polling ODER
+grosszügiges Timeout + kurze Videos (Render-Free schläft nach ~15 Min →
+Cold-Start beim ersten Call, für Einzelnutzer ok).
+
+**Phasen: (1) jetzt** – bestehende Planungs-Demo deployen (Vercel + Render) →
+sofort geteilter Link (Sample-Räume → Plan → Viewer → KV; optional LLM-Kurator),
+**kein ML nötig**. **(2)** Video-Scan dazu (HF-Space + `/scan` + Upload-UI).
+
 ## Offene Fragen / Risiken
 - **Scan-Modell:** VGGT (ready, mehr Adapter) **oder** SpatialLM (mehr Output, NC,
   eigenes Space)? → im Spike beide gegen R1 vergleichen.
