@@ -78,6 +78,24 @@ Rekonstruktion.** Drei Realisierungen:
 **RAM++/Recognize Anything** (Bild-Tagging) · **RF-DETR/NanoDet/MediaPipe**
 (real-time/on-device) · ⛔ **YOLO/Ultralytics, FastSAM = AGPL → meiden**.
 
+## E) Wo die schweren Modelle rechnen lassen (Hugging Face)
+Drei Wege, HF die GPU-Last tragen zu lassen und nur **per API** zuzugreifen:
+1. **Serverless Inference / Inference Providers:** Modelle mit Standard-Pipeline
+   (depth-estimation, zero-shot-object-detection, mask-generation/SAM) per REST /
+   `InferenceClient`. **Gratis-Kontingent**, dann pay-as-you-go. Nicht jedes
+   (Forschungs-)Modell verfügbar.
+2. **Spaces-API (Gradio):** öffentliche Demo-Spaces (z. B. `facebook/vggt`)
+   exponieren eine **API** → via `gradio_client` aufrufen → läuft auf **deren
+   GPU** (oft ZeroGPU). Gratis-ish, aber Quota/Cold-Start/ToS → **Demo ok, nicht
+   für Last**. Space in eigenen Account **duplizieren** = mehr Kontrolle.
+3. **Inference Endpoints (dediziert):** **beliebiges** Modell auf eigener
+   GPU-Instanz deployen, **pay-per-hour** (scale-to-zero spart Kosten). Robust für
+   eine stabile Demo/POC+; unsere Engines callen den Endpoint.
+→ **POC:** Spaces-API (schnell/gratis) für erste Tests; für eine **stabile** Demo
+   ein **dediziertes Endpoint** oder dupliziertes Space. Nur Sample-/Testräume
+   ([[ADR-0009-privacy-raumdaten]]). Verfügbare Demos: `facebook/vggt` &
+   `facebook/vggt-omega` (Video/Bilder → Punktwolke), SpatialLM (Modell-Repo).
+
 ## Empfehlung
 - **Trennen:** Hülle (AR-Layout / Layout-Modell / Ecken-Antippen) **+** Objekte
   (2D-Erkennung→Lift, als Proxy in den Raum). Dichtes fotoreales 3D = optional.
