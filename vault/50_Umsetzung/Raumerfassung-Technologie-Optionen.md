@@ -58,6 +58,21 @@ Rekonstruktion.** Drei Realisierungen:
    Grouping / SAGA / SceneSplat / OpenSplat3D** – Features in die Gaussians →
    Objekte im 3D abfragen & „rausschneiden". ⚠️ Forschung/NC meist.
 
+## D) End-to-End: ein Modell macht (fast) alles (Video/Bild → Hülle + Objekte)
+- **SpatialLM** (manycore-research, NeurIPS 2025, **auf Hugging Face**): monokulares
+  **Video** → Punktwolke (via MASt3R-SLAM) → **strukturierte Szene**: Wände/Türen/
+  Fenster **+ orientierte Objekt-Boxen mit Kategorie**. Am nächsten an unserer
+  Vision; Output mappt fast 1:1 auf unser `objects[]` + Wände. ⚠️ v1.0-Encoder
+  (SceneScript) = **CC-BY-NC** → POC ok, Produkt braucht permissiven Ersatz
+  (LLM-Teil Qwen-0.5B = Apache ✅).
+- **SAM 3D Objects** (Meta, HF): **ein Bild** → 3D-Form+Textur+Layout von Objekten
+  (starke Objekt-/Split-Seite).
+- **SceneScript** (Meta): Forschungs-Lineage (Szene als autoregressive „Sprache").
+- **LGT-Net** (HF Space): 360°-Pano → Raum-Layout, sofort ausprobierbar.
+→ **Empfehlung: SpatialLM zuerst im Spike testen** (R1-Video) – liefert Hülle +
+  Objekte in einem und spart viel Integrationsarbeit; Genauigkeit gegen die
+  R1-Ground-Truth messen (`eval_metrics`).
+
 ## Bild-Tagging (2D, permissive)
 **Grounding DINO** (Apache) · **Florence-2** (MIT) · **SAM 2** (Apache) ·
 **RAM++/Recognize Anything** (Bild-Tagging) · **RF-DETR/NanoDet/MediaPipe**
