@@ -131,6 +131,19 @@ nutzbar in Solver/Viewer. **Vorteil ggü. TUN3D/SpatialLM:** alles offen/permiss
 Qualität hängt v. a. an Stufe 2 (Tiefe/Pose) → **Spike misst gegen R1**. (Genau
 das tun TUN3D/SpatialLM intern auch – wir bauen es nur aus offenen Teilen.)
 
+**HF-Spaces zum Testen (Einzelstufen, visuell):**
+- Geometrie: `facebook/vggt` & `facebook/vggt-omega` ✅ · Tiefe: `depth-anything/Depth-Anything-V2` ✅
+- Erkennung/Segmentierung: `linfanluntan/Grounded-SAM` (Bild) ✅ · Tagging: `xinyu1205/recognize-anything` ✅ · (Grounded-SAM-**2**/Video = offizielles IDEA-Repo, **eigenes Space nötig**)
+- Wände/Struktur: **RoomFormer / OpenMask3D / SAI3D / TUN3D / SpatialLM = kein fertiges Space** → selbst hosten (Weights teils auf HF)
+
+**Umsetzungs-Realität (wichtig):** Demo-Spaces sind zum **visuellen Prüfen** ideal,
+geben per API aber meist nur eine **Visualisierung** zurück (GLB/Punktwolke,
+annotiertes Bild) – **nicht** die rohen Arrays (Tiefe, Kamera-Posen, Masken +
+Track-IDs), die der **Lift** braucht. Für die echte Pipeline laufen VGGT +
+Grounded-SAM-2 daher in **eigenen** (duplizierten/Docker-)Spaces bzw. via Inference
+→ rohe Outputs; die Glue (Lift/Fit/Adapter) rechnet in den Engines. Wände-Rezept:
+Punktwolke → 2D-Dichtekarte → RoomFormer/RANSAC → extrudieren.
+
 ## Empfehlung
 - **Trennen:** Hülle (AR-Layout / Layout-Modell / Ecken-Antippen) **+** Objekte
   (2D-Erkennung→Lift, als Proxy in den Raum). Dichtes fotoreales 3D = optional.
