@@ -36,7 +36,7 @@ Konkreter Fahrplan: [[M2-M7-Scan-Pipeline-Fahrplan]].
 | Punkt | Warum | Gated on |
 |---|---|---|
 | **circulation → `hard`** ([[Norm-Regelsatz-v0]], [[Learning-Circulation-Metrik-Fragilitaet]]) | Garantiert begehbare Pläne statt nur „informativ". Metrik ist jetzt vertrauenswürdig; einzige Hürde **Hot-Path-Performance**. Heutige Pläne sind real ok/knapp. | Code (machbar) |
-| **Kurator mit echtem LLM messen** ([[Kurator-Mechanik-Detailkonzept]]) | „KI wählt" ist das Differenzierungs-Versprechen. Baseline (deterministisch) funktioniert & ist bewiesen – fürs Funktionieren genügt sie; das LLM ist der Pitch-Beweis. | LLM-Endpoint (`FP_KURATOR_URL`) |
+| **Kurator mit echtem LLM messen** ([[Kurator-Mechanik-Detailkonzept]]) | „KI wählt" ist das Differenzierungs-Versprechen. Baseline (deterministisch) funktioniert & ist bewiesen – fürs Funktionieren genügt sie; das LLM ist der Pitch-Beweis. **Jetzt entblockt** ([[ADR-0011-poc-externe-cloud-apis]]): Gratis-LLM via `FP_KURATOR_URL` (Groq/Gemini/Ollama) → `scripts/kurator_eval.py`. | Gratis-Key (Bryan) |
 | **Echte Assets/Fotos + Katalogquelle/Preise** ([[Asset-Content-Pipeline]]) | Glaubwürdige Demo & realistische KV. Mechanik (Stil-Swipe, KV) läuft mit Platzhaltern. | Inhalt (Bryan) |
 
 ## 🟢 NIEDRIG – bewusst post-POC

@@ -65,6 +65,7 @@ damit nichts verloren geht.
 - [[ADR-0008-poc-alle-raumtypen-kueche]] – alle 3 Raumtypen im POC, Küchenform vom Solver
 - [[ADR-0009-privacy-raumdaten]] – Datenminimierung + CH-Hosting für Raumdaten
 - [[ADR-0010-durchstich-reihenfolge]] – Bau-Reihenfolge: Bad → Wohnen → Küche
+- [[ADR-0011-poc-externe-cloud-apis]] – POC nutzt externe Cloud-APIs (LLM + Scan-ML); Produkt self-hosted/on-device
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
