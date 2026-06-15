@@ -95,3 +95,4 @@ entscheiden, ob Modelle/Schnitt angepasst werden.
 ## Verknüpfungen
 - [[ADR-0003-raumerfassung-ansatz]] · [[Tech-Bausteine-Open-Source]]
 - [[Domaenenmodell-v0]] · [[Gestaltungs-Engine-Prioritaetsklassen]]
+- [[Raumerfassung-Technologie-Optionen]] – konkrete Tool-/Modell-Optionen (inkl. semantischer 3D-/Objekt-Split-Modelle, die Spur 1 realisieren) · [[M2-M7-Scan-Pipeline-Fahrplan]]

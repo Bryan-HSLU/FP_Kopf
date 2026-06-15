@@ -86,6 +86,7 @@ damit nichts verloren geht.
 
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
 - [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
+- [[Raumerfassung-Technologie-Optionen]] – 🔭 kuratierte Tool-/Modell-Optionen (Sensing, KI-3D, semantische 3D/Objekt-Split) mit Lizenz-Flags
 - [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
