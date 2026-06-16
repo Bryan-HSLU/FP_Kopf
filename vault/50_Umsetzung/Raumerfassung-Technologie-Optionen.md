@@ -144,6 +144,29 @@ Grounded-SAM-2 daher in **eigenen** (duplizierten/Docker-)Spaces bzw. via Infere
 → rohe Outputs; die Glue (Lift/Fit/Adapter) rechnet in den Engines. Wände-Rezept:
 Punktwolke → 2D-Dichtekarte → RoomFormer/RANSAC → extrudieren.
 
+## G) Video → EIN Modell (Fusion) + Editieren/Taggen
+**MoGe-2 ist Einzelbild** → je Frame eine metrische Punktwolke im eigenen System.
+Für EIN konsistentes Modell braucht es **Posen + Registrierung/Fusion**:
+- **Fertig (Video → global konsistent, automatisch):** **SLAM3R** (CVPR'25),
+  MASt3R-SLAM, VGGT, CUT3R, Spann3R — regredieren Pointmaps und **richten sie
+  global aus**. Das ist „viele Ausschnitte → ein Gesamtraum, richtig platziert"
+  out-of-the-box. **Kein einzelnes „MoGe-Video"-Turnkey-Repo** → man kombiniert.
+- **MoGe-Detail behalten (Hybrid):** Posen aus Video-Modell/SLAM + **MoGe-2-Tiefe**
+  je Frame → **TSDF/Point-Fusion** → so scharf wie MoGe **und** global konsistent
+  (kleiner Eigenbau: Fusion verdrahten; Bausteine sind Standard).
+- **Funktional vs. Wow:** der Solver braucht nur **Hülle + Objekt-Boxen**
+  (strukturiert), nicht das dichte Mesh. Dichtes MoGe/SLAM-Modell = „Vorher"-Kulisse.
+
+**Taggen + Splitten (Objekte löschen/ersetzen):**
+- **Parametrisch (UNSER POC-Weg):** Scan → Hülle + Objekt-Inventar (Boxen+Labels);
+  das **Löschen/Ersetzen passiert im PLAN** (altes Placement raus / Katalog-glTF
+  rein), **nicht** im dichten Scan. Einfach, gebaut (Box-Platzhalter + Solver +
+  Viewer) = „Meet → Match → Build". „Vorher" = Scan, „Nachher" = parametrischer Plan.
+- **Im-Scan-Editing (Wow, post-POC = Spur 2):** **Gaussian Grouping** (ECCV'24,
+  `lkeab/gaussian-grouping`) — segmentiert Objekte im Splat, **löscht + inpaintet
+  das Loch**, setzt neu zusammen; nutzt OpenMask3D für open-vocab Labels. Mächtig,
+  aber komplex (Inpainting/Splat-Pipeline).
+
 ## Empfehlung
 - **Trennen:** Hülle (AR-Layout / Layout-Modell / Ecken-Antippen) **+** Objekte
   (2D-Erkennung→Lift, als Proxy in den Raum). Dichtes fotoreales 3D = optional.
