@@ -132,8 +132,8 @@ Qualität hängt v. a. an Stufe 2 (Tiefe/Pose) → **Spike misst gegen R1**. (Ge
 das tun TUN3D/SpatialLM intern auch – wir bauen es nur aus offenen Teilen.)
 
 **HF-Spaces zum Testen (Einzelstufen, visuell):**
-- Geometrie: `facebook/vggt` & `facebook/vggt-omega` ✅ · Tiefe: `depth-anything/Depth-Anything-V2` ✅
-- Erkennung/Segmentierung: `linfanluntan/Grounded-SAM` (Bild) ✅ · Tagging: `xinyu1205/recognize-anything` ✅ · (Grounded-SAM-**2**/Video = offizielles IDEA-Repo, **eigenes Space nötig**)
+- Geometrie: `facebook/vggt` & `facebook/vggt-omega` ✅ · Tiefe: `depth-anything/Depth-Anything-V2` ✅ · **NEU** `Ruicheng/MoGe-2` (Einzelbild→**metrische** Punktwolke+Tiefe+Normalen+Mesh) ✅ · `blanchon/CUT3R` (Streaming-Video→3D, Space ungesichert) · Pi3/Spann3R/STream3R (Multi-View/Streaming, neu)
+- Erkennung/Segmentierung: `linfanluntan/Grounded-SAM` (Bild) ✅ · Tagging: `xinyu1205/recognize-anything` ✅ · **NEU** `shi-labs/OneFormer` (panoptisch: Objekte **und** Wand/Boden/Decke, MIT) ✅ · (Grounded-SAM-**2**/Video = offizielles IDEA-Repo, **eigenes Space nötig**)
 - Wände/Struktur: **RoomFormer / OpenMask3D / SAI3D / TUN3D / SpatialLM = kein fertiges Space** → selbst hosten (Weights teils auf HF)
 
 **Umsetzungs-Realität (wichtig):** Demo-Spaces sind zum **visuellen Prüfen** ideal,
