@@ -77,6 +77,20 @@ festzurren und gegen das R1-WC-Fixture testen. Damit ist M2 mit **einem**
 Colab-Lauf auswertbar, sobald die Videos da sind, und M7 danach nur noch ein
 kurzer Sprung. **Bryan nimmt parallel R1–R3 auf.**
 
+## Code-Fahrplan (aktualisiert 2026-07, von Bryan freigegeben)
+Basis: [[ADR-0012-scan-pipeline-festlegung]] (AR-App-Aufnahme, known-pose
+Fusion, SpatialLM) + Ein-Repo-Deployment ([[POC-Demo-Architektur-HF]]).
+Reihenfolge so gewählt, dass nichts auf Aufnahmen/GPU wartet:
+
+| # | Schritt | Warum hier | braucht von Bryan |
+|---|---|---|---|
+| 1 | **Scan→Raummodell-Adapter** + `poses.json`-Parser + SpatialLM-Layout-Parser, Test gegen R1-WC-Fixture | Vertrags-Naht; null externe Abhängigkeiten, CI-testbar | – |
+| 2 | **Space-Deploy-Gerüst** (dist-Serving, `deploy-space.yml`) → Planungs-Demo live | validiert Ein-Repo-Sync früh; pitchbare URL ohne Scan | HF-Account + Token |
+| 3 | **`services/scan-worker`** + Colab-Notebook: known-pose Fusion → Cleaning → z-up → Skalierung → SpatialLM + Zeiger | baut auf Adapter-Contract (1) auf | GitHub-PAT (Colab) |
+| 4 | **Upload-UI + `/scan`-Verdrahtung** (Video + `poses.json`) | schliesst den Klickpfad | – |
+| 5 | **E2E auf Colab gegen R1 messen** (P5: reicht die Fusions-Wolke?) → Gate → Learning | der eine echte Messpunkt | **Aufnahmen R1–R3 (AR-App!)** + Restmasse |
+| 6 | **M7 Korrektur-Modus** (Ecken/Objekte antippen im 2D-Editor) → `/solve` | nach dem Gate dimensionierbar | Gate-Entscheid |
+
 ## Verknüpfungen
 - [[Scan-Validierungs-Spike]] · [[Scan-Eval-Notebook-Spezifikation]] · [[Raumerfassung-Detailkonzept]]
 - [[ADR-0003-raumerfassung-ansatz]] · [[Domaenenmodell-v0]] · [[Bauplan-Meilensteine]]
