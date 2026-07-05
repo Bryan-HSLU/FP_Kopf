@@ -115,6 +115,7 @@ damit nichts verloren geht.
 - [[M2-M7-Scan-Pipeline-Fahrplan]] – 🛰️ konkreter Plan Scan→Raummodell→Solver: was zuerst, was noch zu tun (M2 vor M7)
 - [[Scan-Laufzeit-Budget-und-Beschleunigung]] – ⏱️ Rechenzeit-Budget je Scan (T4): SLAM ist der Engpass; AR-Posen ausnutzen (known-pose Fusion) → ~1–3 min statt 30; alles P5 messen
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
+- [[Raum-Editor-Manuell]] – ✏️ Raum selbst erstellen (Masse/Wände/Öffnungen/Anschlüsse einzeichnen) als dritte Erstellungsvariante neben Sample & Scan; Vorstufe des M7-Korrektur-Modus
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
