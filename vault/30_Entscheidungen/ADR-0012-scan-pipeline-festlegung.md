@@ -75,6 +75,11 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 - **z-up & Skalierung wechseln von „geschätzt" zu „gemessen"** (AR-IMU) – die
   Pipeline wird robuster; Rechen-/Datenmehraufwand ~0. **Preis der Aufnahme im
   POC ~0** – eine fertige Gratis-App liefert Video + Posen, keine Eigenentwicklung.
+- **Scan-Bundle-Konvention (festgelegt beim Bau, 2026-07):** kanonisches
+  `poses.json` v0 = Meter/Sekunden, Quaternion xyzw, **Kamera-Achsen =
+  OpenCV-Pinhole** (+X rechts, +Y runter, +Z Blickrichtung), Pose = Kamera→Welt.
+  App-Exporte (ARKit: +Z rückwärts) werden am Rand dorthin konvertiert.
+  Definition im Code: `fp_engines/scan/poses.py`.
 - ✅ **iOS-Risiko entschärft (2026-07):** Der frühere WebXR-Weg (iOS/Safari kann
   kein WebXR-AR) entfällt – wir nehmen mit einer **bestehenden AR-App** auf und
   laden die Exportdatei hoch. **Adapter muss `poses.json`** der gewählten App

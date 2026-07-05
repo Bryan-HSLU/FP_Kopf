@@ -115,10 +115,12 @@ die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variant
   gleichwertige Alternative – Implementierungsdetail ohne Architekturfolge.
   **Gradio ist nur auf der Colab-Seite Pflicht** (share-URL = gratis Tunnel =
   der „Zeiger").
-- **Verbindung:** Colab schreibt beim Start seine aktuelle **Gradio-URL in einen
-  Zeiger** (Drive-Datei / GitHub-Gist); der Space liest den Zeiger und reicht
-  Scan-Aufträge dorthin. Übergabe intern immer über **`raummodell.json`** – so
-  bleibt der spätere Umzug ein reines **Umstecken**.
+- **Verbindung («Zeiger»):** Colab startet den Worker mit Gradio-share-URL.
+  **v0 (umgesetzt): URL wird MANUELL als Space-Variable `FP_SCAN_WORKER_URL`
+  gesetzt** – null Zusatz-Infrastruktur, für die Einzel-Demo genügt das (man
+  wirft Colab ohnehin von Hand an). Automatischer Zeiger (Drive-Datei /
+  GitHub-Gist, Space liest selbst) = späterer Komfort-Schritt. Übergabe intern
+  immer über **`raummodell.json`** – der spätere Umzug bleibt ein **Umstecken**.
 - **Warum nicht reines HF Spaces:** Gratis-Spaces sind **CPU-only**; GPU-Spaces
   kosten (Stundentarif). Für einen nie-aktiv-betriebenen Demo-POC ist „gratis +
   manuell anwerfen" (Colab) besser als „bezahlt + bequem".
