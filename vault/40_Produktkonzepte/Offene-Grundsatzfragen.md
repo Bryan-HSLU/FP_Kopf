@@ -28,11 +28,10 @@ erstellt: 2026-06-09
 ## B) Anforderungen (echter Constraint vs. Pitch-Wunsch?)
 - „**Alle gängigen Smartphones**" – realistisch nur AR-fähige Geräte
   (ARCore/ARKit). Reichweite ↔ Genauigkeit abwägen.
-- ⚠️ **Web-Aufnahme (WebXR) vs. native App** – Bryans Wunsch (2026-07): Scan
-  **im Browser**. WebXR-AR (Pose+Schwerkraft) läuft **Android/Chrome**, **nicht
-  iOS/Safari** → reine Web-Aufnahme **schliesst iPhones aus**. Für POC (Bryans
-  Gerät) evtl. ok, fürs Produkt **kritisch**. Zu klären: Bryans Testgerät,
-  WebXR-Pose-Exportformat, iOS-Weg (nativ/hybrid). Bezug:
+- ✅ **Aufnahme-Weg (2026-07 geklärt):** **fertige Gratis-AR-App** (iOS ARKit, z. B.
+  Voxelio · Android ARCore) exportiert **Video + `poses.json`** → **Datei-Upload**
+  ins Frontend. Kein WebXR, kein Eigenbau → **iOS-Problem entfällt**. Produkt-
+  eigene In-App-Aufnahme = post-POC. Bezug:
   [[ADR-0012-scan-pipeline-festlegung]], [[Raumerfassung-Detailkonzept]].
 - „**Echtzeitnah / wenige Minuten**" – welche konkrete Toleranz? Wäre eine kurze
   lokale Nachberechnung akzeptabel?

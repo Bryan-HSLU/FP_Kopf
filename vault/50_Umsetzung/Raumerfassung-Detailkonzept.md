@@ -91,13 +91,14 @@ Gestaltung **und** die harten Regeln ([[Norm-Regelsatz-v0]]: `door-swing`,
 Konkrete Stufenfolge für den POC (Erkennungs-Stufe **modular gekapselt**,
 später austauschbar):
 
-- **0 Aufnahme:** Video 720p–1080p langsam durch den Raum, **parallel AR**, das
-  pro Frame **metrische Pose + Schwerkraft** loggt. Gerätecheck (AR verfügbar?).
-  Ein rohes MP4 reicht **nicht** – die IMU-Daten sind der Kern (s. u.).
-  **Aufnahme-Absicht (Bryan 2026-07): im Browser (WebXR)**, keine native App –
-  ⚠️ **Plattform-Risiko**: WebXR-AR läuft auf Android/Chrome, **nicht auf
-  iOS/Safari** → offener Punkt ([[ADR-0012-scan-pipeline-festlegung]] Konsequenzen).
-- **0b Bündelung:** Video + kleine Begleitdatei (Posen, Schwerkraft, Zeitstempel).
+- **0 Aufnahme (POC):** **fertige Gratis-AR-App** – iOS z. B. **Voxelio**
+  (ARKit-Session, `ARWorldAlignment.gravity`, metrische Posen/Frame + Video),
+  Android äquivalente ARCore-App. Kein Eigenbau, kein WebXR (löst das iOS-Problem).
+  Video 720p–1080p langsam durch den Raum; ein rohes MP4 reicht **nicht** – die
+  **IMU-Posen** sind der Kern (s. u.).
+- **0b Export & Upload:** App exportiert **Video + `poses.json`** (metrische Posen,
+  Schwerkraft, Zeitstempel) → **Datei-Upload** ins Web-Frontend, das entpackt und
+  an die Pipeline reicht. **Adapter liest das `poses.json`-Format der App.**
 - **1 Reconstruction:** **primär known-pose Tiefen-Fusion** – Depth Anything V2
   Small (metrische Tiefe/Frame) + **bekannte AR-Posen** → TSDF/Point-Fusion
   (Open3D) → Punktwolke. **Fallback MASt3R-SLAM** (o. SLAM3R), wenn die

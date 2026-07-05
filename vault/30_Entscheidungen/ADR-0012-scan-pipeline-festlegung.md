@@ -40,8 +40,11 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 ## Entscheidung
 1. **Einheitlich Video** (kein Foto-Zweig). AR-Pose/Schwerkraft werden **beim
    Filmen mitgeloggt** (ARKit/ARCore) – ein rohes MP4 reicht **nicht**.
-   **Aufnahme-Absicht (Bryan 2026-07): im Web** (Browser, WebXR) statt nativer
-   App → ⚠️ **Reife-/Plattform-Risiko**, s. Konsequenzen.
+   **Aufnahme-Weg POC (Bryan 2026-07): fertige Gratis-AR-App**, kein Eigenbau,
+   kein WebXR: iOS z. B. **Voxelio** (ARKit-Session mit `ARWorldAlignment.gravity`,
+   metrische Posen/Frame, Video), Android äquivalente ARCore-App. Export =
+   **Video + `poses.json`** → **Datei-Upload** ins Web-Frontend, das entpackt und
+   an die Pipeline reicht.
 2. **Festgelegte POC-Kette:** Video + AR-Pose → **Punktwolke** → **Open3D-Cleaning**
    → **z-up** (aus Schwerkraft, Fallback RANSAC-Kaskade) → **Skalierung** (aus
    Posen, Fallback Wandhöhe) → **SpatialLM 1.1** → Boxen. Stufen im Detail:
@@ -70,16 +73,13 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 
 ## Konsequenzen
 - **z-up & Skalierung wechseln von „geschätzt" zu „gemessen"** (AR-IMU) – die
-  Pipeline wird robuster; Rechen-/Datenmehraufwand ~0. **Preis: die AR-Aufnahme
-  selbst.**
-- ⚠️ **Offen/Risiko – Web-Aufnahme (WebXR):** Bryans Wunsch ist Aufnahme **im
-  Browser** (keine native App). **Android/Chrome** unterstützt WebXR `immersive-ar`
-  inkl. Pose – **iOS/Safari unterstützt WebXR-AR bislang nicht** → reine
-  Web-Aufnahme **schliesst iPhones faktisch aus**. Für den **POC** (Einzelgerät
-  Bryan) evtl. ok; fürs **Produkt** (Bauherrschaften, iOS-Anteil hoch) ist das ein
-  **produktkritischer Punkt**. **Vor Festlegung prüfen:** Bryans Testgerät
-  (Android?), WebXR-Pose-Exportformat, iOS-Weg (nativ/hybrid/AR Quick Look) →
-  offene Frage in [[Offene-Grundsatzfragen]] / [[M2-M7-Scan-Pipeline-Fahrplan]].
+  Pipeline wird robuster; Rechen-/Datenmehraufwand ~0. **Preis der Aufnahme im
+  POC ~0** – eine fertige Gratis-App liefert Video + Posen, keine Eigenentwicklung.
+- ✅ **iOS-Risiko entschärft (2026-07):** Der frühere WebXR-Weg (iOS/Safari kann
+  kein WebXR-AR) entfällt – wir nehmen mit einer **bestehenden AR-App** auf und
+  laden die Exportdatei hoch. **Adapter muss `poses.json`** der gewählten App
+  lesen (kleiner Integrationsschritt; Format vor dem Bau fixieren). **Produkt-
+  Ausblick:** eigene In-App-Aufnahme erst **post-POC** – kein POC-Blocker mehr.
 - **Laufzeit ist der offene Reibungspunkt** (Bryan): die naive SLAM-Kette wird
   auf bis zu ~30 min geschätzt → eigener Optimierungs-/Messpunkt:
   [[Scan-Laufzeit-Budget-und-Beschleunigung]] (P5-Spike).

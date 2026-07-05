@@ -17,7 +17,7 @@ Begrenzte/gratis GPU ist bei einem Nutzer unkritisch. Trennung POC↔Produkt:
 ## Komponenten – wo läuft was
 | Komponente | Läuft wo | Verantwortung | GPU? |
 |---|---|---|---|
-| **Frontend** (`apps/web`) | Browser (Vercel/Netlify gratis **oder** lokal) | UI, **Video-Upload**, Stil-Swipe, Viewer 2D/3D, Live-Ampel | nein |
+| **Frontend** (`apps/web`) | Browser (Vercel/Netlify gratis **oder** lokal) | UI, **Datei-Upload (Video + `poses.json`** aus fertiger AR-App), Stil-Swipe, Viewer 2D/3D, Live-Ampel | nein |
 | **Engines-API** (FastAPI) | lokal **oder** Gratis-PaaS (Render/Fly) **oder** HF-Docker-Space | **Orchestrator** + Solver · Regeln · Kurator-Baseline · Evaluate · Exporte · **Scan→Raummodell-Adapter** | nein (pure Python) |
 | **Scan-Space** | **HF (ZeroGPU)** | Video → Punktwolke/struktur. Szene (**VGGT** oder **SpatialLM**) | ja (HF) |
 | **Detektion** (optional) | HF Serverless **oder** Space | Objekte erkennen/segmentieren (Grounding DINO + SAM2) | ja (HF) |
