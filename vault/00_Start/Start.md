@@ -43,6 +43,7 @@ damit nichts verloren geht.
 - [[Learning-Arbeitsdreieck-Ergonomie-Score]] – 📐 Arbeitsdreieck als echter, gemessener Score NACH der Platzierung (Formwahl kann nur proxen); füllt das bestehende `softScore.ergonomie` aus dem Domänen-Solver – ohne Interpreter/Schema/Goldens (Paritäts-Gesetz unberührt)
 - [[Learning-Scan-Eval-Metrik-Kern-GPU-frei]] – 🛰️ M2: Mess-Kern von der GPU-Pipeline trennen → `eval_metrics.py` abhängigkeitsfrei + getestet gegen R1-GT; Ecken-Antippen ist der GPU-freie Hauptpfad. GPU-Schritte = Colab
 - [[Learning-SpatialLM-1.1-weiterhin-NC]] – ⚖️ SpatialLM 1.1 bleibt CC-BY-NC (auch Sonata-Gewichte), MASt3R-SLAM ebenfalls NC → ganze POC-Scan-Kette NC; Gewichts-Lizenz ≠ Code-Lizenz, immer die Modellkarte prüfen
+- [[Learning-SpatialLM-Input-Contract]] – 🧩 SpatialLM frisst JEDE z-up + metrische `.ply` (XYZ+RGB); MASt3R-SLAM ist nur eine Quelle → known-pose Fusion (AR-Posen + Tiefe) ist zulässig und der schnelle Weg
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`

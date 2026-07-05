@@ -105,6 +105,12 @@ die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variant
 | **Frontend + Solver + Kurator + Viewer** | **HF Space (gratis, CPU)** – **statisches HTML/CSS** (voller CI-Spielraum), **Gradio nur als eingebettetes Verarbeitungs-Backend** | CPU-leicht, dauerhaft gratis, **feste URL** fürs Pitchen |
 | **GPU-Scan (SLAM + SpatialLM)** | **Colab (gratis T4)** – vor der Demo **manuell anwerfen** | GPU nötig; für Einzel-Demo unkritisch, da man ohnehin dabei ist |
 
+- **Frontend-Mechanik (geklärt 2026-07): `gradio.Server`.** Der Space bleibt
+  `sdk: gradio`, serviert aber die **eigene `index.html`** via `@app.get("/")`
+  (100 % eigenes HTML/CSS, voller CI-Spielraum), während die Gradio-Endpoints als
+  `@app.api()` **im selben Prozess** laufen. Kein iFrame-Embed, keine Bindung an
+  Gradios DOM (die Alternativen – Static-Space+iFrame oder Gradio-`Blocks`+Custom-CSS
+  – sind eingeschränkt bzw. brechen bei Versionswechseln).
 - **Verbindung:** Colab schreibt beim Start seine aktuelle **Gradio-URL in einen
   Zeiger** (Drive-Datei / GitHub-Gist); der Space liest den Zeiger und reicht
   Scan-Aufträge dorthin. Übergabe intern immer über **`raummodell.json`** – so
@@ -112,12 +118,11 @@ die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variant
 - **Warum nicht reines HF Spaces:** Gratis-Spaces sind **CPU-only**; GPU-Spaces
   kosten (Stundentarif). Für einen nie-aktiv-betriebenen Demo-POC ist „gratis +
   manuell anwerfen" (Colab) besser als „bezahlt + bequem".
-- **Späterer Komfort-Upgrade:** **HF ZeroGPU / sleep-on-idle** liefert das
-  „draufgehen → startet"-Verhalten und kostet nur echte Nutzungszeit – **Spike
-  wert**, ob die Gratis-ZeroGPU-Variante für SLAM + die lange TorchSparse-
-  Kompilierung reicht. Sobald manuelles Anwerfen lästig wird oder eine echte
-  Dauer-URL nötig ist: **Umzug auf GPU-Space, Colab fällt weg** – kleiner Schritt,
-  weil dieselbe Gradio-App + dasselbe `raummodell.json` im Zentrum bleiben.
+- **GPU-Worker (entschieden 2026-07): Colab bleibt** – gratis, ausreichend für die
+  Einzel-Demo. **HF ZeroGPU vorerst NICHT verfolgt** (wäre der Komfort-Upgrade:
+  „draufgehen → startet", nur echte Nutzungszeit). Bei Bedarf später: Umzug auf
+  GPU-Space, Colab fällt weg – kleiner Schritt, weil dieselbe Gradio-App +
+  dasselbe `raummodell.json` im Zentrum bleiben.
 - **Colab-Stolperfallen:** TorchSparse-Compile (bis 30 min/Session) → **Wheel
   einmalig nach Drive** sichern, dann nur installieren (Start <2 min); **eine**
   Setup-Zelle (installieren + Drive mounten); Videos **über Drive** laden, nie

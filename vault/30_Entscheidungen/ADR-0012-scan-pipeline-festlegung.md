@@ -40,10 +40,20 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 ## Entscheidung
 1. **Einheitlich Video** (kein Foto-Zweig). AR-Pose/Schwerkraft werden **beim
    Filmen mitgeloggt** (ARKit/ARCore) – ein rohes MP4 reicht **nicht**.
-2. **Festgelegte POC-Kette:** Video + AR-Pose → **MASt3R-SLAM** (o. SLAM3R) →
-   **Open3D-Cleaning** → **z-up** (aus Schwerkraft, Fallback RANSAC-Kaskade) →
-   **Skalierung** (aus Posen, Fallback Wandhöhe) → **SpatialLM 1.1** → Boxen.
-   Stufen im Detail: [[Raumerfassung-Detailkonzept]].
+   **Aufnahme-Absicht (Bryan 2026-07): im Web** (Browser, WebXR) statt nativer
+   App → ⚠️ **Reife-/Plattform-Risiko**, s. Konsequenzen.
+2. **Festgelegte POC-Kette:** Video + AR-Pose → **Punktwolke** → **Open3D-Cleaning**
+   → **z-up** (aus Schwerkraft, Fallback RANSAC-Kaskade) → **Skalierung** (aus
+   Posen, Fallback Wandhöhe) → **SpatialLM 1.1** → Boxen. Stufen im Detail:
+   [[Raumerfassung-Detailkonzept]].
+   - **Rekonstruktion primär = known-pose Tiefen-Fusion** (AR-Posen + Depth
+     Anything V2 Small → TSDF → z-up/metrische `.ply`); **MASt3R-SLAM (o. SLAM3R)
+     = Fallback**. Begründung: **SpatialLM frisst jede z-up + metrische `.ply`**
+     (XYZ+RGB), MASt3R-SLAM ist nur *eine* Quelle
+     ([[Learning-SpatialLM-Input-Contract]]) → der teure SLAM-Pose-Solve entfällt,
+     Laufzeit sinkt drastisch ([[Scan-Laufzeit-Budget-und-Beschleunigung]]).
+   - **POC bleibt SpatialLM** als Erkenner (nicht die VGGT-Kombi – die ist
+     **Produkt-only**). Neu ggü. der Erst-Fassung: der Feed kommt aus AR-Posen.
 3. **Lizenz-Konsequenz (neu, 2026-07):** Die **ganze POC-Erkennungskette ist
    non-commercial** – SpatialLM 1.1 ist `cc-by-nc-4.0` (auch die **Sonata-
    Encoder-Gewichte**, trotz Apache-Encoder-*Code*, wegen NC-Trainingsdaten),
@@ -60,9 +70,16 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 
 ## Konsequenzen
 - **z-up & Skalierung wechseln von „geschätzt" zu „gemessen"** (AR-IMU) – die
-  Pipeline wird robuster; Rechen-/Datenmehraufwand ~0. **Preis: native
-  AR-Integration** (iOS + Android, oder Unity AR Foundation) – der eigentliche
-  Entwicklungsaufwand.
+  Pipeline wird robuster; Rechen-/Datenmehraufwand ~0. **Preis: die AR-Aufnahme
+  selbst.**
+- ⚠️ **Offen/Risiko – Web-Aufnahme (WebXR):** Bryans Wunsch ist Aufnahme **im
+  Browser** (keine native App). **Android/Chrome** unterstützt WebXR `immersive-ar`
+  inkl. Pose – **iOS/Safari unterstützt WebXR-AR bislang nicht** → reine
+  Web-Aufnahme **schliesst iPhones faktisch aus**. Für den **POC** (Einzelgerät
+  Bryan) evtl. ok; fürs **Produkt** (Bauherrschaften, iOS-Anteil hoch) ist das ein
+  **produktkritischer Punkt**. **Vor Festlegung prüfen:** Bryans Testgerät
+  (Android?), WebXR-Pose-Exportformat, iOS-Weg (nativ/hybrid/AR Quick Look) →
+  offene Frage in [[Offene-Grundsatzfragen]] / [[M2-M7-Scan-Pipeline-Fahrplan]].
 - **Laufzeit ist der offene Reibungspunkt** (Bryan): die naive SLAM-Kette wird
   auf bis zu ~30 min geschätzt → eigener Optimierungs-/Messpunkt:
   [[Scan-Laufzeit-Budget-und-Beschleunigung]] (P5-Spike).

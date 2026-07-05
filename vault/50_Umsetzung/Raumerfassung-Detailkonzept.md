@@ -91,14 +91,19 @@ Gestaltung **und** die harten Regeln ([[Norm-Regelsatz-v0]]: `door-swing`,
 Konkrete Stufenfolge für den POC (Erkennungs-Stufe **modular gekapselt**,
 später austauschbar):
 
-- **0 Aufnahme (App):** Video 720p–1080p langsam durch den Raum, **parallel
-  ARKit/ARCore**, das pro Frame **metrische Pose + Schwerkraft** loggt.
-  Gerätecheck (AR verfügbar?). Ein rohes MP4 reicht **nicht** – die IMU-Daten
-  sind der Kern (s. u.).
+- **0 Aufnahme:** Video 720p–1080p langsam durch den Raum, **parallel AR**, das
+  pro Frame **metrische Pose + Schwerkraft** loggt. Gerätecheck (AR verfügbar?).
+  Ein rohes MP4 reicht **nicht** – die IMU-Daten sind der Kern (s. u.).
+  **Aufnahme-Absicht (Bryan 2026-07): im Browser (WebXR)**, keine native App –
+  ⚠️ **Plattform-Risiko**: WebXR-AR läuft auf Android/Chrome, **nicht auf
+  iOS/Safari** → offener Punkt ([[ADR-0012-scan-pipeline-festlegung]] Konsequenzen).
 - **0b Bündelung:** Video + kleine Begleitdatei (Posen, Schwerkraft, Zeitstempel).
-- **1 Reconstruction:** **MASt3R-SLAM** (Video direkt, keine Kalibrierung, ~15 FPS
-  auf starker GPU) oder **SLAM3R** (schneller). Ergebnis: dichte, roh orientierte,
-  maßstabslose Punktwolke. *(Laufzeit-Engpass → [[Scan-Laufzeit-Budget-und-Beschleunigung]].)*
+- **1 Reconstruction:** **primär known-pose Tiefen-Fusion** – Depth Anything V2
+  Small (metrische Tiefe/Frame) + **bekannte AR-Posen** → TSDF/Point-Fusion
+  (Open3D) → Punktwolke. **Fallback MASt3R-SLAM** (o. SLAM3R), wenn die
+  Fusions-Wolke zu dünn ist. Zulässig, weil **SpatialLM jede z-up + metrische
+  `.ply` frisst** ([[Learning-SpatialLM-Input-Contract]]); spart den teuren
+  SLAM-Pose-Solve → *Laufzeit: [[Scan-Laufzeit-Budget-und-Beschleunigung]]*.
 - **2 Cleaning:** Open3D, `remove_statistical_outlier(nb_neighbors=10, std_ratio=1.5)`
   (SpatialLM-Team-Empfehlung) → entfernt Spiegel-/Fenster-/Reflexions-Störpunkte.
 - **3 z-up-Ausrichtung (kritischster Schritt):** SpatialLM erwartet z-Achse oben,

@@ -32,19 +32,23 @@ Pose-Solving ist der Grossteil der Kosten. **Aber:** Bryans eigene
 AR-Entscheidung liefert die **metrischen Posen bereits** (ARKit/ARCore loggt sie
 pro Frame). Wer die Posen schon hat, muss sie **nicht** teuer neu lösen.
 
-**Empfehlung (primärer Hebel):** AR-Posen ausnutzen und die inkrementelle SLAM
-durch **known-pose Tiefen-Fusion** ersetzen: pro Keyframe **metrische Mono-Tiefe**
-(Depth Anything V2 **Small**, <1 s/Frame auf T4) + **bekannte Pose** →
-**TSDF/Point-Fusion** (Open3D) → Punktwolke in **Sekunden–~1 min**. Zielbudget
-Rekonstruktion **~1–3 min statt 5–20 min**.
-- **Bonus:** Genau diese Fusion ist der **permissive Produktpfad**
-  ([[Raumerfassung-Technologie-Optionen]] §F) → POC und Produkt **konvergieren**,
-  eine Kette weniger, kommerziell sauber.
-- **Spike-Frage (P5, muss gemessen werden):** Frisst **SpatialLM** eine
-  known-pose-Fusions-Wolke **so gut wie** die MASt3R-SLAM-Wolke? SpatialLM
-  voxelisiert intern ohnehin – plausibel, aber gegen R1-Ground-Truth prüfen
-  (`eval_metrics`). Falls nicht: Fallback **feed-forward** (VGGT-1B-Commercial /
-  SLAM3R) auf gesampelten Keyframes – ebenfalls Sekunden–min statt inkrementell.
+**Festgelegt (primärer Hebel, 2026-07):** AR-Posen ausnutzen und die inkrementelle
+SLAM durch **known-pose Tiefen-Fusion** ersetzen: pro Keyframe **metrische
+Mono-Tiefe** (Depth Anything V2 **Small**, <1 s/Frame auf T4) + **bekannte Pose** →
+**TSDF/Point-Fusion** (Open3D) → z-up/metrische **`.ply`** in **Sekunden–~1 min**.
+Zielbudget Rekonstruktion **~1–3 min statt 5–20 min**. MASt3R-SLAM = Fallback.
+- **Format bestätigt (keine offene Wette mehr):** **SpatialLM frisst jede z-up +
+  metrische `.ply`** (XYZ+RGB) – MASt3R-SLAM ist nur *eine* Quelle
+  ([[Learning-SpatialLM-Input-Contract]]). Der teure SLAM-Pose-Solve entfällt,
+  weil die AR-Posen die Posen schon liefern.
+- **Was P5 noch misst = nur Qualität, nicht Format:** Erkennt SpatialLM auf der
+  Fusions-Wolke gleich viele Objekte/Wände wie auf der SLAM-Wolke? → gegen
+  R1-Ground-Truth (`eval_metrics`). Falls Recall zu niedrig: Fallback MASt3R-SLAM
+  oder **feed-forward** (VGGT-1B / SLAM3R) auf gesampelten Keyframes.
+- **Hinweis Produkt vs. POC:** Die Fusion nutzt hier permissive Bausteine (Depth
+  Anything V2 Small = Apache), **SpatialLM als Erkenner bleibt aber NC** → der
+  POC bleibt Testraum-only ([[ADR-0012-scan-pipeline-festlegung]]); der volle
+  permissive Produktpfad ersetzt zusätzlich SpatialLM (Kombi §F).
 
 ## Sekundäre Hebel (Bryans, additiv)
 - **Kurzes Video** (Test-WC 30–45 s) statt Minuten.

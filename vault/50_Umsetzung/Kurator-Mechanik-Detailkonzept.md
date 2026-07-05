@@ -85,6 +85,12 @@ Response-Schema = Kurator-Vertrag (`auswahl[]`, `relationaleAbsichten[]`,
 - **Gleiches Modell in beiden Phasen** (POC-API → später self-hosted): der Wechsel
   ist dann nur eine **Endpoint-URL**, kein neues Prompt-Engineering – deshalb das
   Modell schon im POC permissiv/self-hostbar wählen.
+- **POC-Provider festgelegt (2026-07): Groq mit `Qwen3-32B` (Gratis-Stufe).**
+  Groq bietet in der Gratis-Stufe **32B statt 8B** – für unseren kleinen Task
+  (5–8 Items wählen, JSON) leistungsfähiger und dank LPU-Hardware trotzdem
+  ms-Latenz. Striktes JSON über guided decoding / `response_format`. Später
+  self-hosted dann wieder **Qwen3-8B** möglich (kleiner, gleiche Familie) –
+  Wechsel bleibt Endpoint-Konfig ([[ADR-0011-poc-externe-cloud-apis]]).
 - **Serving POC:** drei Port-Implementierungen, frei wählbar – `baseline`
   (kein LLM, immer da) · `llm-local` (Ollama/llama.cpp) · **`llm-api`
   (gehostet)**. **Empfehlung POC = `llm-api`** (kein lokaler GPU-/RAM-Bedarf,
