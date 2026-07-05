@@ -62,9 +62,12 @@ Rekonstruktion.** Drei Realisierungen:
 - **SpatialLM** (manycore-research, NeurIPS 2025, **auf Hugging Face**): monokulares
   **Video** → Punktwolke (via MASt3R-SLAM) → **strukturierte Szene**: Wände/Türen/
   Fenster **+ orientierte Objekt-Boxen mit Kategorie**. Am nächsten an unserer
-  Vision; Output mappt fast 1:1 auf unser `objects[]` + Wände. ⚠️ v1.0-Encoder
-  (SceneScript) = **CC-BY-NC** → POC ok, Produkt braucht permissiven Ersatz
-  (LLM-Teil Qwen-0.5B = Apache ✅).
+  Vision; Output mappt fast 1:1 auf unser `objects[]` + Wände. ⚠️ **NC – auch in
+  1.1** (geprüft 2026-07, [[Learning-SpatialLM-1.1-weiterhin-NC]]): der
+  Sonata-Encoder-*Code* ist Apache, die **Gewichte** aber CC-BY-NC, und
+  MASt3R-SLAM ist ebenfalls NC → **ganze POC-Kette NC** (LLM-Teil Qwen-0.5B =
+  Apache hilft nicht). **POC ok, Produkt braucht die permissive Kombi (§F).**
+  Festgelegt in [[ADR-0012-scan-pipeline-festlegung]] (SpatialLM = POC + Messlatte).
 - **SAM 3D Objects** (Meta, HF): **ein Bild** → 3D-Form+Textur+Layout von Objekten
   (starke Objekt-/Split-Seite).
 - **SceneScript** (Meta): Forschungs-Lineage (Szene als autoregressive „Sprache").

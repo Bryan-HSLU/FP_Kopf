@@ -76,8 +76,15 @@ Response-Schema = Kurator-Vertrag (`auswahl[]`, `relationaleAbsichten[]`,
 ## Modell & Serving (POC)
 - **Anforderungen:** offene Gewichte · instruct-tauglich · zuverlässiges JSON ·
   Deutsch · ~**7–30B** (Serverklasse, [[ADR-0007-ki-kurator-open-weights]]).
-- **Kandidaten** (Benchmark statt Vorfestlegung, Stand 2026 prüfen): Qwen-,
-  Llama-, Gemma-, Mistral-Familien in Instruct-Varianten.
+- **Kandidaten** (Stand 2026-07, bei Umsetzung erneut prüfen – die Szene bewegt
+  sich monatlich): **Qwen3-Familie** (Apache 2.0, beste Gesamtwahl, mit **8B**
+  starten, bei Bedarf 14–27B) oder **Mistral Small 4** (Apache 2.0, explizit für
+  JSON-Output/Function-Calling). Beide **permissiv kommerziell**. Kein
+  geschlossenes Modell (GPT/Claude) im POC → sonst Neu-Kalibrierung beim Wechsel
+  + Datenschutz-Thema.
+- **Gleiches Modell in beiden Phasen** (POC-API → später self-hosted): der Wechsel
+  ist dann nur eine **Endpoint-URL**, kein neues Prompt-Engineering – deshalb das
+  Modell schon im POC permissiv/self-hostbar wählen.
 - **Serving POC:** drei Port-Implementierungen, frei wählbar – `baseline`
   (kein LLM, immer da) · `llm-local` (Ollama/llama.cpp) · **`llm-api`
   (gehostet)**. **Empfehlung POC = `llm-api`** (kein lokaler GPU-/RAM-Bedarf,

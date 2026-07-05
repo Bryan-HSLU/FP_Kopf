@@ -96,6 +96,36 @@ Cold-Start beim ersten Call, für Einzelnutzer ok).
 sofort geteilter Link (Sample-Räume → Plan → Viewer → KV; optional LLM-Kurator),
 **kein ML nötig**. **(2)** Video-Scan dazu (HF-Space + `/scan` + Upload-UI).
 
+## Festlegung 2026-07 (Bryan): statisches HF-Space-Frontend + Colab-GPU-Worker
+Für den **Gratis-Demo-POC** (reine Demo, kein Dauerbetrieb) konkretisiert Bryan
+die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variante:
+
+| Teil | Läuft wo | Warum |
+|---|---|---|
+| **Frontend + Solver + Kurator + Viewer** | **HF Space (gratis, CPU)** – **statisches HTML/CSS** (voller CI-Spielraum), **Gradio nur als eingebettetes Verarbeitungs-Backend** | CPU-leicht, dauerhaft gratis, **feste URL** fürs Pitchen |
+| **GPU-Scan (SLAM + SpatialLM)** | **Colab (gratis T4)** – vor der Demo **manuell anwerfen** | GPU nötig; für Einzel-Demo unkritisch, da man ohnehin dabei ist |
+
+- **Verbindung:** Colab schreibt beim Start seine aktuelle **Gradio-URL in einen
+  Zeiger** (Drive-Datei / GitHub-Gist); der Space liest den Zeiger und reicht
+  Scan-Aufträge dorthin. Übergabe intern immer über **`raummodell.json`** – so
+  bleibt der spätere Umzug ein reines **Umstecken**.
+- **Warum nicht reines HF Spaces:** Gratis-Spaces sind **CPU-only**; GPU-Spaces
+  kosten (Stundentarif). Für einen nie-aktiv-betriebenen Demo-POC ist „gratis +
+  manuell anwerfen" (Colab) besser als „bezahlt + bequem".
+- **Späterer Komfort-Upgrade:** **HF ZeroGPU / sleep-on-idle** liefert das
+  „draufgehen → startet"-Verhalten und kostet nur echte Nutzungszeit – **Spike
+  wert**, ob die Gratis-ZeroGPU-Variante für SLAM + die lange TorchSparse-
+  Kompilierung reicht. Sobald manuelles Anwerfen lästig wird oder eine echte
+  Dauer-URL nötig ist: **Umzug auf GPU-Space, Colab fällt weg** – kleiner Schritt,
+  weil dieselbe Gradio-App + dasselbe `raummodell.json` im Zentrum bleiben.
+- **Colab-Stolperfallen:** TorchSparse-Compile (bis 30 min/Session) → **Wheel
+  einmalig nach Drive** sichern, dann nur installieren (Start <2 min); **eine**
+  Setup-Zelle (installieren + Drive mounten); Videos **über Drive** laden, nie
+  direkt hochladen.
+- **Demo-Regel: Scan vorberechnen** – live nur Upload zeigen, Rest auf fertigem
+  `raummodell.json` (Sekunden). Zickt WLAN/Colab, steht die Demo trotzdem.
+  Laufzeit-Hebel: [[Scan-Laufzeit-Budget-und-Beschleunigung]].
+
 ## Offene Fragen / Risiken
 - **Scan-Modell:** VGGT (ready, mehr Adapter) **oder** SpatialLM (mehr Output, NC,
   eigenes Space)? → im Spike beide gegen R1 vergleichen.

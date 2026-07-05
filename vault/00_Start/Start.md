@@ -42,6 +42,7 @@ damit nichts verloren geht.
 - [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️→✅ vermeintliche Metrik-Fragilität war nur der Tür-Anker am Türmund; Fix = Anker ~minWidth/2 ins Korridor-Innere → wohnen/kueche sinnvoll. Kleinste Ursache zuerst isolieren, echten Evaluator messen
 - [[Learning-Arbeitsdreieck-Ergonomie-Score]] – 📐 Arbeitsdreieck als echter, gemessener Score NACH der Platzierung (Formwahl kann nur proxen); füllt das bestehende `softScore.ergonomie` aus dem Domänen-Solver – ohne Interpreter/Schema/Goldens (Paritäts-Gesetz unberührt)
 - [[Learning-Scan-Eval-Metrik-Kern-GPU-frei]] – 🛰️ M2: Mess-Kern von der GPU-Pipeline trennen → `eval_metrics.py` abhängigkeitsfrei + getestet gegen R1-GT; Ecken-Antippen ist der GPU-freie Hauptpfad. GPU-Schritte = Colab
+- [[Learning-SpatialLM-1.1-weiterhin-NC]] – ⚖️ SpatialLM 1.1 bleibt CC-BY-NC (auch Sonata-Gewichte), MASt3R-SLAM ebenfalls NC → ganze POC-Scan-Kette NC; Gewichts-Lizenz ≠ Code-Lizenz, immer die Modellkarte prüfen
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
@@ -67,6 +68,7 @@ damit nichts verloren geht.
 - [[ADR-0009-privacy-raumdaten]] – Datenminimierung + CH-Hosting für Raumdaten
 - [[ADR-0010-durchstich-reihenfolge]] – Bau-Reihenfolge: Bad → Wohnen → Küche
 - [[ADR-0011-poc-externe-cloud-apis]] – POC nutzt externe Cloud-APIs (LLM + Scan-ML); Produkt self-hosted/on-device
+- [[ADR-0012-scan-pipeline-festlegung]] – Scan-Kette fix: Video + AR-Pose → MASt3R-SLAM → SpatialLM (POC, NC); permissive Kombi = Produkt
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -110,6 +112,7 @@ damit nichts verloren geht.
 - [[POC-Bauumfang]] – 📋 konsolidierter Bau-Scope (was rein kommt, was nicht)
 - [[Offene-Punkte-und-Prioritaeten]] – 🧭 offene Arbeiten nach M6, sortiert nach Wichtigkeit für die POC-Funktion
 - [[M2-M7-Scan-Pipeline-Fahrplan]] – 🛰️ konkreter Plan Scan→Raummodell→Solver: was zuerst, was noch zu tun (M2 vor M7)
+- [[Scan-Laufzeit-Budget-und-Beschleunigung]] – ⏱️ Rechenzeit-Budget je Scan (T4): SLAM ist der Engpass; AR-Posen ausnutzen (known-pose Fusion) → ~1–3 min statt 30; alles P5 messen
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
 
 ### 📚 Quellen
