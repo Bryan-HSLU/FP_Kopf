@@ -116,6 +116,7 @@ damit nichts verloren geht.
 - [[Scan-Laufzeit-Budget-und-Beschleunigung]] – ⏱️ Rechenzeit-Budget je Scan (T4): SLAM ist der Engpass; AR-Posen ausnutzen (known-pose Fusion) → ~1–3 min statt 30; alles P5 messen
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
 - [[Raum-Editor-Manuell]] – ✏️ Raum selbst erstellen (Masse/Wände/Öffnungen/Anschlüsse einzeichnen) als dritte Erstellungsvariante neben Sample & Scan; Vorstufe des M7-Korrektur-Modus
+- [[Moebel-3D-Varianten-Bibliothek]] – 🪑 mehrere 3D-Varianten je Funktionstyp: Katalog-Feld `modell3d` → parametrischer Bausatz (bbox-treu), erweiterbar in 3 Schritten; glTF-Assets = späterer Lookup
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
