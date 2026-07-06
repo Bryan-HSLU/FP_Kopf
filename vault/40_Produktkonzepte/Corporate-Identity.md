@@ -35,6 +35,25 @@ erstellt: 2026-06-10
 - **Fliesstext:** *Gleasonslight* (Name gem. CD-Sheet, Lizenz/Schreibweise
   bei Bryan verifizieren)
 
+## Layout- & Grafiksprache (aus CD-Sheet, Flyer, App-Mockups – 2026-07)
+Quellen in `assets/`: `CI-Sheet-komplett.pdf` (Layout VAR.1 gewählt) ·
+`Flyer-Future-Planning.pdf` · `App-Mockup-Kurzanleitung.pdf` (Bryans UX-Kreislauf).
+
+- **Karten & Rahmen:** grosszügig abgerundete Ecken, dünne Outlines; Inhalte in
+  hellen Karten auf hellem Grund (App) – der dunkle Salbei-Verlauf ist der
+  **Marketing**-Look (Flyer), nicht der App-Grund.
+- **Grafik-Objekte/Piktogramme (Bryan, verbindlich):** **weisser Schein nach
+  innen** (inner glow) + **harter Schlagschatten OHNE Verlauf** (starke Kante,
+  kein Blur). Bryan liefert eigene Piktogramme nach.
+- **Typografie-Anmutung:** dünne geometrische Sans (Geo-Sans-Light-Look),
+  Titel versal mit Sperrung; Buttons als **orange Pills**; Nummern-Badges
+  dunkelblau; Icon-Kreise salbei.
+- **UX-Prinzip (App-Mockups, verbindlich):** **Schritt-für-Schritt-Kreislauf**
+  statt alles auf einem Screen – 1 Projekt starten (Raumtyp) → 2 Stil swipen →
+  3 Stil bestätigen → 4 Raum (scannen/erstellen/Sample) → 5 Raumeinrichtung →
+  6 Anpassen (3D) → 7 Auswertung → 8 Export. Nach jeder Auswahl einen Schritt
+  weiter. Deckt sich mit [[UI-UX-Gesamtkonzept]]/[[Modulablauf-v1]].
+
 ## Nutzung im Produkt
 - **UI-Theme** (Web-POC): Off-White-Grund, Dunkelgrün primär, Orange als
   Akzent-/Aktionsfarbe → als Design-Tokens in `apps/web` hinterlegen.
