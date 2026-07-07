@@ -96,6 +96,7 @@ damit nichts verloren geht.
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[UI-UX-Gesamtkonzept]] – 🧭 ganzer Nutzerfluss: Screens, Navigation, Look
+- [[UI-Designsystem-Responsive]] – 🎨 verbindliches Designsystem (Bryan 2026-07): EINE responsive UI, weisser Grund, Farbrollen, fp-card-Schatten, Fortschrittsweg, Piktogramm-System, Ladezustände
 - [[Kurator-Mechanik-Detailkonzept]] – 🤖 Retrieval, Prompt, Grounding, Fallback, Eval
 - [[Engineering-Grundlagen-POC]] – 🛠️ API, Zustände, Teststrategie, CI, Budgets
 - [[Asset-Content-Pipeline]] – 🎨 Renderings, glTF-Pipeline, Tagging, Aufwand

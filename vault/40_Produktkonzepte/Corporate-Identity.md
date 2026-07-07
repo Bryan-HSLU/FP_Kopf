@@ -39,6 +39,10 @@ erstellt: 2026-06-10
 Quellen in `assets/`: `CI-Sheet-komplett.pdf` (Layout VAR.1 gewählt) ·
 `Flyer-Future-Planning.pdf` · `App-Mockup-Kurzanleitung.pdf` (Bryans UX-Kreislauf).
 
+> 🛈 Für die **App** gilt zusätzlich das verbindliche
+> [[UI-Designsystem-Responsive]] (Bryan 2026-07): weisser Grund, Farbrollen,
+> vereinheitlichter Kartenschatten, Fortschrittsweg, Piktogramm-System.
+
 - **Karten & Rahmen:** grosszügig abgerundete Ecken, dünne Outlines; Inhalte in
   hellen Karten auf hellem Grund (App) – der dunkle Salbei-Verlauf ist der
   **Marketing**-Look (Flyer), nicht der App-Grund.
