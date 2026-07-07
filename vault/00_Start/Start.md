@@ -97,6 +97,7 @@ damit nichts verloren geht.
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[UI-UX-Gesamtkonzept]] – 🧭 ganzer Nutzerfluss: Screens, Navigation, Look
 - [[UI-Designsystem-Responsive]] – 🎨 verbindliches Designsystem (Bryan 2026-07): EINE responsive UI, weisser Grund, Farbrollen, fp-card-Schatten, Fortschrittsweg, Piktogramm-System, Ladezustände
+- [[Learning-Viewer-2D-3D-Interaktion-und-Oberflaechen]] – 🖱️ Viewer-Ausbau: reiner Geometrie-Kern trägt Symbole/Messen/Begehung; Oberflächen bleiben rein visuell (kein Schema-Eingriff); Drag/Rotate nutzt bestehende Constraints (Ampel gültig)
 - [[Kurator-Mechanik-Detailkonzept]] – 🤖 Retrieval, Prompt, Grounding, Fallback, Eval
 - [[Engineering-Grundlagen-POC]] – 🛠️ API, Zustände, Teststrategie, CI, Budgets
 - [[Asset-Content-Pipeline]] – 🎨 Renderings, glTF-Pipeline, Tagging, Aufwand
