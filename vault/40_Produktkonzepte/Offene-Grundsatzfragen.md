@@ -58,6 +58,17 @@ erstellt: 2026-06-09
 - **Bau:** phasiert; erster vertikaler Durchstich wird **später** gewählt.
 - **Folge-offen:** konkreter Norm-Regelsatz; Wahl des ersten Durchstichs.
 
+## F) Solver – Stil → Platzierung (Kalibrierung, offen)
+Seit «Stufe 1» beeinflusst der Stil nicht nur die Auswahl, sondern auch die
+**Platzierung** ([[Learning-Solver-Stufe1-Anordnung-Stil]]). Offen: **welche
+Stilachse steuert welchen Platzierungs-Bias, mit welchem Gewicht?**
+- **v0 aktiv (Bryan 2026-07-08, vorläufig):** Achse `raumgefuehl` → Wand-Nähe
+  (hoch = Möbel wandnah, Raummitte frei), kleines Gewicht. Reine Faustregel.
+- **Alternativen zu prüfen:** `opulenz` → Symmetrie · `raumgefuehl` → Zentrierung
+  statt Wand-Nähe · Gewichtung Stil vs. Ergonomie/Verteilung.
+- **Nächster Schritt:** im POC an echten Räumen kalibrieren; Bryan behält sich
+  Umentscheidung vor. Bei Festlegung → ADR.
+
 ## Vorgehen
 Diese Fragen arbeiten wir gezielt ab (Optionen + Trade-offs + Empfehlung →
 Entscheidung als ADR). Liste wächst/schrumpft mit dem Projekt.
