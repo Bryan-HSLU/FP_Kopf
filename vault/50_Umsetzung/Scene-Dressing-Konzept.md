@@ -25,6 +25,19 @@ eine Katalog-`catalogItemId` + `gewerk` + `source` und speist die Auswertung –
 Deko dort würde Normlogik und Kosten verschmutzen. Die Trennung ist also
 **vertraglich** richtig, nicht nur „sauberer".
 
+## Ästhetik-Leitlinie: «frisch gebaut», nicht «bewohnt» ⭐
+Der Raum soll wie **frisch gebaut & frisch eingerichtet** wirken (Showroom /
+Musterwohnung / Übergabezustand) – **nicht** wie ein belebter Alltagsraum.
+Konsequenz für Auswahl **und** Dichte:
+- **Sparsam & aufgeräumt**, bewusst gestaged (wenige, gezielte Objekte), nicht
+  vollgestellt.
+- **Ja:** neu wirkende Staging-Objekte – ordentlich gefaltete Handtücher, eine
+  einzelne Pflanze, dezente Ablageschale, Seifenspender, gerade gerückte Deko.
+- **Nein:** Alltags-/Gebrauchsspuren – benutzte Tassen/Geschirr, offene/verstreute
+  Magazine, herumliegende Fernbedienungen, Wäsche, halb genutzte Dinge, Krümel.
+- Dichte-Faustregel: lieber **zu wenig** als zu viel; jedes Objekt sieht neu und
+  platziert aus.
+
 ## Objektklassen
 - **A – solver-relevant:** grosse/funktionale Objekte → bleiben im **Katalog**,
   KI/Solver platzieren sie (unverändert).
