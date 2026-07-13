@@ -129,6 +129,10 @@ die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variant
   „draufgehen → startet", nur echte Nutzungszeit). Bei Bedarf später: Umzug auf
   GPU-Space, Colab fällt weg – kleiner Schritt, weil dieselbe Gradio-App +
   dasselbe `raummodell.json` im Zentrum bleiben.
+  - **Nachtrag (Bryans Frage 2026-07-13, gratis ZeroGPU ~5 Min/Tag):**
+    grundsätzlich machbar, aber der Haken ist **nicht die Quota, sondern der
+    flash-attn/Sonata-Build** + das Call-Zeitlimit; Lizenz bleibt NC. Detail-
+    Analyse: [[Scan-GPU-Gratis-ZeroGPU-vs-Colab]].
 - **Colab-Stolperfallen:** TorchSparse-Compile (bis 30 min/Session) → **Wheel
   einmalig nach Drive** sichern, dann nur installieren (Start <2 min); **eine**
   Setup-Zelle (installieren + Drive mounten); Videos **über Drive** laden, nie

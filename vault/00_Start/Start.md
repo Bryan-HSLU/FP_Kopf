@@ -117,6 +117,7 @@ damit nichts verloren geht.
 - [[Offene-Punkte-und-Prioritaeten]] – 🧭 offene Arbeiten nach M6, sortiert nach Wichtigkeit für die POC-Funktion
 - [[M2-M7-Scan-Pipeline-Fahrplan]] – 🛰️ konkreter Plan Scan→Raummodell→Solver: was zuerst, was noch zu tun (M2 vor M7)
 - [[Scan-Laufzeit-Budget-und-Beschleunigung]] – ⏱️ Rechenzeit-Budget je Scan (T4): SLAM ist der Engpass; AR-Posen ausnutzen (known-pose Fusion) → ~1–3 min statt 30; alles P5 messen
+- [[Scan-GPU-Gratis-ZeroGPU-vs-Colab]] – 🎛️ Bryans Frage: gratis HF ZeroGPU (~5 Min/Tag) statt Colab? Machbar, aber Haken = flash-attn/Sonata-Build + Call-Limit, nicht die Quota; Lizenz bleibt NC
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
 - [[Raum-Editor-Manuell]] – ✏️ Raum selbst erstellen (Masse/Wände/Öffnungen/Anschlüsse einzeichnen) als dritte Erstellungsvariante neben Sample & Scan; Vorstufe des M7-Korrektur-Modus
 - [[Moebel-3D-Varianten-Bibliothek]] – 🪑 mehrere 3D-Varianten je Funktionstyp: Katalog-Feld `modell3d` → parametrischer Bausatz (bbox-treu), erweiterbar in 3 Schritten; glTF-Assets = späterer Lookup
