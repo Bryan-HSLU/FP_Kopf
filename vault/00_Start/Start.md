@@ -45,6 +45,7 @@ damit nichts verloren geht.
 - [[Learning-SpatialLM-1.1-weiterhin-NC]] – ⚖️ SpatialLM 1.1 bleibt CC-BY-NC (auch Sonata-Gewichte), MASt3R-SLAM ebenfalls NC → ganze POC-Scan-Kette NC; Gewichts-Lizenz ≠ Code-Lizenz, immer die Modellkarte prüfen
 - [[Learning-SpatialLM-Input-Contract]] – 🧩 SpatialLM frisst JEDE z-up + metrische `.ply` (XYZ+RGB); MASt3R-SLAM ist nur eine Quelle → known-pose Fusion (AR-Posen + Tiefe) ist zulässig und der schnelle Weg
 - [[Learning-SpatialLM-1.1-Backbone-Sonata-nicht-TorchSparse]] – 🔧 SpatialLM 1.1 = Sonata + flash-attn (nicht TorchSparse, das war 1.0) → Colab cached flash-attn; Worker ruft `inference.py` als Subprozess (robust, kein Nachbau); Gate = torch/CUDA-Pins beim ersten R1-Lauf
+- [[Learning-Kurator-Pipeline-v3-Umsetzung]] – 🤖 v3 umgesetzt: Norm-Rendering aus Daten trägt; Konzept-zuerst gratis; Cross-File-$ref ok (Registry-Pflicht); softScore bad/wohnen war leer; Baseline vermessen (Messlatte für LLM-Lauf)
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
