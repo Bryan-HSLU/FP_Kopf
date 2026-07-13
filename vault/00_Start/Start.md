@@ -71,6 +71,7 @@ damit nichts verloren geht.
 - [[ADR-0010-durchstich-reihenfolge]] – Bau-Reihenfolge: Bad → Wohnen → Küche
 - [[ADR-0011-poc-externe-cloud-apis]] – POC nutzt externe Cloud-APIs (LLM + Scan-ML); Produkt self-hosted/on-device
 - [[ADR-0012-scan-pipeline-festlegung]] – Scan-Kette fix: Video + AR-Pose → MASt3R-SLAM → SpatialLM (POC, NC); permissive Kombi = Produkt
+- [[ADR-0013-kurator-pipeline-v3]] – 🤖 Kurator-Ausbau statt Neubau: Kohärenz, Norm-Rendering aus Daten, Platz-Budget, Farben (KI+UI), Eval, K-Varianten
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -99,6 +100,7 @@ damit nichts verloren geht.
 - [[UI-Designsystem-Responsive]] – 🎨 verbindliches Designsystem (Bryan 2026-07): EINE responsive UI, weisser Grund, Farbrollen, fp-card-Schatten, Fortschrittsweg, Piktogramm-System, Ladezustände
 - [[Learning-Viewer-2D-3D-Interaktion-und-Oberflaechen]] – 🖱️ Viewer-Ausbau: reiner Geometrie-Kern trägt Symbole/Messen/Begehung; Oberflächen bleiben rein visuell (kein Schema-Eingriff); Drag/Rotate nutzt bestehende Constraints (Ampel gültig)
 - [[Kurator-Mechanik-Detailkonzept]] – 🤖 Retrieval, Prompt, Grounding, Fallback, Eval
+- [[Kurator-Pipeline-v3-Konzept]] – 🧭 Umsetzungskonzept Kurator v3: 5 Wellen (Kohärenz/Norm-Rendering → Katalog-Daten+Farb-Slugs → Farben KI+UI → Eval → K-Varianten)
 - [[Engineering-Grundlagen-POC]] – 🛠️ API, Zustände, Teststrategie, CI, Budgets
 - [[Asset-Content-Pipeline]] – 🎨 Renderings, glTF-Pipeline, Tagging, Aufwand
 - [[Bauplan-Meilensteine]] – 🚀 M0–M7 mit Definition of Done
