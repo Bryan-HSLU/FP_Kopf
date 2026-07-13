@@ -49,9 +49,23 @@ Call C: Flächen   → boden.material + waende[] (voll/halbhoch/sockel, akzent)
 - Die Reihenfolge-Kontrolle (`prioritaet`) war fast gratis, wirkt aber stark:
   die KI bestimmt, welche Objekte zuerst um den Platz konkurrieren.
 
+## Nachtrag: Flächen-Normkontrolle (2026-07-12, Bryan-Anforderung)
+«LLM gestaltet UND Norm kontrolliert» gilt jetzt auch für Flächen:
+- **Flächen-Normregeln als Daten** (`data/rules/flaechen.json`, bewusst getrennt
+  vom Geometrie-/Paritäts-Regelsatz): Bad-Boden wasserfest · Nasswände ≥2.0 m
+  wasserfest (Heuristik: Wand mit Wasser-/Abwasser-Fixpunkt ≤0.5 m) ·
+  Küchenboden abwaschbar. Richtwerte «zu-verifizieren» (SIA 271 / DIN 18534).
+- **Doppelte Kontrolle:** Regeln stehen VORAB im Prompt (Vorwärts-Kontrolle),
+  UND jeder Output wird hart geprüft → 1 Norm-Repair ans LLM → sonst
+  deterministische, idempotente Korrektur (sichtbare Marker in der Begründung).
+- Vokabular erweitert (Tapete, Holz-Täfer): Wohnräume normal Putz/Tapete/Täfer,
+  Fliesen nur Nassbereiche → «nicht nur Platten».
+
 ## Offen
 - Zusammenspiel **Kurator-Flächen vs. manuelle Oberflächen-Wahl** im Viewer
   (wer gewinnt bei Nutzer-Edit?) → UX-Entscheid.
+- Flächen-Richtwerte fachlich verifizieren (SIA 271/DIN 18534); ggf. Putz-
+  Oberzone über Fliesensockel als echte Zwei-Zonen-Wand im Vertrag abbilden.
 - 2D-Grundriss zeigt Flächen-Konzept noch nicht (bewusst).
 - Slug-Vokabular (10) bei Gelegenheit mit Bryan justieren.
 - Mini-Eval v2: misst bisher Auswahl-Qualität – Anordnungs-/Flächen-Qualität
