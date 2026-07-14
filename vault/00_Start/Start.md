@@ -73,6 +73,7 @@ damit nichts verloren geht.
 - [[ADR-0011-poc-externe-cloud-apis]] – POC nutzt externe Cloud-APIs (LLM + Scan-ML); Produkt self-hosted/on-device
 - [[ADR-0012-scan-pipeline-festlegung]] – Scan-Kette fix: Video + AR-Pose → MASt3R-SLAM → SpatialLM (POC, NC); permissive Kombi = Produkt
 - [[ADR-0013-kurator-pipeline-v3]] – 🤖 Kurator-Ausbau statt Neubau: Kohärenz, Norm-Rendering aus Daten, Platz-Budget, Farben (KI+UI), Eval, K-Varianten
+- [[ADR-0014-objekt-ebenen-und-kurator-kontrolle]] – 🪜 Objekt-Ebenen (Haupt→Ergänzung→Deko, Anker+Anzahl) + Thinking-Flag + Diagnose-Harness (LLM-Kontrolle per Befehl)
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -86,6 +87,7 @@ damit nichts verloren geht.
 - [[Vision-Oekosystem]] – Langfrist-Vision (B2B, CDE/IFC, FM)
 - [[KI-Berater-Chatbot]] – KI-Beratung für Nutzer (post-POC)
 - [[Team-und-Stakeholder]] – Gründer, Advisors, Zeitachse
+- [[Objekt-Ebenen-Modell]] – 🪜 Bryans 3 Ebenen: Haupt-Objekte → verankerte Ergänzungen (Stühle ZUM Esstisch, inkl. Anzahl) → Deko (=Dressing)
 - [[Offene-Grundsatzfragen]] – ⚠️ zu hinterfragende Annahmen (Module, Anforderungen, Tech)
 
 ### 🔧 Umsetzung
