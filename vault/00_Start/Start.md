@@ -133,6 +133,7 @@ damit nichts verloren geht.
 - [[Pitchdeck-Technik-2026-04-29]] – technisches Pitchdeck
 - [[Pitchdeck-FamilyFriends-2026-05-06]] – Business-/F&F-Pitchdeck
 - [[Modell-und-Tool-Quellen]] – 📦 Downloads, Bezugsorte, Lizenzen (inkl. ⚠️-Flags)
+- [[Quellen-Flaechen-Normen]] – 📏 DIN 18534/SIA 271 (Nasswand ≥2 m ok), Spritzzone 1.5 m (Korrektur!), bfu GB2/B Rutschhemmung
 
 ### 🗄️ Archiv
 > Abgelöste fachliche Notizen. → `vault/99_Archiv/`
