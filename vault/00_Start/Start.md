@@ -47,6 +47,7 @@ damit nichts verloren geht.
 - [[Learning-SpatialLM-1.1-Backbone-Sonata-nicht-TorchSparse]] – 🔧 SpatialLM 1.1 = Sonata + flash-attn (nicht TorchSparse, das war 1.0) → Colab cached flash-attn; Worker ruft `inference.py` als Subprozess (robust, kein Nachbau); Gate = torch/CUDA-Pins beim ersten R1-Lauf
 - [[Learning-Kurator-Pipeline-v3-Umsetzung]] – 🤖 v3 umgesetzt: Norm-Rendering aus Daten trägt; Konzept-zuerst gratis; Cross-File-$ref ok (Registry-Pflicht); softScore bad/wohnen war leer; Baseline vermessen (Messlatte für LLM-Lauf)
 - [[Learning-Kurator-v31-Ebenen-Begehbarkeit-Diagnose]] – 🪜 v3.1: Ebenen+Anker+Anzahl tragen; Begehbarkeit hart am Ende (Filter wäre 7–10× langsamer, gemessen); parallele Refactorings am selben Modul = Semantik-Review beim Merge; LLM-Läufe via GitHub-Workflow
+- [[Learning-LLM-Betrieb-Groq-Free-Tier]] – 🔌 Bryans Bauchgefühl war messbar korrekt: LLM antwortete seit v3 NIE (413→max_tokens!→Qwen3-Thinking-400→429); stille Fallbacks brauchen laute Marker; Llama-3.3-70b läuft – Pipeline Ende-zu-Ende bewiesen
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
