@@ -1,0 +1,50 @@
+# Einmaliger Reparatur-Workflow: stellt Start.md byte-genau wieder her,
+# entfernt zwei ueberholte Notizen und loescht sich danach selbst.
+name: repair-brain
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Start.md wiederherstellen, veraltete Notizen entfernen
+        run: |
+          set -euo pipefail
+          git cat-file blob 8617c339c42d30eda9bad91c04a3486cc73891be > vault/00_Start/Start.md
+          git add vault/00_Start/Start.md
+          git rm -q vault/50_Umsetzung/Arbeitsdreieck-Score-Optionen.md
+          git rm -q vault/50_Umsetzung/Circulation-Hochstufung-auf-hard.md
+          git rm -q .github/workflows/repair-brain.yml
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+          git commit -q -F - <<'MSG'
+          Start.md byte-genau wiederhergestellt + zwei ueberholte Notizen entfernt
+
+          Start.md: die vorige Wiederherstellung lief ueber eine manuelle
+          Uebertragung und hat zwei typografische Anfuehrungszeichen
+          verfaelscht. Hier steht wieder exakt der Originalblob 8617c33.
+
+          Entfernt, weil inzwischen ueberholt und ohne eingehende Links:
+          - Arbeitsdreieck-Score-Optionen: die empfohlene Option A ist laengst
+            umgesetzt (gemessenes Dreieck fuellt softScore.ergonomie).
+          - Circulation-Hochstufung-auf-hard: die empfohlene Option B ist mit
+            Welle D umgesetzt (Begehbarkeit hart am Planende, inkl. Messung).
+          Beide Notizen entstanden in einer Session auf veraltetem Checkout und
+          beschreiben als "offene Entscheidung", was bereits entschieden und
+          gebaut ist - im Vault waeren sie irrefuehrend statt hilfreich.
+
+          Der temporaere Reparatur-Workflow entfernt sich hier selbst.
+
+          Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+          Claude-Session: https://claude.ai/code/session_017PW7Qr3Gotr4yH86Q1zEcH
+          MSG
+          git push origin HEAD:main
