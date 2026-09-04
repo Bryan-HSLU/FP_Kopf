@@ -8,7 +8,7 @@ erstellt: 2026-06-09
 
 # 🧠 FP_Kopf – Brain-Einstieg
 
-Dies ist der zentrale Einstiegspunkt („Map of Content") in das Brain. Von hier
+Dies ist der zentrale Einstiegspunkt („Map of Content“) in das Brain. Von hier
 aus sind alle Wissensbereiche erreichbar. Neue Notizen werden hier verlinkt,
 damit nichts verloren geht.
 
@@ -40,20 +40,11 @@ damit nichts verloren geht.
 - [[Learning-M6-Durchstich-Kueche]] – 🍳 M1-Verträge trugen M6 ohne Schema-Änderung; Grossraum = pure Function (zone_room); Invariante ≠ Vollständigkeit; Vorfilter nie strenger als Urteil
 - [[Learning-Circulation-Freiraumanalyse]] – 🚶 Grid-Regel bit-identisch über 2 Sprachen (alles ganzzahlig); soft v0 statt hard; Feasibility hängt nur an harten Regeln (Hot-Path spart die teure Analyse)
 - [[Learning-Circulation-Metrik-Fragilitaet]] – ⚠️→✅ vermeintliche Metrik-Fragilität war nur der Tür-Anker am Türmund; Fix = Anker ~minWidth/2 ins Korridor-Innere → wohnen/kueche sinnvoll. Kleinste Ursache zuerst isolieren, echten Evaluator messen
-- [[Learning-Arbeitsdreieck-Ergonomie-Score]] – 📐 Arbeitsdreieck als echter, gemessener Score NACH der Platzierung (Formwahl kann nur proxen); füllt das bestehende `softScore.ergonomie` aus dem Domänen-Solver – ohne Interpreter/Schema/Goldens (Paritäts-Gesetz unberührt)
-- [[Learning-Scan-Eval-Metrik-Kern-GPU-frei]] – 🛰️ M2: Mess-Kern von der GPU-Pipeline trennen → `eval_metrics.py` abhängigkeitsfrei + getestet gegen R1-GT; Ecken-Antippen ist der GPU-freie Hauptpfad. GPU-Schritte = Colab
-- [[Learning-SpatialLM-1.1-weiterhin-NC]] – ⚖️ SpatialLM 1.1 bleibt CC-BY-NC (auch Sonata-Gewichte), MASt3R-SLAM ebenfalls NC → ganze POC-Scan-Kette NC; Gewichts-Lizenz ≠ Code-Lizenz, immer die Modellkarte prüfen
-- [[Learning-SpatialLM-Input-Contract]] – 🧩 SpatialLM frisst JEDE z-up + metrische `.ply` (XYZ+RGB); MASt3R-SLAM ist nur eine Quelle → known-pose Fusion (AR-Posen + Tiefe) ist zulässig und der schnelle Weg
-- [[Learning-SpatialLM-1.1-Backbone-Sonata-nicht-TorchSparse]] – 🔧 SpatialLM 1.1 = Sonata + flash-attn (nicht TorchSparse, das war 1.0) → Colab cached flash-attn; Worker ruft `inference.py` als Subprozess (robust, kein Nachbau); Gate = torch/CUDA-Pins beim ersten R1-Lauf
-- [[Learning-Kurator-Pipeline-v3-Umsetzung]] – 🤖 v3 umgesetzt: Norm-Rendering aus Daten trägt; Konzept-zuerst gratis; Cross-File-$ref ok (Registry-Pflicht); softScore bad/wohnen war leer; Baseline vermessen (Messlatte für LLM-Lauf)
-- [[Learning-Kurator-v31-Ebenen-Begehbarkeit-Diagnose]] – 🪜 v3.1: Ebenen+Anker+Anzahl tragen; Begehbarkeit hart am Ende (Filter wäre 7–10× langsamer, gemessen); parallele Refactorings am selben Modul = Semantik-Review beim Merge; LLM-Läufe via GitHub-Workflow
-- [[Learning-LLM-Betrieb-Groq-Free-Tier]] – 🔌 Bryans Bauchgefühl war messbar korrekt: LLM antwortete seit v3 NIE (413→max_tokens!→Qwen3-Thinking-400→429); stille Fallbacks brauchen laute Marker; Llama-3.3-70b läuft – Pipeline Ende-zu-Ende bewiesen
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
 - [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
-- [[POC-Demo-Architektur-HF]] – 🖥️ wo welcher POC-Teil läuft (Frontend/Engines lokal, ML auf HF per API) + Datenfluss
 - [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] – 🗺️ ganze Pipeline visuell (Canvas)
 - [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
 - [[Domaenenmodell-v0]] – Raummodell + Plan-Objekt (stabiler Kern)
@@ -72,10 +63,6 @@ damit nichts verloren geht.
 - [[ADR-0008-poc-alle-raumtypen-kueche]] – alle 3 Raumtypen im POC, Küchenform vom Solver
 - [[ADR-0009-privacy-raumdaten]] – Datenminimierung + CH-Hosting für Raumdaten
 - [[ADR-0010-durchstich-reihenfolge]] – Bau-Reihenfolge: Bad → Wohnen → Küche
-- [[ADR-0011-poc-externe-cloud-apis]] – POC nutzt externe Cloud-APIs (LLM + Scan-ML); Produkt self-hosted/on-device
-- [[ADR-0012-scan-pipeline-festlegung]] – Scan-Kette fix: Video + AR-Pose → MASt3R-SLAM → SpatialLM (POC, NC); permissive Kombi = Produkt
-- [[ADR-0013-kurator-pipeline-v3]] – 🤖 Kurator-Ausbau statt Neubau: Kohärenz, Norm-Rendering aus Daten, Platz-Budget, Farben (KI+UI), Eval, K-Varianten
-- [[ADR-0014-objekt-ebenen-und-kurator-kontrolle]] – 🪜 Objekt-Ebenen (Haupt→Ergänzung→Deko, Anker+Anzahl) + Thinking-Flag + Diagnose-Harness (LLM-Kontrolle per Befehl)
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`
@@ -89,7 +76,6 @@ damit nichts verloren geht.
 - [[Vision-Oekosystem]] – Langfrist-Vision (B2B, CDE/IFC, FM)
 - [[KI-Berater-Chatbot]] – KI-Beratung für Nutzer (post-POC)
 - [[Team-und-Stakeholder]] – Gründer, Advisors, Zeitachse
-- [[Objekt-Ebenen-Modell]] – 🪜 Bryans 3 Ebenen: Haupt-Objekte → verankerte Ergänzungen (Stühle ZUM Esstisch, inkl. Anzahl) → Deko (=Dressing)
 - [[Offene-Grundsatzfragen]] – ⚠️ zu hinterfragende Annahmen (Module, Anforderungen, Tech)
 
 ### 🔧 Umsetzung
@@ -97,19 +83,17 @@ damit nichts verloren geht.
 
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
 - [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
-- [[Raumerfassung-Technologie-Optionen]] – 🔭 kuratierte Tool-/Modell-Optionen (Sensing, KI-3D, semantische 3D/Objekt-Split) mit Lizenz-Flags
-- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
+- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert“, P1–P3
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[UI-UX-Gesamtkonzept]] – 🧭 ganzer Nutzerfluss: Screens, Navigation, Look
-- [[UI-Designsystem-Responsive]] – 🎨 verbindliches Designsystem (Bryan 2026-07): EINE responsive UI, weisser Grund, Farbrollen, fp-card-Schatten, Fortschrittsweg, Piktogramm-System, Ladezustände
-- [[Learning-Viewer-2D-3D-Interaktion-und-Oberflaechen]] – 🖱️ Viewer-Ausbau: reiner Geometrie-Kern trägt Symbole/Messen/Begehung; Oberflächen bleiben rein visuell (kein Schema-Eingriff); Drag/Rotate nutzt bestehende Constraints (Ampel gültig)
 - [[Kurator-Mechanik-Detailkonzept]] – 🤖 Retrieval, Prompt, Grounding, Fallback, Eval
-- [[Kurator-Pipeline-v3-Konzept]] – 🧭 Umsetzungskonzept Kurator v3: 5 Wellen (Kohärenz/Norm-Rendering → Katalog-Daten+Farb-Slugs → Farben KI+UI → Eval → K-Varianten)
 - [[Engineering-Grundlagen-POC]] – 🛠️ API, Zustände, Teststrategie, CI, Budgets
 - [[Asset-Content-Pipeline]] – 🎨 Renderings, glTF-Pipeline, Tagging, Aufwand
 - [[Bauplan-Meilensteine]] – 🚀 M0–M7 mit Definition of Done
 - [[Kuechen-Detailkonzept]] – Küchenform vom Solver, lineare Baugruppe, Grossraum/Zonen
+- [[Arbeitsdreieck-Score-Optionen]] – ❓ offene Entscheidung: echtes Mass nach dem Solven (A) vs. form-bewusste Heuristik (B)
+- [[Circulation-Hochstufung-auf-hard]] – ❓ offene Entscheidung: Metrik ist reif, Hürde ist die Hot-Path-Performance
 - [[Stilprofil-Auswertung-Detailkonzept]] – Mehrachsen-Auswertung + Thresholds
 - [[Norm-Regelsatz-v0]] – harte/weiche Regeln pro Raumtyp (Solver-Constraints)
 - [[Scan-Validierungs-Spike]] – 🔬 riskanteste Annahme testen (Messplan + Gates)
@@ -121,13 +105,7 @@ damit nichts verloren geht.
 - [[Tech-Setup-Blueprint]] – 🏗️ Bauplan fürs künftige Code-Repo (Monorepo, Verträge)
 - [[Umsetzungs-Review-Schwierigkeiten]] – 🔍 Kontroll-Analyse: Befunde + Gegenmassnahmen
 - [[POC-Bauumfang]] – 📋 konsolidierter Bau-Scope (was rein kommt, was nicht)
-- [[Offene-Punkte-und-Prioritaeten]] – 🧭 offene Arbeiten nach M6, sortiert nach Wichtigkeit für die POC-Funktion
-- [[M2-M7-Scan-Pipeline-Fahrplan]] – 🛰️ konkreter Plan Scan→Raummodell→Solver: was zuerst, was noch zu tun (M2 vor M7)
-- [[Scan-Laufzeit-Budget-und-Beschleunigung]] – ⏱️ Rechenzeit-Budget je Scan (T4): SLAM ist der Engpass; AR-Posen ausnutzen (known-pose Fusion) → ~1–3 min statt 30; alles P5 messen
-- [[Scan-GPU-Gratis-ZeroGPU-vs-Colab]] – 🎛️ Bryans Frage: gratis HF ZeroGPU (~5 Min/Tag) statt Colab? Machbar, aber Haken = flash-attn/Sonata-Build + Call-Limit, nicht die Quota; Lizenz bleibt NC
 - [[AR-Vorschau-Konzept]] – AR-Einzelobjekt-Vorschau (A15, POC-Stretch)
-- [[Raum-Editor-Manuell]] – ✏️ Raum selbst erstellen (Masse/Wände/Öffnungen/Anschlüsse einzeichnen) als dritte Erstellungsvariante neben Sample & Scan; Vorstufe des M7-Korrektur-Modus
-- [[Moebel-3D-Varianten-Bibliothek]] – 🪑 mehrere 3D-Varianten je Funktionstyp: Katalog-Feld `modell3d` → parametrischer Bausatz (bbox-treu), erweiterbar in 3 Schritten; glTF-Assets = späterer Lookup
 
 ### 📚 Quellen
 > Externe Quellen, Recherche, Referenzen. → `vault/60_Quellen/`
@@ -135,7 +113,6 @@ damit nichts verloren geht.
 - [[Pitchdeck-Technik-2026-04-29]] – technisches Pitchdeck
 - [[Pitchdeck-FamilyFriends-2026-05-06]] – Business-/F&F-Pitchdeck
 - [[Modell-und-Tool-Quellen]] – 📦 Downloads, Bezugsorte, Lizenzen (inkl. ⚠️-Flags)
-- [[Quellen-Flaechen-Normen]] – 📏 DIN 18534/SIA 271 (Nasswand ≥2 m ok), Spritzzone 1.5 m (Korrektur!), bfu GB2/B Rutschhemmung
 
 ### 🗄️ Archiv
 > Abgelöste fachliche Notizen. → `vault/99_Archiv/`

@@ -10,12 +10,12 @@
 
 ## 1. Projektkontext
 
-- **Projektname:** FP_Kopf – das digitale „Brain" zum Startup **Future Planning**.
+- **Projektname:** FP_Kopf – das digitale „Brain“ zum Startup **Future Planning**.
 - **Projekttyp:** Software-/Produktentwicklung.
 - **Idee in einem Satz:** Eine Smartphone-App, die Bauherrschaften und Bewohner
   ihre zukünftigen Räume zeigt, bevor sie Realität werden – vom Stil-Swipe über
   Raum-Scan und normkonforme 3D-Planung bis zu Kosten, Gewerken und Handwerkern,
-  ohne Zusatzhardware. Claim: **„Meet. Match. Build."**
+  ohne Zusatzhardware. Claim: **„Meet. Match. Build.“**
 - **Aktuelle Phase:** Das **technische Konzept wird neu erarbeitet** – der
   technische Teil des bisherigen Pitchdecks gilt als überholt.
 - **Sprache aller Inhalte:** Deutsch (Code-Bezeichner und Tooling dürfen
@@ -61,6 +61,14 @@ ausführender Befehlsempfänger. Konkret bedeutet das:
    lege Optionen mit Trade-offs vor und gib eine begründete Empfehlung. Im
    Zweifel zurückfragen statt übernehmen. Offene Grundsatzfragen werden im Brain
    gesammelt: `vault/40_Produktkonzepte/Offene-Grundsatzfragen.md`.
+8. **Modell- & Subagenten-Arbeitsteilung** (Entscheid Bryan, 2026-06-14): Die
+   Hauptsession läuft auf dem **starken Modell** und macht **Planung, Review und
+   alles Heikle selbst**; klar abgegrenzte, **nicht zu schwierige** Teilaufgaben
+   dürfen an einen **schwächeren Subagenten** gehen – aber nur, wenn du sicher
+   bist, dass er sie schafft. Fürs Brain heisst das: **Recherche/Inventur/
+   Zusammenfassen** ist delegierbar, das **Formulieren von Learnings, ADRs und
+   Konzepten bleibt bei dir** (dort steckt die Urteilsbildung). Subagenten
+   committen nie selbst – die Hauptsession reviewt und committet.
 
 ---
 
@@ -104,8 +112,8 @@ FP_Kopf/
 | Umsetzungsdetails | Vorgehensregeln & Onboarding |
 | Verlinkte Wissensnoten | Projektüberblick (`README.md`) |
 
-**Faustregel:** Fragst du dich „*Was* haben wir gelernt/entschieden?" → Brain.
-Fragst du dich „*Wie* arbeiten wir hier?" → Repo (CLAUDE.md / `.claude/`).
+**Faustregel:** Fragst du dich „*Was* haben wir gelernt/entschieden?“ → Brain.
+Fragst du dich „*Wie* arbeiten wir hier?“ → Repo (CLAUDE.md / `.claude/`).
 
 ---
 
@@ -131,7 +139,7 @@ Fragst du dich „*Wie* arbeiten wir hier?" → Repo (CLAUDE.md / `.claude/`).
 ### Standard-Skill-Set – immer aktiv
 In **jeder** Session gilt das vendored **`kepano/obsidian-skills`**-Set als
 fester Werkzeugkasten. Diese Skills werden **standardmäßig genutzt**, sobald die
-Situation zutrifft – nicht nur „bei Bedarf":
+Situation zutrifft – nicht nur „bei Bedarf“:
 
 - **`obsidian-markdown`** – immer beim Erstellen/Ändern von Vault-`.md`
   (Wikilinks, Callouts, Properties/Frontmatter, Embeds, Tags).
