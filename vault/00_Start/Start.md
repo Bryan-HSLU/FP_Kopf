@@ -8,7 +8,7 @@ erstellt: 2026-06-09
 
 # 🧠 FP_Kopf – Brain-Einstieg
 
-Dies ist der zentrale Einstiegspunkt („Map of Content“) in das Brain. Von hier
+Dies ist der zentrale Einstiegspunkt („Map of Content") in das Brain. Von hier
 aus sind alle Wissensbereiche erreichbar. Neue Notizen werden hier verlinkt,
 damit nichts verloren geht.
 
@@ -98,7 +98,7 @@ damit nichts verloren geht.
 - [[Tech-Bausteine-Open-Source]] – Open-Source-Bausteine pro Modul + Trade-offs
 - [[Raumerfassung-Detailkonzept]] – Zwei-Spur-Scan: leichter Pfad + GS-Kür
 - [[Raumerfassung-Technologie-Optionen]] – 🔭 kuratierte Tool-/Modell-Optionen (Sensing, KI-3D, semantische 3D/Objekt-Split) mit Lizenz-Flags
-- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert“, P1–P3
+- [[Gestaltungs-Engine-Prioritaetsklassen]] – „KI wählt, Solver platziert", P1–P3
 - [[Solver-Algorithmus-Detailkonzept]] – ⚙️ wie der Solver platziert (Feasibility-first)
 - [[Viewer-Editor-UX-Detailkonzept]] – 🖥️ 3D-Ansicht, Editieren, Live-Regel-Feedback
 - [[UI-UX-Gesamtkonzept]] – 🧭 ganzer Nutzerfluss: Screens, Navigation, Look
