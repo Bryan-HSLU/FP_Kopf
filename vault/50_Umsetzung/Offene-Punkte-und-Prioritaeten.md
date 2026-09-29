@@ -45,6 +45,7 @@ Konkreter Fahrplan: [[M2-M7-Scan-Pipeline-Fahrplan]].
 | **Vercel-Eingang abnehmen** ([[ADR-0015-vercel-zweiter-frontend-eingang]]) | 🟡 | Preview läuft; Handy-Test (Upload 27 MB, Kaltstart, Durchgang beide URLs) → dann Produktion. **Bryan** (Test, Wunsch-Domain) |
 | **Scan-Upload als Job + Polling** ([[M2-M7-Scan-Pipeline-Fahrplan]]) | 🔴 (Teil von M7) | Pflicht seit ADR-0015; wird mit Schritt 4/5 gebaut, nicht vorher (braucht echten Colab-Worker) |
 | **Katalog: Stil-Spannweite schliessen** ([[Learning-Kurator-v33-Katalog-Varianten-Tokenbudget]]) | 🟡 | Katalog deckt Stilachsen schmaler ab als die Bilder → «immer dasselbe Möbel». Auftrag an Codex liegt bereit (`CODEX-AUFTRAG-Moebelkatalog.md`) |
+| **Solver & Platzierung überarbeiten** ([[Solver-Platzierung-Ueberarbeitung-Pendent]]) | 🟡 | Bryan: Pläne sind zulässig, aber noch nicht überzeugend – *wo* und *was* platziert wird. Erst Beispiele sammeln + messen, dann Optionen |
 | **Küchen-Varianten** (neue Fronten/Spülen) | 🟢 | brechen die lineare Baugruppe – eigener Arbeitsschritt |
 
 ## 🟢 NIEDRIG – bewusst post-POC
