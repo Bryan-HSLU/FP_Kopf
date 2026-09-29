@@ -39,6 +39,14 @@ Konkreter Fahrplan: [[M2-M7-Scan-Pipeline-Fahrplan]].
 | **Kurator mit echtem LLM messen** ([[Kurator-Mechanik-Detailkonzept]]) | „KI wählt" ist das Differenzierungs-Versprechen. Baseline (deterministisch) funktioniert & ist bewiesen – fürs Funktionieren genügt sie; das LLM ist der Pitch-Beweis. **Jetzt entblockt** ([[ADR-0011-poc-externe-cloud-apis]]): Gratis-LLM via `FP_KURATOR_URL` (Groq/Gemini/Ollama) → `scripts/kurator_eval.py`. | Gratis-Key (Bryan) |
 | **Echte Assets/Fotos + Katalogquelle/Preise** ([[Asset-Content-Pipeline]]) | Glaubwürdige Demo & realistische KV. Mechanik (Stil-Swipe, KV) läuft mit Platzhaltern. | Inhalt (Bryan) |
 
+### Nachtrag Stand 2026-09-29
+| Punkt | Stufe | Stand / Gated on |
+|---|---|---|
+| **Vercel-Eingang abnehmen** ([[ADR-0015-vercel-zweiter-frontend-eingang]]) | 🟡 | Preview läuft; Handy-Test (Upload 27 MB, Kaltstart, Durchgang beide URLs) → dann Produktion. **Bryan** (Test, Wunsch-Domain) |
+| **Scan-Upload als Job + Polling** ([[M2-M7-Scan-Pipeline-Fahrplan]]) | 🔴 (Teil von M7) | Pflicht seit ADR-0015; wird mit Schritt 4/5 gebaut, nicht vorher (braucht echten Colab-Worker) |
+| **Katalog: Stil-Spannweite schliessen** ([[Learning-Kurator-v33-Katalog-Varianten-Tokenbudget]]) | 🟡 | Katalog deckt Stilachsen schmaler ab als die Bilder → «immer dasselbe Möbel». Auftrag an Codex liegt bereit (`CODEX-AUFTRAG-Moebelkatalog.md`) |
+| **Küchen-Varianten** (neue Fronten/Spülen) | 🟢 | brechen die lineare Baugruppe – eigener Arbeitsschritt |
+
 ## 🟢 NIEDRIG – bewusst post-POC
 - **Triangle-aware Slot-Optimierung** – Solver gegen den neuen Ergonomie-Score
   optimieren (z. B. enger I-Fall mit Kühlschrank neben Kochfeld). Score ist

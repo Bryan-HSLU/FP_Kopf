@@ -61,7 +61,8 @@ CH-gehostet ([[ADR-0009-privacy-raumdaten]]).
   **Korrektur (Ecken/Objekte antippen)** → Planen. Korrektur hält die Demo robust
   (weisse Wände/Spiegel sind ein Informations-, kein Rechenproblem).
 - **Folgeaufgaben:** `.env.example` + Quickstart `FP_KURATOR_URL`; optional
-  Hosting (Frontend Vercel/Netlify, Engines Render/Fly – Gratis-Tier); Scan-Strang
+  Hosting (Frontend Vercel/Netlify, Engines Render/Fly – Gratis-Tier; **umgesetzt
+  als HF Space + Vercel-Eingang**, [[ADR-0015-vercel-zweiter-frontend-eingang]]); Scan-Strang
   via Cloud-API + Korrektur verdrahten ([[M2-M7-Scan-Pipeline-Fahrplan]]).
 - **Risiken:** Gratis-Limits/Cold-Starts (POC ok, nicht für viele Nutzer);
   Konditionen ändern sich (vor Nutzung prüfen); ToS → Sample-only.

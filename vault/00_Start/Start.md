@@ -48,12 +48,14 @@ damit nichts verloren geht.
 - [[Learning-Kurator-Pipeline-v3-Umsetzung]] – 🤖 v3 umgesetzt: Norm-Rendering aus Daten trägt; Konzept-zuerst gratis; Cross-File-$ref ok (Registry-Pflicht); softScore bad/wohnen war leer; Baseline vermessen (Messlatte für LLM-Lauf)
 - [[Learning-Kurator-v31-Ebenen-Begehbarkeit-Diagnose]] – 🪜 v3.1: Ebenen+Anker+Anzahl tragen; Begehbarkeit hart am Ende (Filter wäre 7–10× langsamer, gemessen); parallele Refactorings am selben Modul = Semantik-Review beim Merge; LLM-Läufe via GitHub-Workflow
 - [[Learning-LLM-Betrieb-Groq-Free-Tier]] – 🔌 Bryans Bauchgefühl war messbar korrekt: LLM antwortete seit v3 NIE (413→max_tokens!→Qwen3-Thinking-400→429); stille Fallbacks brauchen laute Marker; Llama-3.3-70b läuft – Pipeline Ende-zu-Ende bewiesen
+- [[Learning-Kurator-v33-Katalog-Varianten-Tokenbudget]] – 🎨 Nachtrag Jul/Aug: LLM braucht Kurz-Handles statt UUIDs, Rechnen vorwegnehmen, trimmen statt verwerfen, Budget inkl. Repair; Farbe = grösster Hebel gegen «generisch»; Stil-Spannweite Katalog ≠ Bilder
+- [[Learning-Vercel-Eingang-Deploy-und-Token]] – 🚪 zwei Eingänge ⇒ Frontend muss schlafendes Backend erkennen (HTML mit 200!); Gesamtdeadline statt Einzel-Timeouts; versatzfreier Deploy per Git-SHA in `/health`; Vercel: Git-Deploys aus, Token «Full Account»
 
 ### 🏛️ Architektur
 > Komponenten, Datenflüsse, Systemstruktur. → `vault/20_Architektur/`
 
 - [[Lokaler-MVP-POC-Architektur-v0]] – Architekturentwurf des lokalen POC
-- [[POC-Demo-Architektur-HF]] – 🖥️ wo welcher POC-Teil läuft (Frontend/Engines lokal, ML auf HF per API) + Datenfluss
+- [[POC-Demo-Architektur-HF]] – 🖥️ wo welcher POC-Teil läuft (EIN HF Space für Frontend+API, Colab-GPU, Groq; seit 2026-09 zusätzlich Vercel-Eingang) + Datenfluss
 - [[Architektur-Gesamtbild.canvas|Architektur-Gesamtbild]] – 🗺️ ganze Pipeline visuell (Canvas)
 - [[Modul-und-Architektur-Struktur-Analyse]] – Modulschnitt hinterfragt (Optionen)
 - [[Domaenenmodell-v0]] – Raummodell + Plan-Objekt (stabiler Kern)
@@ -76,6 +78,7 @@ damit nichts verloren geht.
 - [[ADR-0012-scan-pipeline-festlegung]] – Scan-Kette fix: Video + AR-Pose → MASt3R-SLAM → SpatialLM (POC, NC); permissive Kombi = Produkt
 - [[ADR-0013-kurator-pipeline-v3]] – 🤖 Kurator-Ausbau statt Neubau: Kohärenz, Norm-Rendering aus Daten, Platz-Budget, Farben (KI+UI), Eval, K-Varianten
 - [[ADR-0014-objekt-ebenen-und-kurator-kontrolle]] – 🪜 Objekt-Ebenen (Haupt→Ergänzung→Deko, Anker+Anzahl) + Thinking-Flag + Diagnose-Harness (LLM-Kontrolle per Befehl)
+- [[ADR-0015-vercel-zweiter-frontend-eingang]] – 🚪 Frontend zusätzlich auf Vercel (gratis, eigene URL), `/api` per Rewrite → derselbe HF Space; Hosting-Matrix K1–K7; Folge: Scan = Polling Pflicht
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`

@@ -86,8 +86,9 @@ HF und Colab sind nur **Konsumenten** davon:
 
 **Kleine Code-Anpassungen:** `dist/`-Mount in FastAPI (StaticFiles, wie `/bilder`)
 · `deploy-space.yml` · `/health` als Healthcheck (existiert). **Kein CORS, kein
-`VITE_API_URL` nötig** – eine Origin. **Scan ist langlaufend** → Job/Polling oder
-grosszügiges Timeout + kurze Videos.
+`VITE_API_URL` nötig** – eine Origin. **Scan ist langlaufend** → **Job/Polling
+(Pflicht seit [[ADR-0015-vercel-zweiter-frontend-eingang]]** – der Vercel-Eingang
+wartet max. 120 s aufs erste Byte; «grosszügiges Timeout» entfällt).
 
 **Phasen: (1) jetzt** – bestehende Planungs-Demo als Space deployen → sofort
 geteilter Link (Sample-Räume → Plan → Viewer → KV; optional LLM-Kurator),
@@ -96,6 +97,9 @@ geteilter Link (Sample-Räume → Plan → Viewer → KV; optional LLM-Kurator),
 > Die frühere Zwei-Deploy-Variante (Frontend Vercel/Cloudflare + Engines
 > Render/Fly, CORS + `VITE_API_URL`) ist damit **abgelöst** – mehr Konfig, zwei
 > URLs, CORS-Pflege, ohne Vorteil für den Einzelnutzer-POC.
+> **Nachtrag 2026-09:** Nicht verwechseln mit dem **Vercel-Eingang per Rewrite**
+> ([[ADR-0015-vercel-zweiter-frontend-eingang]]): dort bleibt es EINE Origin
+> ohne CORS, das Backend bleibt dieser Space – siehe Abschnitt unten.
 
 ## Festlegung 2026-07 (Bryan): statisches HF-Space-Frontend + Colab-GPU-Worker
 Für den **Gratis-Demo-POC** (reine Demo, kein Dauerbetrieb) konkretisiert Bryan
@@ -141,13 +145,32 @@ die Topologie – **präzisiert** die obige (Vercel/Render + HF-ZeroGPU-)Variant
   `raummodell.json` (Sekunden). Zickt WLAN/Colab, steht die Demo trotzdem.
   Laufzeit-Hebel: [[Scan-Laufzeit-Budget-und-Beschleunigung]].
 
+## Nachtrag 2026-09: zweiter Frontend-Eingang auf Vercel ([[ADR-0015-vercel-zweiter-frontend-eingang]])
+Präzisiert die Festlegung 2026-07 – **ersetzt sie nicht**:
+
+| URL | Frontend | `/api/*` |
+|---|---|---|
+| `bryan-hslu-fp-poc.hf.space` | HF Space (wie bisher) | derselbe Space |
+| `fp-poc-seven.vercel.app` (Name vorläufig) | Vercel-CDN (statisch) | **Rewrite** → derselbe Space |
+
+- **Ein** Push auf `main` deployt beide; Vercel-Produktion erst, wenn
+  `/api/health` den neuen Commit meldet (kein Versatz). Andere Branches →
+  Vercel-Preview gegen das **Produktions**-Backend.
+- **Neue Grenzen durch den Eingang:** 120 s bis zum ersten Byte je Anfrage
+  (→ Kurator-Deadline 90 s, Scan per Polling), 10 GB Proxy-Verkehr/Monat
+  (→ Swipe-Fotos statisch vom CDN), Frontend und Backend wachen getrennt
+  (→ Weck-Logik im Frontend), Hobby = nicht-kommerziell.
+- Was **gleich** bleibt: Engines, Colab-Worker, Groq, Secrets nur im Space.
+- Details und Stolpersteine: [[Learning-Vercel-Eingang-Deploy-und-Token]].
+
 ## Offene Fragen / Risiken
 - **Scan-Modell:** VGGT (ready, mehr Adapter) **oder** SpatialLM (mehr Output, NC,
   eigenes Space)? → im Spike beide gegen R1 vergleichen.
-- **Engines-Hosting** für den geteilten Link: lokal / Gratis-PaaS / HF-Docker-Space?
+- ~~**Engines-Hosting** für den geteilten Link: lokal / Gratis-PaaS / HF-Docker-Space?~~
+  → entschieden: HF-Docker-Space (2026-07), Frontend zusätzlich Vercel ([[ADR-0015-vercel-zweiter-frontend-eingang]]); Plan B Cloud Run CH (K4).
 - **Massstab/Wandgenauigkeit** auf realem Video (Kernrisiko, Spike entscheidet).
 - ZeroGPU-Cold-Start beim ersten Call (Demo: kurz warten, ok).
 
 ## Verknüpfungen
-- Entscheidungen: [[ADR-0011-poc-externe-cloud-apis]] · [[ADR-0003-raumerfassung-ansatz]] · [[ADR-0009-privacy-raumdaten]]
+- Entscheidungen: [[ADR-0011-poc-externe-cloud-apis]] · [[ADR-0003-raumerfassung-ansatz]] · [[ADR-0009-privacy-raumdaten]] · [[ADR-0015-vercel-zweiter-frontend-eingang]]
 - Umsetzung: [[M2-M7-Scan-Pipeline-Fahrplan]] · [[Raumerfassung-Technologie-Optionen]] · [[Engineering-Grundlagen-POC]] · [[Lokaler-MVP-POC-Architektur-v0]]

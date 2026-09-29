@@ -91,6 +91,16 @@ Reihenfolge so gewählt, dass nichts auf Aufnahmen/GPU wartet:
 | 5 | **E2E auf Colab gegen R1 messen** (P5: reicht die Fusions-Wolke?) → Gate → Learning | der eine echte Messpunkt | **Aufnahmen R1–R3 (AR-App!)** + Restmasse |
 | 6 | **M7 Korrektur-Modus** (Ecken/Objekte antippen im 2D-Editor) → `/solve` | nach dem Gate dimensionierbar | Gate-Entscheid |
 
+> [!warning] Vorgabe seit 2026-09 ([[ADR-0015-vercel-zweiter-frontend-eingang]]): Scan = **Job + Polling**
+> Schritte 4/5 dürfen den Scan **nicht synchron** in einer Anfrage abwarten: der
+> Vercel-Eingang bricht nach 120 s ohne erstes Byte ab, Fusion + SpatialLM
+> brauchen 1–3 min. → `/scan` nimmt Video + `poses.json` an und antwortet
+> **sofort mit Job-ID**; die App fragt den Status in Abständen ab (übersteht
+> auch Bildschirmsperre/Funkloch). Job-Zustand im Speicher des Space genügt.
+> Offen im Preview-Test: kommen **27 MB** durch den Rewrite, und zählt die
+> Upload-Zeit schon zu den 120 s? Achtung: das Weck-«einmal wiederholen» im
+> Frontend darf beim Job-**Anlegen** keinen Doppel-Job erzeugen.
+
 ## Verknüpfungen
 - [[Scan-Validierungs-Spike]] · [[Scan-Eval-Notebook-Spezifikation]] · [[Raumerfassung-Detailkonzept]]
 - [[ADR-0003-raumerfassung-ansatz]] · [[Domaenenmodell-v0]] · [[Bauplan-Meilensteine]]
