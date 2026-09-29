@@ -91,6 +91,23 @@ Reihenfolge so gewählt, dass nichts auf Aufnahmen/GPU wartet:
 | 5 | **E2E auf Colab gegen R1 messen** (P5: reicht die Fusions-Wolke?) → Gate → Learning | der eine echte Messpunkt | **Aufnahmen R1–R3 (AR-App!)** + Restmasse |
 | 6 | **M7 Korrektur-Modus** (Ecken/Objekte antippen im 2D-Editor) → `/solve` | nach dem Gate dimensionierbar | Gate-Entscheid |
 
+> [!info] Stand 2026-09-29 (Inventur Code ↔ Fahrplan)
+> - ✅ **Gebaut & getestet:** 1 Adapter `layout.txt`→Raummodell (R1-Fixture) ·
+>   2 Space-Deploy · 3 scan-worker-Geometriekern (Kamera, Fusion, z-up,
+>   Skalierung, PLY; 22 CPU-Tests) + Colab-Notebook + SpatialLM-Aufruf
+>   verdrahtet · 4 `/scan` für **vorberechnete** Bundles + Upload-UI ·
+>   6 Korrektur-Modus (Ecken ziehen/snappen, Öffnungen, Anschlüsse) · M2-Mess-Kern
+>   `eval_metrics.py` + Gate-Funktion.
+> - ❌ **Nie gelaufen:** der echte Scan. Es gibt **keine AR-Aufnahme** (nur die
+>   zwei alten R1-Videos ohne Posen, zu unscharf); der Colab-Worker lief nie
+>   Ende-zu-Ende (torch/CUDA-Pins, flash-attn offen) → **Gate M2 steht aus**.
+> - ⚠️ **Unbelegte Annahme:** dass die Gratis-AR-App (Beispiel Voxelio) Video +
+>   **Posen je Frame** (+ Intrinsics) exportiert. Konverter App-Export →
+>   kanonisches `poses.json` fehlt; Intrinsics sind heute **geschätzt**.
+> - ❌ **Live-Weg fehlt:** `/scan` → Worker als Job + Polling (Pflicht, s. u.);
+>   27-MB-Upload durch den Vercel-Rewrite ungetestet.
+> - Anschlüsse erkennt der Scan nicht – kommen aus Korrektur-Modus/Bestand (so gewollt).
+
 > [!warning] Vorgabe seit 2026-09 ([[ADR-0015-vercel-zweiter-frontend-eingang]]): Scan = **Job + Polling**
 > Schritte 4/5 dürfen den Scan **nicht synchron** in einer Anfrage abwarten: der
 > Vercel-Eingang bricht nach 120 s ohne erstes Byte ab, Fusion + SpatialLM
