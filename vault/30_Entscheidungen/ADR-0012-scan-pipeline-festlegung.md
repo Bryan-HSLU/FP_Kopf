@@ -37,6 +37,13 @@ für den POC eine **konkrete Kette** fest und klärt zwei Grundsatzfragen:
 - **TUN3D / Kombi-Pipeline**: siehe [[Raumerfassung-Technologie-Optionen]] –
   bleiben Kandidaten, Kombi ist der **permissive Produktpfad**.
 
+> [!warning] Teilweise revidiert durch [[ADR-0016-scan-ohne-lidar-video-mapanything]] (2026-09-30)
+> Die **AR-Posen-Pflicht** (Punkt 1: «ein rohes MP4 reicht nicht», Aufnahme mit
+> Gratis-AR-App wie Voxelio) gilt nicht mehr: es gibt keine Gratis-App, die ohne
+> LiDAR Posen exportiert, und der Scan muss ohne LiDAR gehen (USP). Neu: normales
+> Video → **MapAnything** (Apache) liefert Posen + Tiefe. SpatialLM, Adapter,
+> Lizenzlage (POC NC) und Produktpfad bleiben wie hier beschrieben.
+
 ## Entscheidung
 1. **Einheitlich Video** (kein Foto-Zweig). AR-Pose/Schwerkraft werden **beim
    Filmen mitgeloggt** (ARKit/ARCore) – ein rohes MP4 reicht **nicht**.

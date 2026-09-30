@@ -79,6 +79,7 @@ damit nichts verloren geht.
 - [[ADR-0013-kurator-pipeline-v3]] – 🤖 Kurator-Ausbau statt Neubau: Kohärenz, Norm-Rendering aus Daten, Platz-Budget, Farben (KI+UI), Eval, K-Varianten
 - [[ADR-0014-objekt-ebenen-und-kurator-kontrolle]] – 🪜 Objekt-Ebenen (Haupt→Ergänzung→Deko, Anker+Anzahl) + Thinking-Flag + Diagnose-Harness (LLM-Kontrolle per Befehl)
 - [[ADR-0015-vercel-zweiter-frontend-eingang]] – 🚪 Frontend zusätzlich auf Vercel (gratis, eigene URL), `/api` per Rewrite → derselbe HF Space; Hosting-Matrix K1–K7; Folge: Scan = Polling Pflicht
+- [[ADR-0016-scan-ohne-lidar-video-mapanything]] – 📹 Scan ohne LiDAR/AR-App (USP): normales Video → MapAnything (Apache) auf Colab → SpatialLM; revidiert die AR-Posen-Pflicht aus ADR-0012
 
 ### 💡 Produktkonzepte
 > Features, Produktideen, Konzepte. → `vault/40_Produktkonzepte/`

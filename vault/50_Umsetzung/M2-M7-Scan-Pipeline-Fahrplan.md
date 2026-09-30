@@ -91,6 +91,14 @@ Reihenfolge so gewählt, dass nichts auf Aufnahmen/GPU wartet:
 | 5 | **E2E auf Colab gegen R1 messen** (P5: reicht die Fusions-Wolke?) → Gate → Learning | der eine echte Messpunkt | **Aufnahmen R1–R3 (AR-App!)** + Restmasse |
 | 6 | **M7 Korrektur-Modus** (Ecken/Objekte antippen im 2D-Editor) → `/solve` | nach dem Gate dimensionierbar | Gate-Entscheid |
 
+> [!important] Neu 2026-09-30: [[ADR-0016-scan-ohne-lidar-video-mapanything]]
+> Eingabe = **normales Handy-Video** (kein LiDAR, keine AR-App). Worker-Kette:
+> Keyframes (Schärfe, N/s) → **MapAnything** → Ausrichtung → PLY → SpatialLM.
+> **Gebaut + CPU-getestet** (scan-worker, 41 Tests; GPU-Teile gestubbt).
+> **Nächster Schritt = erster Colab-Lauf (Bryan)** mit den alten R1-Videos, dann
+> R1 neu filmen + Restmasse → Gate. Die Punkte unten zu AR-App/`poses.json`
+> sind damit **nicht mehr kritisch**.
+
 > [!info] Stand 2026-09-29 (Inventur Code ↔ Fahrplan)
 > - ✅ **Gebaut & getestet:** 1 Adapter `layout.txt`→Raummodell (R1-Fixture) ·
 >   2 Space-Deploy · 3 scan-worker-Geometriekern (Kamera, Fusion, z-up,
